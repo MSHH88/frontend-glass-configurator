@@ -1,0 +1,772 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Icons - Glassmorphism Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #222, #555);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        
+        .icons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .icon-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 25px 15px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .icon-container:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            border-color: rgba(255, 255, 255, 0.35);
+        }
+        
+        .icon-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            z-index: 1;
+            border-radius: 20px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .icon-container:hover::before {
+            opacity: 1;
+        }
+        
+        .icon-wrapper {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            z-index: 2;
+        }
+        
+        .icon {
+            font-size: 2.5rem;
+            color: #222;
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .icon-3d {
+            transform-style: preserve-3d;
+            perspective: 500px;
+        }
+        
+        .icon-container:hover .icon-3d {
+            transform: translateZ(20px) rotateY(15deg);
+        }
+        
+        .icon-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+            z-index: 2;
+        }
+        
+        .icon-hover-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1;
+        }
+        
+        .icon-container:hover .icon-hover-effect {
+            opacity: 1;
+            transform: scale(1.5);
+        }
+        
+        .instructions {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .instructions h2 {
+            margin-bottom: 15px;
+            color: #222;
+            font-size: 1.5rem;
+        }
+        
+        .instructions p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: #444;
+        }
+        
+        .instructions code {
+            background: rgba(0, 0, 0, 0.05);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tab-btn {
+            padding: 12px 24px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #333;
+            transition: var(--transition);
+        }
+        
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .tab-btn.active {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .code-block {
+            background: #1a1a1a;
+            color: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .code-block h3 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .comment {
+            color: #6a9955;
+        }
+        
+        .selector {
+            color: #569cd6;
+        }
+        
+        .property {
+            color: #9cdcfe;
+        }
+        
+        .value {
+            color: #ce9178;
+        }
+        
+        .tag {
+            color: #569cd6;
+        }
+        
+        .attribute {
+            color: #9cdcfe;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .icons-grid {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                gap: 15px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .icon-wrapper {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .icon {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>E-commerce Glassmorphism Icons</h1>
+            <p class="subtitle">Black & white 3D/2D hybrid icons with glassmorphism effects and subtle hover animations. Designed to appeal to both 28 and 40-year-old users.</p>
+            
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="preview">Preview</button>
+                <button class="tab-btn" data-tab="html">HTML Code</button>
+                <button class="tab-btn" data-tab="css">CSS Code</button>
+                <button class="tab-btn" data-tab="wordpress">WordPress Integration</button>
+            </div>
+        </header>
+        
+        <main>
+            <!-- Preview Tab -->
+            <div id="preview" class="tab-content active">
+                <div class="icons-grid">
+                    <!-- Cart Icon -->
+                    <div class="icon-container">
+                        <div class="icon-wrapper">
+                            <div class="icon-hover-effect"></div>
+                            <i class="icon icon-3d fas fa-shopping-cart"></i>
+                        </div>
+                        <span class="icon-name">Shopping Cart</span>
+                    </div>
+                    
+                    <!-- Heart/Saved Icon -->
+                    <div class="icon-container">
+                        <div class="icon-wrapper">
+                            <div class="icon-hover-effect"></div>
+                            <i class="icon icon-3d fas fa-heart"></i>
+                        </div>
+                        <span class="icon-name">Saved Items</span>
+                    </div>
+                    
+                    <!-- Left Arrow -->
+                    <div class="icon-container">
+                        <div class="icon-wrapper">
+                            <div class="icon-hover-effect"></div>
+                            <i class="icon icon-3d fas fa-chevron-left"></i>
+                        </div>
+                        <span class="icon-name">Previous</span>
+                    </div>
+                    
+                    <!-- Right Arrow -->
+                    <div class="icon-container">
+                        <div class="icon-wrapper">
+                            <div class="icon-hover-effect"></div>
+                            <i class="icon icon-3d fas fa-chevron-right"></i>
+                        </div>
+                        <span class="icon-name">Next</span>
+                    </div>
+                    
+                    <!-- Trash Icon -->
+                    <div class="icon-container">
+                        <div class="icon-wrapper">
+                            <div class="icon-hover-effect"></div>
+                            <i class="icon icon-3d fas fa-trash-alt"></i>
+                        </div>
+                        <span class="icon-name">Delete</span>
+                    </div>
+                    
+                    <!-- Payment Icon -->
+                    <div class="icon-container">
+                        <div class="icon-wrapper">
+                            <div class="icon-hover-effect"></div>
+                            <i class="icon icon-3d fas fa-credit-card"></i>
+                        </div>
+                        <span class="icon-name">Checkout</span>
+                    </div>
+                    
+                    <!-- Hamburger Menu -->
+                    <div class="icon-container">
+                        <div class="icon-wrapper">
+                            <div class="icon-hover-effect"></div>
+                            <i class="icon icon-3d fas fa-bars"></i>
+                        </div>
+                        <span class="icon-name">Menu</span>
+                    </div>
+                    
+                    <!-- Search Icon -->
+                    <div class="icon-container">
+                        <div class="icon-wrapper">
+                            <div class="icon-hover-effect"></div>
+                            <i class="icon icon-3d fas fa-search"></i>
+                        </div>
+                        <span class="icon-name">Search</span>
+                    </div>
+                    
+                    <!-- User Account -->
+                    <div class="icon-container">
+                        <div class="icon-wrapper">
+                            <div class="icon-hover-effect"></div>
+                            <i class="icon icon-3d fas fa-user"></i>
+                        </div>
+                        <span class="icon-name">Account</span>
+                    </div>
+                    
+                    <!-- Home Icon -->
+                    <div class="icon-container">
+                        <div class="icon-wrapper">
+                            <div class="icon-hover-effect"></div>
+                            <i class="icon icon-3d fas fa-home"></i>
+                        </div>
+                        <span class="icon-name">Home</span>
+                    </div>
+                    
+                    <!-- Shipping Icon -->
+                    <div class="icon-container">
+                        <div class="icon-wrapper">
+                            <div class="icon-hover-effect"></div>
+                            <i class="icon icon-3d fas fa-shipping-fast"></i>
+                        </div>
+                        <span class="icon-name">Shipping</span>
+                    </div>
+                    
+                    <!-- Wishlist -->
+                    <div class="icon-container">
+                        <div class="icon-wrapper">
+                            <div class="icon-hover-effect"></div>
+                            <i class="icon icon-3d fas fa-star"></i>
+                        </div>
+                        <span class="icon-name">Wishlist</span>
+                    </div>
+                </div>
+                
+                <div class="instructions">
+                    <h2>How to Use These Icons</h2>
+                    <p>Hover over any icon to see the glassmorphism effect with subtle 3D transformation and hover animation.</p>
+                    <p>The design uses a mix of 3D perspective effects and clean 2D styling, with a black and white color scheme that appeals to a wide age range (28-40 years old).</p>
+                    <p>The glassmorphism effect is created using <code>backdrop-filter: blur()</code> with semi-transparent backgrounds, similar to iOS design aesthetics.</p>
+                </div>
+            </div>
+            
+            <!-- HTML Code Tab -->
+            <div id="html" class="tab-content">
+                <div class="code-block">
+                    <h3>HTML Structure for Icons</h3>
+                    <pre><code><span class="comment">&lt;!-- Shopping Cart Icon --&gt;</span>
+&lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"icon-container"</span>&gt;
+    &lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"icon-wrapper"</span>&gt;
+        &lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"icon-hover-effect"</span>&gt;&lt;/<span class="tag">div</span>&gt;
+        &lt;<span class="tag">i</span> <span class="attribute">class</span>=<span class="value">"icon icon-3d fas fa-shopping-cart"</span>&gt;&lt;/<span class="tag">i</span>&gt;
+    &lt;/<span class="tag">div</span>&gt;
+    &lt;<span class="tag">span</span> <span class="attribute">class</span>=<span class="value">"icon-name"</span>&gt;Shopping Cart&lt;/<span class="tag">span</span>&gt;
+&lt;/<span class="tag">div</span>&gt;
+
+<span class="comment">&lt;!-- Heart/Saved Items Icon --&gt;</span>
+&lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"icon-container"</span>&gt;
+    &lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"icon-wrapper"</span>&gt;
+        &lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"icon-hover-effect"</span>&gt;&lt;/<span class="tag">div</span>&gt;
+        &lt;<span class="tag">i</span> <span class="attribute">class</span>=<span class="value">"icon icon-3d fas fa-heart"</span>&gt;&lt;/<span class="tag">i</span>&gt;
+    &lt;/<span class="tag">div</span>&gt;
+    &lt;<span class="tag">span</span> <span class="attribute">class</span>=<span class="value">"icon-name"</span>&gt;Saved Items&lt;/<span class="tag">span</span>&gt;
+&lt;/<span class="tag">div</span>&gt;
+
+<span class="comment">&lt;!-- Left Arrow Icon --&gt;</span>
+&lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"icon-container"</span>&gt;
+    &lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"icon-wrapper"</span>&gt;
+        &lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"icon-hover-effect"</span>&gt;&lt;/<span class="tag">div</span>&gt;
+        &lt;<span class="tag">i</span> <span class="attribute">class</span>=<span class="value">"icon icon-3d fas fa-chevron-left"</span>&gt;&lt;/<span class="tag">i</span>&gt;
+    &lt;/<span class="tag">div</span>&gt;
+    &lt;<span class="tag">span</span> <span class="attribute">class</span>=<span class="value">"icon-name"</span>&gt;Previous&lt;/<span class="tag">span</span>&gt;
+&lt;/<span class="tag">div</span>&gt;
+
+<span class="comment">&lt;!-- Right Arrow Icon --&gt;</span>
+&lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"icon-container"</span>&gt;
+    &lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"icon-wrapper"</span>&gt;
+        &lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"icon-hover-effect"</span>&gt;&lt;/<span class="tag">div</span>&gt;
+        &lt;<span class="tag">i</span> <span class="attribute">class</span>=<span class="value">"icon icon-3d fas fa-chevron-right"</span>&gt;&lt;/<span class="tag">i</span>&gt;
+    &lt;/<span class="tag">div</span>&gt;
+    &lt;<span class="tag">span</span> <span class="attribute">class</span>=<span class="value">"icon-name"</span>&gt;Next&lt;/<span class="tag">span</span>&gt;
+&lt;/<span class="tag">div</span>&gt;
+
+<span class="comment">&lt;!-- Trash/Delete Icon --&gt;</span>
+&lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"icon-container"</span>&gt;
+    &lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"icon-wrapper"</span>&gt;
+        &lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"icon-hover-effect"</span>&gt;&lt;/<span class="tag">div</span>&gt;
+        &lt;<span class="tag">i</span> <span class="attribute">class</span>=<span class="value">"icon icon-3d fas fa-trash-alt"</span>&gt;&lt;/<span class="tag">i</span>&gt;
+    &lt;/<span class="tag">div</span>&gt;
+    &lt;<span class="tag">span</span> <span class="attribute">class</span>=<span class="value">"icon-name"</span>&gt;Delete&lt;/<span class="tag">span</span>&gt;
+&lt;/<span class="tag">div</span>&gt;
+
+<span class="comment">&lt;!-- Payment/Checkout Icon --&gt;</span>
+&lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"icon-container"</span>&gt;
+    &lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"icon-wrapper"</span>&gt;
+        &lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"icon-hover-effect"</span>&gt;&lt;/<span class="tag">div</span>&gt;
+        &lt;<span class="tag">i</span> <span class="attribute">class</span>=<span class="value">"icon icon-3d fas fa-credit-card"</span>&gt;&lt;/<span class="tag">i</span>&gt;
+    &lt;/<span class="tag">div</span>&gt;
+    &lt;<span class="tag">span</span> <span class="attribute">class</span>=<span class="value">"icon-name"</span>&gt;Checkout&lt;/<span class="tag">span</span>&gt;
+&lt;/<span class="tag">div</span>&gt;
+
+<span class="comment">&lt;!-- Hamburger Menu Icon --&gt;</span>
+&lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"icon-container"</span>&gt;
+    &lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"icon-wrapper"</span>&gt;
+        &lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"icon-hover-effect"</span>&gt;&lt;/<span class="tag">div</span>&gt;
+        &lt;<span class="tag">i</span> <span class="attribute">class</span>=<span class="value">"icon icon-3d fas fa-bars"</span>&gt;&lt;/<span class="tag">i</span>&gt;
+    &lt;/<span class="tag">div</span>&gt;
+    &lt;<span class="tag">span</span> <span class="attribute">class</span>=<span class="value">"icon-name"</span>&gt;Menu&lt;/<span class="tag">span</span>&gt;
+&lt;/<span class="tag">div</span>&gt;</code></pre>
+                </div>
+            </div>
+            
+            <!-- CSS Code Tab -->
+            <div id="css" class="tab-content">
+                <div class="code-block">
+                    <h3>CSS for Glassmorphism Icons</h3>
+                    <pre><code><span class="comment">/* CSS Variables for easy customization */</span>
+<span class="selector">:root</span> {
+    <span class="property">--glass-bg</span>: <span class="value">rgba(255, 255, 255, 0.1)</span>;
+    <span class="property">--glass-border</span>: <span class="value">rgba(255, 255, 255, 0.2)</span>;
+    <span class="property">--glass-shadow</span>: <span class="value">0 8px 32px rgba(0, 0, 0, 0.1)</span>;
+    <span class="property">--transition</span>: <span class="value">all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)</span>;
+}
+
+<span class="comment">/* Icon Container with Glassmorphism Effect */</span>
+<span class="selector">.icon-container</span> {
+    <span class="property">display</span>: <span class="value">flex</span>;
+    <span class="property">flex-direction</span>: <span class="value">column</span>;
+    <span class="property">align-items</span>: <span class="value">center</span>;
+    <span class="property">justify-content</span>: <span class="value">center</span>;
+    <span class="property">padding</span>: <span class="value">25px 15px</span>;
+    <span class="property">background</span>: <span class="value">var(--glass-bg)</span>;
+    <span class="property">backdrop-filter</span>: <span class="value">blur(10px)</span>;
+    <span class="property">-webkit-backdrop-filter</span>: <span class="value">blur(10px)</span>;
+    <span class="property">border-radius</span>: <span class="value">20px</span>;
+    <span class="property">border</span>: <span class="value">1px solid var(--glass-border)</span>;
+    <span class="property">box-shadow</span>: <span class="value">var(--glass-shadow)</span>;
+    <span class="property">transition</span>: <span class="value">var(--transition)</span>;
+    <span class="property">position</span>: <span class="value">relative</span>;
+    <span class="property">overflow</span>: <span class="value">hidden</span>;
+}
+
+<span class="comment">/* Hover Effect - Lift and enhanced shadow */</span>
+<span class="selector">.icon-container:hover</span> {
+    <span class="property">transform</span>: <span class="value">translateY(-8px)</span>;
+    <span class="property">box-shadow</span>: <span class="value">0 15px 35px rgba(0, 0, 0, 0.15)</span>;
+    <span class="property">border-color</span>: <span class="value">rgba(255, 255, 255, 0.35)</span>;
+}
+
+<span class="comment">/* Subtle gradient overlay on hover */</span>
+<span class="selector">.icon-container::before</span> {
+    <span class="property">content</span>: <span class="value">''</span>;
+    <span class="property">position</span>: <span class="value">absolute</span>;
+    <span class="property">top</span>: <span class="value">0</span>;
+    <span class="property">left</span>: <span class="value">0</span>;
+    <span class="property">width</span>: <span class="value">100%</span>;
+    <span class="property">height</span>: <span class="value">100%</span>;
+    <span class="property">background</span>: <span class="value">linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)</span>;
+    <span class="property">z-index</span>: <span class="value">1</span>;
+    <span class="property">border-radius</span>: <span class="value">20px</span>;
+    <span class="property">opacity</span>: <span class="value">0</span>;
+    <span class="property">transition</span>: <span class="value">var(--transition)</span>;
+}
+
+<span class="selector">.icon-container:hover::before</span> {
+    <span class="property">opacity</span>: <span class="value">1</span>;
+}
+
+<span class="comment">/* Icon Wrapper */</span>
+<span class="selector">.icon-wrapper</span> {
+    <span class="property">position</span>: <span class="value">relative</span>;
+    <span class="property">width</span>: <span class="value">80px</span>;
+    <span class="property">height</span>: <span class="value">80px</span>;
+    <span class="property">display</span>: <span class="value">flex</span>;
+    <span class="property">align-items</span>: <span class="value">center</span>;
+    <span class="property">justify-content</span>: <span class="value">center</span>;
+    <span class="property">margin-bottom</span>: <span class="value">15px</span>;
+    <span class="property">z-index</span>: <span class="value">2</span>;
+}
+
+<span class="comment">/* Icon Style - Black & White */</span>
+<span class="selector">.icon</span> {
+    <span class="property">font-size</span>: <span class="value">2.5rem</span>;
+    <span class="property">color</span>: <span class="value">#222</span>;
+    <span class="property">transition</span>: <span class="value">var(--transition)</span>;
+    <span class="property">position</span>: <span class="value">relative</span>;
+    <span class="property">z-index</span>: <span class="value">2</span>;
+}
+
+<span class="comment">/* 3D Effect on Hover */</span>
+<span class="selector">.icon-3d</span> {
+    <span class="property">transform-style</span>: <span class="value">preserve-3d</span>;
+    <span class="property">perspective</span>: <span class="value">500px</span>;
+}
+
+<span class="selector">.icon-container:hover .icon-3d</span> {
+    <span class="property">transform</span>: <span class="value">translateZ(20px) rotateY(15deg)</span>;
+}
+
+<span class="comment">/* Subtle hover effect (radial gradient) */</span>
+<span class="selector">.icon-hover-effect</span> {
+    <span class="property">position</span>: <span class="value">absolute</span>;
+    <span class="property">width</span>: <span class="value">100%</span>;
+    <span class="property">height</span>: <span class="value">100%</span>;
+    <span class="property">border-radius</span>: <span class="value">50%</span>;
+    <span class="property">background</span>: <span class="value">radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%)</span>;
+    <span class="property">opacity</span>: <span class="value">0</span>;
+    <span class="property">transition</span>: <span class="value">var(--transition)</span>;
+    <span class="property">z-index</span>: <span class="value">1</span>;
+}
+
+<span class="selector">.icon-container:hover .icon-hover-effect</span> {
+    <span class="property">opacity</span>: <span class="value">1</span>;
+    <span class="property">transform</span>: <span class="value">scale(1.5)</span>;
+}
+
+<span class="comment">/* Icon Name Text */</span>
+<span class="selector">.icon-name</span> {
+    <span class="property">font-size</span>: <span class="value">0.95rem</span>;
+    <span class="property">font-weight</span>: <span class="value">600</span>;
+    <span class="property">color</span>: <span class="value">#333</span>;
+    <span class="property">text-align</span>: <span class="value">center</span>;
+    <span class="property">z-index</span>: <span class="value">2</span>;
+}
+
+<span class="comment">/* Responsive Design */</span>
+<span class="selector">@media</span> <span class="value">(max-width: 768px)</span> {
+    <span class="selector">.icon-wrapper</span> {
+        <span class="property">width</span>: <span class="value">70px</span>;
+        <span class="property">height</span>: <span class="value">70px</span>;
+    }
+    
+    <span class="selector">.icon</span> {
+        <span class="property">font-size</span>: <span class="value">2rem</span>;
+    }
+}</code></pre>
+                </div>
+            </div>
+            
+            <!-- WordPress Integration Tab -->
+            <div id="wordpress" class="tab-content">
+                <div class="code-block">
+                    <h3>WordPress Integration Guide</h3>
+                    <pre><code><span class="comment">// 1. Add this to your theme's functions.php file or a custom plugin</span>
+<span class="selector">function</span> <span class="property">enqueue_glassmorphism_icons</span>() {
+    <span class="comment">// Enqueue Font Awesome for icons</span>
+    <span class="selector">wp_enqueue_style</span>(<span class="value">'font-awesome'</span>, <span class="value">'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'</span>);
+    
+    <span class="comment">// Enqueue custom CSS for glassmorphism icons</span>
+    <span class="selector">wp_enqueue_style</span>(<span class="value">'glassmorphism-icons'</span>, <span class="value">get_stylesheet_directory_uri() . '/css/glassmorphism-icons.css'</span>);
+}
+<span class="selector">add_action</span>(<span class="value">'wp_enqueue_scripts'</span>, <span class="value">'enqueue_glassmorphism_icons'</span>);
+
+<span class="comment">// 2. Create a shortcode for easy icon insertion</span>
+<span class="selector">function</span> <span class="property">glassmorphism_icon_shortcode</span>(<span class="value">$atts</span>) {
+    <span class="selector">$atts</span> = <span class="selector">shortcode_atts</span>(
+        <span class="selector">array</span>(
+            <span class="value">'type'</span> => <span class="value">'cart'</span>,
+            <span class="value">'label'</span> => <span class="value">''</span>,
+            <span class="value">'url'</span> => <span class="value">'#'</span>,
+        ),
+        <span class="value">$atts</span>,
+        <span class="value">'glass_icon'</span>
+    );
+    
+    <span class="selector">$icon_map</span> = <span class="selector">array</span>(
+        <span class="value">'cart'</span> => <span class="value">'fa-shopping-cart'</span>,
+        <span class="value">'heart'</span> => <span class="value">'fa-heart'</span>,
+        <span class="value">'left'</span> => <span class="value">'fa-chevron-left'</span>,
+        <span class="value">'right'</span> => <span class="value">'fa-chevron-right'</span>,
+        <span class="value">'trash'</span> => <span class="value">'fa-trash-alt'</span>,
+        <span class="value">'payment'</span> => <span class="value">'fa-credit-card'</span>,
+        <span class="value">'menu'</span> => <span class="value">'fa-bars'</span>,
+        <span class="value">'search'</span> => <span class="value">'fa-search'</span>,
+        <span class="value">'user'</span> => <span class="value">'fa-user'</span>,
+        <span class="value">'home'</span> => <span class="value">'fa-home'</span>,
+        <span class="value">'shipping'</span> => <span class="value">'fa-shipping-fast'</span>,
+        <span class="value">'wishlist'</span> => <span class="value">'fa-star'</span>,
+    );
+    
+    <span class="selector">$icon_class</span> = <span class="selector">isset</span>(<span class="value">$icon_map</span>[<span class="selector">$atts</span>[<span class="value">'type'</span>]]) ? <span class="value">$icon_map</span>[<span class="selector">$atts</span>[<span class="value">'type'</span>]] : <span class="value">'fa-shopping-cart'</span>;
+    
+    <span class="selector">$label</span> = <span class="selector">!empty</span>(<span class="selector">$atts</span>[<span class="value">'label'</span>]) ? <span class="selector">$atts</span>[<span class="value">'label'</span>] : <span class="selector">ucfirst</span>(<span class="selector">$atts</span>[<span class="value">'type'</span>]);
+    
+    <span class="selector">$output</span> = <span class="selector">sprintf</span>(
+        <span class="value">'&lt;a href="%s" class="icon-container"&gt;
+            &lt;div class="icon-wrapper"&gt;
+                &lt;div class="icon-hover-effect"&gt;&lt;/div&gt;
+                &lt;i class="icon icon-3d fas %s"&gt;&lt;/i&gt;
+            &lt;/div&gt;
+            &lt;span class="icon-name"&gt;%s&lt;/span&gt;
+        &lt;/a&gt;'</span>,
+        <span class="selector">esc_url</span>(<span class="selector">$atts</span>[<span class="value">'url'</span>]),
+        <span class="selector">esc_attr</span>(<span class="value">$icon_class</span>),
+        <span class="selector">esc_html</span>(<span class="value">$label</span>)
+    );
+    
+    <span class="selector">return</span> <span class="selector">$output</span>;
+}
+<span class="selector">add_shortcode</span>(<span class="value">'glass_icon'</span>, <span class="value">'glassmorphism_icon_shortcode'</span>);
+
+<span class="comment">// 3. For GitHub compatibility, create a separate CSS file in your theme:
+// /css/glassmorphism-icons.css
+// Copy the CSS from the CSS tab above into this file</span>
+
+<span class="comment">// 4. Usage in WordPress:</span>
+<span class="comment">// - Use the shortcode: [glass_icon type="cart" label="Shopping Cart" url="/cart/"]</span>
+<span class="comment">// - Or directly in PHP: echo do_shortcode('[glass_icon type="heart" label="Wishlist"]');</span>
+<span class="comment">// - Or in Gutenberg: create a custom block or use shortcode block</span></code></pre>
+                </div>
+                
+                <div class="instructions">
+                    <h2>GitHub Integration</h2>
+                    <p>To integrate this with GitHub for version control:</p>
+                    <ol>
+                        <li>Create a repository for your WordPress theme or plugin</li>
+                        <li>Add the CSS file to your theme's <code>/css/</code> directory</li>
+                        <li>Add the PHP code to your theme's <code>functions.php</code> or a custom plugin file</li>
+                        <li>Commit and push to your GitHub repository</li>
+                        <li>Use GitHub Actions for automated deployment to your WordPress site</li>
+                    </ol>
+                    <p>The code is designed to be modular and easy to maintain. You can customize colors, sizes, and effects by modifying the CSS variables.</p>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>E-commerce Glassmorphism Icons | Compatible with WordPress & GitHub | Designed for 28-40 year old users</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+                    
+                    // Update active button
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    // Show active tab content
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                        if (content.id === tabId) {
+                            content.classList.add('active');
+                        }
+                    });
+                });
+            });
+            
+            // Add click effect to icons
+            const iconContainers = document.querySelectorAll('.icon-container');
+            iconContainers.forEach(container => {
+                container.addEventListener('click', function() {
+                    this.style.transform = 'translateY(-8px) scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'translateY(-8px)';
+                    }, 150);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
