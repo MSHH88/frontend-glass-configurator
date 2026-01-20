@@ -10,17 +10,25 @@ This repository contains a complete non-invasive visual redesign of a window e-c
 
 **Ready to deploy?** Start here:
 
-1. **Use the FINAL redesigned website:**
-   - **German.Website.FINAL.html** - ✅ **USE THIS FILE** - Complete glassmorphism redesign with NO red colors, Inter font, and all icons implemented
+1. **✅ USE THIS FILE: German.Website.COMPLETE.html**
+   - **533 KB, 4,562 lines** - Complete glassmorphism website
+   - NO red colors, NO placeholders, NO broken code
+   - Inter font throughout, glassmorphism icons integrated
+   - All button and icon hover effects included
    - Compare with original: `German.Website.full.code.txt`
 
-2. **Integrate into WordPress:**
+2. **How to view:**
+   - Download `German.Website.COMPLETE.html`
+   - Open it in your web browser (Chrome, Firefox, Safari, Edge)
+   - You will see the glassmorphism design immediately
+
+3. **Integrate into WordPress:**
    - Create a new WordPress page
    - Switch to "Code Editor" mode (not Visual Editor)
-   - Paste the ENTIRE content from `German.Website.FINAL.html`
+   - Paste the ENTIRE content from `German.Website.COMPLETE.html`
    - Save and publish
 
-3. **Understand the changes:**
+4. **Understand the changes:**
    - Read `FINAL_CREATION_SUMMARY.md` for complete details
    - Reference `REDESIGN_QUICK_REFERENCE.md` for quick lookups
 
