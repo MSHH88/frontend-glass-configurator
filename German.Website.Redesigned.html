@@ -582,12 +582,17 @@ p, span, a, button {
    COLOR SCHEME MIGRATION (OLD → NEW)
    ============================================ */
 
-/* Remove old brand red */
-. btn-red, .accent-red, [style*="#E10B17"],
+/* Remove old brand red and replace txt-red with glass iron color */
+.btn-red, .accent-red, [style*="#E10B17"],
 [style*="rgb(225, 11, 23)"] {
-    background: var(--primary-glass) !important;
+    background: var(--secondary-glass) !important;
     color: var(--text-primary) !important;
     border-color: var(--border-glass) !important;
+}
+
+/* Override txt-red class to use secondary glass color (#E1F4F2) */
+.txt-red {
+    color: var(--secondary-glass) !important;
 }
 
 /* Remove old accent yellow */
