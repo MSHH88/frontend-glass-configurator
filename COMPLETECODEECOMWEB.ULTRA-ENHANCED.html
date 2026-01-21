@@ -913,10 +913,21 @@ button, .btn, .btn-sage-green, .btn-appearance, .btn-primary, a.button {
     padding: 12px 24px !important;
 }
 
-button:hover, .btn:hover, .btn-sage-green:hover, .btn-appearance:hover, .btn-primary:hover, a.button:hover {
+button:hover, 
+.btn:hover, 
+.btn-sage-green:hover, 
+.btn-appearance:hover, 
+.btn-primary:hover, 
+a.button:hover,
+.btn.btn-sage-green:hover,
+button.btn-sage-green:hover,
+a.btn-sage-green:hover,
+.btn-block.btn-sage-green:hover,
+.btn-sage-green:focus,
+.btn-sage-green:active {
     background-color: #E1F4F2 !important;
     border-color: #E1F4F2 !important;
-    color: #333333 !important;
+    color: #333333 !important; /* FIXED: Dark gray text for readability on light blue background */
     transform: translateY(-4px) !important;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important;
 }
@@ -938,6 +949,121 @@ button:hover, .btn:hover, .btn-sage-green:hover, .btn-appearance:hover, .btn-pri
 /* Link hover effects */
 a {
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* ===================================
+   ENHANCED GLASSMORPHISM EFFECTS
+   =================================== */
+
+/* Glassmorphism for cards and containers */
+.card,
+.product-card,
+.card-body,
+.panel,
+.widget,
+.feature-box,
+.box {
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
+    border-radius: 12px !important;
+}
+
+/* Enhanced glassmorphism for icons */
+.icon-container,
+.icon-box,
+[class*="icon-"]:not(.btn),
+.fa:not(.btn),
+.fas:not(.btn),
+.far:not(.btn),
+.fab:not(.btn) {
+    background: rgba(225, 244, 242, 0.15) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(225, 244, 242, 0.25) !important;
+    padding: 12px !important;
+    border-radius: 10px !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* Icon hover with enhanced glassmorphism */
+.icon-container:hover,
+.icon-box:hover,
+[class*="icon-"]:not(.btn):hover,
+.fa:not(.btn):hover,
+.fas:not(.btn):hover,
+.far:not(.btn):hover,
+.fab:not(.btn):hover {
+    background: rgba(225, 244, 242, 0.35) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    transform: scale(1.15) !important;
+    box-shadow: 0 8px 24px rgba(225, 244, 242, 0.4) !important;
+    border-color: rgba(225, 244, 242, 0.5) !important;
+}
+
+/* Glassmorphism for modals and popups */
+.modal-content,
+.modal-dialog,
+.popup,
+.overlay {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12) !important;
+    border-radius: 16px !important;
+}
+
+/* Glassmorphism for navigation and header */
+.navbar,
+.header,
+.top-bar,
+nav {
+    background: rgba(255, 255, 255, 0.90) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.3) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Glassmorphism for forms and inputs */
+.form-control,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+    background: rgba(255, 255, 255, 0.75) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(204, 204, 204, 0.4) !important;
+    transition: all 0.3s ease !important;
+}
+
+.form-control:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-color: #E1F4F2 !important;
+    box-shadow: 0 0 0 3px rgba(225, 244, 242, 0.2) !important;
+}
+
+/* Enhanced card hover effects with glassmorphism */
+.card:hover,
+.product-card:hover,
+.feature-box:hover {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    transform: translateY(-8px) !important;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12) !important;
+    border-color: rgba(225, 244, 242, 0.6) !important;
 }
 
 a:hover {
@@ -1583,11 +1709,12 @@ a.btn-sage-green,
 /* Hover states - Ice Blue */
 .btn.btn-sage-green:hover,
 .btn-sage-green:focus,
-.btn-sage-green:active,
-a:hover,
-button:hover {
+.btn-sage-green:active {
     background-color: #E1F4F2 !important;
-    color: #333333 !important;
+    border-color: #E1F4F2 !important;
+    color: #333333 !important; /* FIXED: Readable dark gray on light blue */
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important;
 }
 
 /* Sale/Urgency badges - Rich Orange */
