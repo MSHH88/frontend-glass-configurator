@@ -68,14 +68,14 @@
             box-shadow: 0 4px 12px rgba(169, 203, 183, 0.3);
         }
         
-        /* Search Section - Shifted Significantly to Right */
+        /* Search Section - Centered in Header */
         .search-section {
-            flex: 0 0 400px; /* Fixed width instead of flex: 1 */
-            max-width: 400px; /* Reduced from 500px */
+            flex: 1; /* Take remaining space */
+            max-width: 400px; /* Keep compact */
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-left: 150px; /* Increased from 60px to push much further right */
+            margin: 0 auto; /* Center in available space */
         }
         
         .search-container {
@@ -155,14 +155,14 @@
             transform: scale(1.1);
         }
         
-        /* Actions Section - Pushed Much Further Right */
+        /* Actions Section - Pushed to Extreme Far Right */
         .actions-section {
             display: flex;
             align-items: center;
             gap: 20px;
             flex: 0 0 auto;
             margin-left: auto; /* Push to far right */
-            margin-right: 15px; /* Space from contact */
+            margin-right: 5px; /* Minimal space - icons pushed very far right */
         }
         
         .action-icon {
@@ -236,8 +236,8 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
-            margin-left: 7.5px; /* 2mm spacing from actions */
-            padding-left: 7.5px; /* 2mm spacing */
+            margin-left: 7.5px; /* 2mm spacing from separator to section */
+            padding-left: 7.5px; /* Additional 2mm spacing inside - TOTAL 4mm (15px) */
             border-left: 2px solid rgba(169, 203, 183, 0.2);
         }
         
@@ -252,7 +252,7 @@
         }
         
         .contact-item:hover {
-            color: #a9cbb7;
+            color: #333333; /* Keep text black on hover - don't change to sage green */
             /* iOS Floating Lens Text Shadow Effect on Hover */
             text-shadow: 0 2px 8px rgba(169, 203, 183, 0.3),
                          0 4px 12px rgba(0, 0, 0, 0.08),
