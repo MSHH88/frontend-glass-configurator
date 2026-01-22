@@ -122,8 +122,11 @@
             backdrop-filter: blur(4px);
             border-radius: 50%;
             border: 1px solid rgba(225, 244, 242, 0.6);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08),
-                        inset 0 1px 1px rgba(255, 255, 255, 0.8);
+            /* iOS Floating Lens Shadow Effect */
+            box-shadow: 0 2px 8px rgba(225, 244, 242, 0.3),
+                        0 4px 16px rgba(0, 0, 0, 0.08),
+                        inset 0 1px 2px rgba(255, 255, 255, 0.9),
+                        inset 0 -1px 1px rgba(0, 0, 0, 0.05);
                         
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             color: #333333;
@@ -132,9 +135,12 @@
         .search-icon:hover {
             transform: scale(1.15) translateY(-4px);
             backdrop-filter: blur(6px);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12),
-                        0 0 20px rgba(225, 244, 242, 0.4),
-                        inset 0 1px 2px rgba(255, 255, 255, 0.9);
+            /* Enhanced iOS Floating Lens Shadow on Hover */
+            box-shadow: 0 4px 12px rgba(225, 244, 242, 0.4),
+                        0 8px 24px rgba(0, 0, 0, 0.12),
+                        0 0 20px rgba(225, 244, 242, 0.3),
+                        inset 0 1px 3px rgba(255, 255, 255, 0.95),
+                        inset 0 -2px 2px rgba(0, 0, 0, 0.08);
                         
         }
         
@@ -154,7 +160,7 @@
             align-items: center;
             gap: 20px;
             flex: 0 0 auto;
-            margin-right: 7.5px;
+            margin-right: 5.7px; /* 1.5mm spacing */
         }
         
         .action-icon {
@@ -167,8 +173,11 @@
             backdrop-filter: blur(4px);
             border-radius: 50%;
             border: 1px solid rgba(169, 203, 183, 0.6);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08),
-                        inset 0 1px 1px rgba(255, 255, 255, 0.8);
+            /* iOS Floating Lens Shadow Effect */
+            box-shadow: 0 2px 8px rgba(169, 203, 183, 0.3),
+                        0 4px 16px rgba(0, 0, 0, 0.08),
+                        inset 0 1px 2px rgba(255, 255, 255, 0.9),
+                        inset 0 -1px 1px rgba(0, 0, 0, 0.05);
                         
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -179,20 +188,35 @@
         
         .action-icon.cart {
             background: rgba(240, 102, 0, 0.5);
-        border: 1px solid rgba(240, 102, 0, 0.6);
+            border: 1px solid rgba(240, 102, 0, 0.6);
+            /* iOS Floating Lens Shadow for Orange */
+            box-shadow: 0 2px 8px rgba(240, 102, 0, 0.3),
+                        0 4px 16px rgba(0, 0, 0, 0.08),
+                        inset 0 1px 2px rgba(255, 255, 255, 0.9),
+                        inset 0 -1px 1px rgba(0, 0, 0, 0.05);
         }
         
         .action-icon:hover {
+            transform: scale(1.15) translateY(-4px);
+            backdrop-filter: blur(6px);
+            /* Enhanced iOS Floating Lens Shadow on Hover */
+            box-shadow: 0 4px 12px rgba(169, 203, 183, 0.4),
+                        0 8px 24px rgba(0, 0, 0, 0.12),
+                        0 0 20px rgba(169, 203, 183, 0.3),
+                        inset 0 1px 3px rgba(255, 255, 255, 0.95),
+                        inset 0 -2px 2px rgba(0, 0, 0, 0.08);
         }
         
         .action-icon.cart:hover {
             background: rgba(240, 102, 0, 0.6);
             transform: scale(1.15) translateY(-4px);
             backdrop-filter: blur(6px);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12),
-                        0 0 20px rgba(225, 244, 242, 0.4),
-                        inset 0 1px 2px rgba(255, 255, 255, 0.9);
-                        
+            /* Enhanced iOS Floating Lens Shadow for Orange on Hover */
+            box-shadow: 0 4px 12px rgba(240, 102, 0, 0.4),
+                        0 8px 24px rgba(0, 0, 0, 0.12),
+                        0 0 20px rgba(240, 102, 0, 0.3),
+                        inset 0 1px 3px rgba(255, 255, 255, 0.95),
+                        inset 0 -2px 2px rgba(0, 0, 0, 0.08);
         }
         
         .action-icon svg {
@@ -210,8 +234,8 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
-            margin-left: 7.5px;
-            padding-left: 7.5px;
+            margin-left: 5.7px; /* 1.5mm spacing */
+            padding-left: 5.7px; /* 1.5mm spacing */
             border-left: 2px solid rgba(169, 203, 183, 0.2);
         }
         
@@ -239,15 +263,25 @@
             backdrop-filter: blur(4px);
             border-radius: 50%;
             border: 1px solid rgba(169, 203, 183, 0.6);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08),
-                        inset 0 1px 1px rgba(255, 255, 255, 0.8);
+            /* iOS Floating Lens Shadow Effect */
+            box-shadow: 0 2px 8px rgba(169, 203, 183, 0.3),
+                        0 4px 16px rgba(0, 0, 0, 0.08),
+                        inset 0 1px 2px rgba(255, 255, 255, 0.9),
+                        inset 0 -1px 1px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
             flex-shrink: 0;
         }
         
         .contact-item:hover .contact-icon {
-            transform: scale(1.1);
+            transform: scale(1.15) translateY(-4px);
             backdrop-filter: blur(6px);
+            /* Enhanced iOS Floating Lens Shadow on Hover */
+            box-shadow: 0 4px 12px rgba(169, 203, 183, 0.4),
+                        0 8px 24px rgba(0, 0, 0, 0.12),
+                        0 0 20px rgba(169, 203, 183, 0.3),
+                        inset 0 1px 3px rgba(255, 255, 255, 0.95),
+                        inset 0 -2px 2px rgba(0, 0, 0, 0.08);
+        }
             background: rgba(169, 203, 183, 0.6);
             box-shadow: 0 2px 6px rgba(169, 203, 183, 0.3),
                         inset 0 1px 2px rgba(255, 255, 255, 0.9);
