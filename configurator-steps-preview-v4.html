@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FenTuRo Konfigurator Schritte - V4 Ultra-Transparent Glassmorphism Preview</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Berlin Sans FB Demi', 'Inter', Arial, Helvetica, sans-serif;
+            background-color: #f8f9fa;
+            padding: 40px 0;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: calc(100% - 3cm); /* 1.5cm margin each side */
+            margin: 0 auto;
+            padding: 0 1.5cm;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+        
+        .description {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .step-card {
+            position: relative;
+            min-height: 200px;
+            padding: 24px;
+            border-radius: 16px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            
+            /* ULTRA-TRANSPARENT GLASSMORPHISM - NOT WHITE */
+            background: rgba(255, 255, 255, 0.05); /* Even more transparent */
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 8px 32px 0 rgba(31, 38, 135, 0.12),
+                inset 0 0 20px rgba(255, 255, 255, 0.03);
+            
+            /* Allow transparency to show through */
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Glass shimmer border effect - subtle */
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(
+                135deg,
+                rgba(102, 144, 204, 0.25) 0%,
+                rgba(102, 144, 204, 0.08) 25%,
+                rgba(102, 144, 204, 0.03) 50%,
+                rgba(102, 144, 204, 0.08) 75%,
+                rgba(102, 144, 204, 0.25) 100%
+            );
+            border-radius: 16px;
+            z-index: -1;
+            opacity: 0.5;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% {
+                opacity: 0.5;
+                background-position: 0% 50%;
+            }
+            50% {
+                opacity: 0.7;
+                background-position: 100% 50%;
+            }
+        }
+        
+        /* Hover - STAYS TRANSPARENT, overlaps others visibly */
+        .step-card:hover {
+            transform: scale(1.5) translateY(-4px);
+            z-index: 10;
+            /* KEEP TRANSPARENT - you can see through to other boxes */
+            background: rgba(255, 255, 255, 0.08); /* Slightly more visible but still transparent */
+            backdrop-filter: blur(25px) saturate(200%);
+            -webkit-backdrop-filter: blur(25px) saturate(200%);
+            box-shadow: 
+                0 20px 60px 0 rgba(31, 38, 135, 0.20),
+                inset 0 0 30px rgba(255, 255, 255, 0.05);
+        }
+        
+        .step-card:hover::before {
+            background: linear-gradient(
+                135deg,
+                rgba(102, 144, 204, 0.4) 0%,
+                rgba(102, 144, 204, 0.15) 25%,
+                rgba(102, 144, 204, 0.08) 50%,
+                rgba(102, 144, 204, 0.15) 75%,
+                rgba(102, 144, 204, 0.4) 100%
+            );
+            opacity: 0.9;
+        }
+        
+        /* LESS BLUR on other cards - from blur(2px) to blur(0.5px) */
+        .steps-grid:has(.step-card:hover) .step-card:not(:hover) {
+            filter: blur(0.5px); /* Minimal blur - almost none */
+            opacity: 0.85; /* Less opacity reduction */
+        }
+        
+        /* UNIFIED HEADING FORMAT: "1 Profil auswählen" */
+        .step-heading {
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        
+        .step-number {
+            color: #555555; /* Grey number */
+            font-weight: 700;
+        }
+        
+        .step-highlight {
+            color: #6690CC; /* Light blue first word */
+            font-weight: 700;
+        }
+        
+        /* FULL TEXT VISIBLE */
+        .step-body {
+            font-size: 12px;
+            color: #6c757d;
+            line-height: 1.6;
+            max-height: none;
+            overflow: visible;
+        }
+        
+        /* Responsive - mobile */
+        @media (max-width: 1024px) {
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+            
+            .step-card:hover {
+                transform: scale(1.3);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .step-card:hover {
+                transform: scale(1.2);
+            }
+            
+            .container {
+                padding: 0 1cm;
+            }
+        }
+        
+        .instructions {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding: 20px;
+            background: rgba(102, 144, 204, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(102, 144, 204, 0.15);
+        }
+        
+        .instructions h2 {
+            font-size: 20px;
+            color: #6690CC;
+            margin-bottom: 12px;
+        }
+        
+        .instructions ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .instructions li {
+            padding: 6px 0;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        
+        .instructions li::before {
+            content: "✓ ";
+            color: #6690CC;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FenTuRo Konfigurator Schritte</h1>
+        <p class="description">8-Schritt Konfigurator mit ultra-transparentem Glassmorphism-Effekt</p>
+        
+        <div class="instructions">
+            <h2>V4 Improvements - Ultra-Transparent Design</h2>
+            <ul>
+                <li>Boxes are now ultra-transparent (rgba 0.05) - NOT white, truly see-through</li>
+                <li>Sibling cards have minimal blur (0.5px instead of 2px) when hovering</li>
+                <li>Hovered card stays transparent - you can see it overlapping other boxes</li>
+                <li>All text fully visible with unified "1 Profil auswählen" heading format</li>
+                <li>1.5cm side margins for proper expansion space</li>
+                <li>Subtle blue shimmer border that flows like glass</li>
+            </ul>
+        </div>
+        
+        <div class="steps-grid">
+            <!-- Schritt 1 -->
+            <div class="step-card">
+                <h3 class="step-heading">
+                    <span class="step-number">1</span> 
+                    <span class="step-highlight">Profil</span> auswählen
+                </h3>
+                <p class="step-body">
+                    Wählen Sie das passende Rahmenmaterial: <strong>Kunststoff</strong> für optimale Wärmedämmung, <strong>Aluminium</strong> für moderne Optik, <strong>Holz</strong> für natürliche Atmosphäre oder <strong>Holz-Aluminium</strong> als Premiumlösung.
+                </p>
+            </div>
+            
+            <!-- Schritt 2 -->
+            <div class="step-card">
+                <h3 class="step-heading">
+                    <span class="step-number">2</span> 
+                    <span class="step-highlight">Maße</span> eingeben
+                </h3>
+                <p class="step-body">
+                    Geben Sie präzise Breite und Höhe ein. Unser System berücksichtigt automatisch Einbaumaße und erstellt eine passgenaue Konfiguration für Ihr Fenster.
+                </p>
+            </div>
+            
+            <!-- Schritt 3 -->
+            <div class="step-card">
+                <h3 class="step-heading">
+                    <span class="step-number">3</span> 
+                    <span class="step-highlight">Farbe</span> wählen
+                </h3>
+                <p class="step-body">
+                    Entscheiden Sie sich für Ihre Wunschfarbe innen und außen. Von klassischem Weiß über elegante Holzdekore bis zu modernen Anthrazit-Tönen.
+                </p>
+            </div>
+            
+            <!-- Schritt 4 -->
+            <div class="step-card">
+                <h3 class="step-heading">
+                    <span class="step-number">4</span> 
+                    <span class="step-highlight">Glas</span> konfigurieren
+                </h3>
+                <p class="step-body">
+                    Bestimmen Sie Verglasung und Zusatzoptionen: Schallschutz für mehr Ruhe, Sicherheitsglas für erhöhten Schutz oder Sonnenschutz für angenehmes Raumklima.
+                </p>
+            </div>
+            
+            <!-- Schritt 5 -->
+            <div class="step-card">
+                <h3 class="step-heading">
+                    <span class="step-number">5</span> 
+                    <span class="step-highlight">Sprossen</span> wählen
+                </h3>
+                <p class="step-body">
+                    Wählen Sie zwischen verschiedenen Sprossenarten für Ihr Fenster. Zur Auswahl stehen innenliegende oder aufliegende Sprossen für individuelle Gestaltung.
+                </p>
+            </div>
+            
+            <!-- Schritt 6 -->
+            <div class="step-card">
+                <h3 class="step-heading">
+                    <span class="step-number">6</span> 
+                    <span class="step-highlight">Rollladen</span> wählen
+                </h3>
+                <p class="step-body">
+                    Fügen Sie den auf Sie individuell zugeschnittenen Rollladen hinzu und ergänzen Sie optional den angepassten Insektenschutz für zusätzlichen Komfort.
+                </p>
+            </div>
+            
+            <!-- Schritt 7 -->
+            <div class="step-card">
+                <h3 class="step-heading">
+                    <span class="step-number">7</span> 
+                    <span class="step-highlight">Sonstiges</span> noch
+                </h3>
+                <p class="step-body">
+                    Abschließend können Sie auswählen, ob Sie eine Montagevorbohrung oder eine Rahmenverbreiterung für eine optimale Passform benötigen.
+                </p>
+            </div>
+            
+            <!-- Schritt 8 -->
+            <div class="step-card">
+                <h3 class="step-heading">
+                    <span class="step-number">8</span> 
+                    <span class="step-highlight">Bestellung</span> fertig
+                </h3>
+                <p class="step-body">
+                    Ist Ihre Bestellung fertig, können Sie alle Angaben auf Vollständigkeit kontrollieren und die Bestellung abschließen.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
