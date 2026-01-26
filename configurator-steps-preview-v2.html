@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FenTuRo Konfigurator Schritte - Updated Preview (8 Steps)</title>
+    <style>
+        /* Berlin Sans FB Demi Bold Font */
+        @font-face {
+            font-family: 'Berlin Sans FB Demi';
+            src: local('Berlin Sans FB Demi Bold'), 
+                 local('BerlinSansFB-Demi');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Berlin Sans FB Demi', 'Arial', 'Helvetica Neue', sans-serif;
+            background-color: #f8f9fa;  /* Website background color */
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .preview-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .preview-header h1 {
+            color: #333333;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .preview-header p {
+            color: #6c757d;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        .instructions {
+            background: rgba(102, 144, 204, 0.1);
+            border-left: 4px solid #6690CC;
+            padding: 20px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+        }
+
+        .instructions h3 {
+            color: #6690CC;
+            margin-bottom: 10px;
+        }
+
+        .instructions ul {
+            list-style-position: inside;
+            color: #555555;
+            line-height: 1.8;
+        }
+
+        /* Main Steps Grid */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .step-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 30px 25px;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            height: 180px; /* Reduced height */
+            display: flex;
+            flex-direction: column;
+            
+            /* iOS-style glowing border */
+            border: 1px solid rgba(102, 144, 204, 0.3);
+            box-shadow: 
+                0 0 0 0.4mm rgba(102, 144, 204, 0.4),
+                inset 0 0 20px rgba(255, 255, 255, 0.1),
+                0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 16px;
+            padding: 1px;
+            background: linear-gradient(135deg, 
+                rgba(102, 144, 204, 0.4), 
+                rgba(102, 144, 204, 0.1),
+                rgba(102, 144, 204, 0.4)
+            );
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        .step-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #555555; /* Grey, NOT light blue */
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .step-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .step-title .highlight {
+            color: #6690CC; /* Light blue for first word */
+        }
+
+        .step-title .rest {
+            color: #333333;
+        }
+
+        .step-description {
+            font-size: 0.9rem;
+            color: #6c757d; /* Grey body text */
+            line-height: 1.5;
+            flex-grow: 1;
+            overflow: hidden;
+        }
+
+        /* Hover Effects */
+        .step-card:hover {
+            transform: scale(1.5);
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            box-shadow: 
+                0 0 0 0.8mm rgba(102, 144, 204, 0.8),
+                inset 0 0 30px rgba(255, 255, 255, 0.2),
+                0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .step-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Blur siblings when one is hovered */
+        .steps-grid:has(.step-card:hover) .step-card:not(:hover) {
+            filter: blur(2px);
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .step-card:hover {
+                transform: scale(1.3); /* Smaller zoom on medium screens */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .step-card {
+                height: auto;
+                min-height: 160px;
+            }
+            
+            .step-card:hover {
+                transform: scale(1.15); /* Even smaller zoom on mobile */
+            }
+            
+            .preview-header h1 {
+                font-size: 2rem;
+            }
+            
+            .step-number {
+                font-size: 2.5rem;
+            }
+        }
+
+        .design-notes {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+
+        .design-notes h3 {
+            color: #333333;
+            margin-bottom: 15px;
+        }
+
+        .design-notes ul {
+            list-style-position: inside;
+            color: #555555;
+            line-height: 2;
+        }
+
+        .design-notes li strong {
+            color: #6690CC;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="preview-header">
+            <h1>FenTuRo Konfigurator - 8 Schritte</h1>
+            <p>Vollständiger Konfigurator-Prozess mit iOS-inspiriertem Glassmorphismus-Design</p>
+        </div>
+
+        <div class="instructions">
+            <h3>🎯 Wie Sie die Preview testen:</h3>
+            <ul>
+                <li><strong>Hover-Effekt:</strong> Bewegen Sie die Maus über jede Karte für 1.5x Zoom</li>
+                <li><strong>Glassmorphismus:</strong> Beachten Sie den durchsichtigen Hintergrund mit Blur-Effekt</li>
+                <li><strong>iOS-Border:</strong> 0.4mm leuchtender Rand in Hellblau mit Farbverlauf</li>
+                <li><strong>Sibling-Blur:</strong> Andere Karten werden automatisch unscharf beim Hovern</li>
+                <li><strong>Layout:</strong> 2 Reihen × 4 Karten (rechteckige Ausrichtung)</li>
+                <li><strong>Hintergrund:</strong> Website-Farbe #f8f9fa (helles Grau)</li>
+            </ul>
+        </div>
+
+        <!-- Steps Grid - First Row (1-4) -->
+        <div class="steps-grid">
+            <!-- Step 1 -->
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-title">
+                    <span class="highlight">Profil</span> <span class="rest">auswählen</span>
+                </div>
+                <div class="step-description">
+                    Wählen Sie das passende Rahmenmaterial: <strong>Kunststoff</strong> für optimale Wärmedämmung, <strong>Aluminium</strong> für moderne Optik, <strong>Holz</strong> für natürliche Atmosphäre oder <strong>Holz-Aluminium</strong> als Premiumlösung.
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-title">
+                    <span class="highlight">Maße</span> <span class="rest">eingeben</span>
+                </div>
+                <div class="step-description">
+                    Geben Sie präzise Breite und Höhe ein. Unser System berücksichtigt automatisch Einbaumaße und erstellt eine passgenaue Konfiguration für Ihr Fenster.
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-title">
+                    <span class="highlight">Farbe</span> <span class="rest">wählen</span>
+                </div>
+                <div class="step-description">
+                    Entscheiden Sie sich für Ihre Wunschfarbe innen und außen. Von klassischem Weiß über elegante Holzdekore bis zu modernen Anthrazit-Tönen.
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <div class="step-title">
+                    <span class="highlight">Glas</span> <span class="rest">konfigurieren</span>
+                </div>
+                <div class="step-description">
+                    Bestimmen Sie Verglasung und Zusatzoptionen: Schallschutz für mehr Ruhe, Sicherheitsglas für erhöhten Schutz oder Sonnenschutz für angenehmes Raumklima.
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="step-card">
+                <div class="step-number">5</div>
+                <div class="step-title">
+                    <span class="highlight">Sprossen</span> <span class="rest">wählen</span>
+                </div>
+                <div class="step-description">
+                    Wählen Sie zwischen verschiedenen Sprossenarten für Ihr Fenster. Zur Auswahl stehen innenliegende oder aufliegende Sprossen für individuelle Gestaltung.
+                </div>
+            </div>
+
+            <!-- Step 6 -->
+            <div class="step-card">
+                <div class="step-number">6</div>
+                <div class="step-title">
+                    <span class="highlight">Rollladen</span> <span class="rest">wählen</span>
+                </div>
+                <div class="step-description">
+                    Fügen Sie den auf Sie individuell zugeschnittenen Rollladen hinzu und ergänzen Sie optional den angepassten Insektenschutz für zusätzlichen Komfort.
+                </div>
+            </div>
+
+            <!-- Step 7 -->
+            <div class="step-card">
+                <div class="step-number">7</div>
+                <div class="step-title">
+                    <span class="highlight">Sonstiges</span> <span class="rest">noch</span>
+                </div>
+                <div class="step-description">
+                    Abschließend können Sie auswählen, ob Sie eine Montagevorbohrung oder eine Rahmenverbreiterung für eine optimale Passform benötigen.
+                </div>
+            </div>
+
+            <!-- Step 8 -->
+            <div class="step-card">
+                <div class="step-number">8</div>
+                <div class="step-title">
+                    <span class="highlight">Bestellung</span> <span class="rest">fertig</span>
+                </div>
+                <div class="step-description">
+                    Ist Ihre Bestellung fertig, können Sie alle Angaben auf Vollständigkeit kontrollieren und die Bestellung abschließen.
+                </div>
+            </div>
+        </div>
+
+        <div class="design-notes">
+            <h3>📋 Design-Spezifikationen (V2 Update):</h3>
+            <ul>
+                <li><strong>Anzahl:</strong> 8 Schritte (vorher 4)</li>
+                <li><strong>Layout:</strong> 2 Reihen × 4 Spalten</li>
+                <li><strong>Karten-Format:</strong> Rechteckig (breiter, weniger hoch - ~300×180px)</li>
+                <li><strong>Hintergrund:</strong> #f8f9fa (Website-Hintergrundfarbe)</li>
+                <li><strong>Zahlen:</strong> Grau #555555 (NICHT hellblau)</li>
+                <li><strong>Erstes Wort:</strong> Hellblau #6690CC (Profil, Maße, Farbe, Glas, etc.)</li>
+                <li><strong>Glassmorphismus:</strong> rgba(255, 255, 255, 0.15) + backdrop-filter blur(20px)</li>
+                <li><strong>iOS-Border:</strong> 0.4mm leuchtend in Hellblau mit Gradient</li>
+                <li><strong>Hover-Zoom:</strong> 1.5x Vergrößerung</li>
+                <li><strong>Sibling-Effekt:</strong> Blur(2px) + Opacity(0.7)</li>
+                <li><strong>Animation:</strong> 0.4s cubic-bezier</li>
+                <li><strong>Responsive:</strong> Stapelt vertikal auf Mobilgeräten</li>
+                <li><strong>Schrift:</strong> Berlin Sans FB Demi Bold (mit Fallbacks)</li>
+                <li><strong>Schritt 1:</strong> Enthält Materialtypen (Kunststoff, Aluminium, Holz, Holz-Aluminium)</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
