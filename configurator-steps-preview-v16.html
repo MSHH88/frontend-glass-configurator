@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konfigurator Schritte Preview V16 - True 110px Box Height with Reduced Padding</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Berlin Sans FB Demi', 'Arial Black', sans-serif;
+            background-color: #f8f9fa;
+            padding: 60px 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: calc(100% - 2cm); /* 1cm margin each side */
+            margin: 0 auto;
+            padding: 0 1cm;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 50px;
+            font-size: 32px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .step-card {
+            background: rgba(255, 255, 255, 0); /* 100% transparent */
+            backdrop-filter: blur(1px) saturate(180%);
+            border-radius: 16px;
+            padding: 12px 16px; /* Reduced padding: 12px top/bottom, 16px left/right */
+            height: 110px; /* Fixed height instead of min-height */
+            max-height: 110px; /* Ensure it doesn't grow */
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            overflow: hidden; /* Hide overflow content */
+            
+            /* Subtle blue shimmer border */
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            background-image: linear-gradient(
+                135deg,
+                rgba(102, 144, 204, 0.3) 0%,
+                rgba(102, 144, 204, 0.1) 25%,
+                rgba(102, 144, 204, 0.05) 50%,
+                rgba(102, 144, 204, 0.1) 75%,
+                rgba(102, 144, 204, 0.3) 100%
+            );
+            background-size: 200% 200%;
+            animation: shimmer 3s ease-in-out infinite;
+            
+            /* Glass shadow */
+            box-shadow: 
+                0 8px 32px 0 rgba(31, 38, 135, 0.15),
+                inset 0 0 20px rgba(255, 255, 255, 0.05);
+        }
+
+        @keyframes shimmer {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .step-card:hover {
+            transform: scale(1.5) translateY(-4px);
+            z-index: 10;
+            background: rgba(255, 255, 255, 0); /* Stay 100% transparent */
+            backdrop-filter: blur(1.5px) saturate(200%);
+            box-shadow: 
+                0 12px 48px 0 rgba(31, 38, 135, 0.25),
+                inset 0 0 30px rgba(255, 255, 255, 0.08);
+            overflow: visible; /* Show full content on hover */
+            height: auto; /* Allow expansion on hover */
+            max-height: none; /* Remove height limit on hover */
+        }
+
+        /* Blur other cards when hovering */
+        .steps-grid:has(.step-card:hover) .step-card:not(:hover) {
+            filter: blur(0.5px);
+            opacity: 0.85;
+        }
+
+        h3 {
+            font-size: 18px;
+            margin-bottom: 8px; /* Reduced from 12px */
+            margin-left: -3px; /* Move text 3px to the left */
+            line-height: 1.2; /* Tighter line height */
+            color: #333;
+            font-weight: 700;
+        }
+
+        .step-number {
+            color: #555555;
+            font-weight: 700;
+        }
+
+        .step-highlight {
+            color: #6690CC;
+            font-weight: 700;
+        }
+
+        .step-text {
+            font-size: 11px; /* Reduced from 13px to fit in smaller box */
+            line-height: 1.4; /* Tighter line height */
+            color: #6c757d;
+            font-weight: 400;
+            margin-bottom: 0; /* No bottom margin needed */
+            margin-left: -3px; /* Move text 3px to the left */
+        }
+
+        .step-icon {
+            position: absolute;
+            bottom: 8px; /* Adjusted for smaller box (was 76px, now much lower) */
+            right: 15px; /* Moved 3px to the right (18px - 3px = 15px) */
+            opacity: 0.4;
+            transition: all 0.3s ease;
+            object-fit: contain;
+        }
+
+        /* Individual icon heights as requested */
+        .step-card:nth-child(1) .step-icon {
+            height: 39px; /* 1mm smaller */
+            width: auto;
+        }
+
+        .step-card:nth-child(2) .step-icon {
+            height: 41px; /* 1mm bigger */
+            width: auto;
+        }
+
+        .step-card:nth-child(3) .step-icon {
+            height: 40px; /* stays the same */
+            width: auto;
+        }
+
+        .step-card:nth-child(4) .step-icon {
+            height: 40px; /* stays the same */
+            width: auto;
+        }
+
+        .step-card:nth-child(5) .step-icon {
+            height: 39px; /* 1mm smaller */
+            width: auto;
+        }
+
+        .step-card:nth-child(6) .step-icon {
+            height: 40px; /* stays the same */
+            width: auto;
+        }
+
+        .step-card:hover .step-icon {
+            opacity: 0.75;
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 1400px) {
+            .steps-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .step-card {
+                height: 90px; /* Proportionally smaller for mobile */
+                max-height: 90px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Konfigurator Schritte - True 110px Box Height</h1>
+        
+        <div class="steps-grid">
+            <!-- Step 1: Profil - Illustration 1 (39px - 1mm smaller) -->
+            <div class="step-card">
+                <h3>
+                    <span class="step-number">1</span> 
+                    <span class="step-highlight">Profil</span>
+                </h3>
+                <div class="step-text">
+                    Wählen Sie das passende Rahmenmaterial, den Hersteller sowie das Profil, den Typen und die gewünschte Öffnungsrichtung für Ihr Zuhause oder Projekt.
+                </div>
+                <img src="https://private-user-images.githubusercontent.com/255354340/402719542-fe04bc60-b009-4ec5-a4e1-d41b4d998c07.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mzc5MjUwNDEsIm5iZiI6MTczNzkyNDc0MSwicGF0aCI6Ii8yNTUzNTQzNDAvNDAyNzE5NTQyLWZlMDRiYzYwLWIwMDktNGVjNS1hNGUxLWQ0MWI0ZDk5OGMwNy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTI2JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyNlQxOTE4NjFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT02ZDJhNWU3YmJmNWI3NjIzYzI1YjYyMTI1MzE1MzY5NDczZThjM2NjYWI0MDg0ZTMxNzY5YWMyYWQyYmZmODRiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.yA-T35gPZfKX3BfI1DSwb-VwB_ISnl-uLDHcDGQtT3k" alt="Profil Icon" class="step-icon">
+            </div>
+
+            <!-- Step 2: Maße - Illustration 2 (41px - 1mm bigger) -->
+            <div class="step-card">
+                <h3>
+                    <span class="step-number">2</span> 
+                    <span class="step-highlight">Maße</span>
+                </h3>
+                <div class="step-text">
+                    Geben Sie die genauen Maße Ihres Fensters ein. Breite und Höhe in Millimetern für eine perfekte Passform.
+                </div>
+                <img src="https://private-user-images.githubusercontent.com/255354340/402719552-5e17ddc7-4dfb-4611-bc15-b51d7af42671.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mzc5MjUwNDEsIm5iZiI6MTczNzkyNDc0MSwicGF0aCI6Ii8yNTUzNTQzNDAvNDAyNzE5NTUyLTVlMTdkZGM3LTRkZmItNDYxMS1iYzE1LWI1MWQ3YWY0MjY3MS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTI2JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyNlQxOTE4NjFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lYWUzMjcxOTIwODlmNjg5ZjY0MTA2ZWQzZGJhNjUzMWM5NTQ3ODcwOTcwYWQ3ZWEzZjA4YzRiYzU3MmM5OTQ1JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.e09_9D-r0LxE7Rf4l02pnjSFoWYi3Ry1wKdtUi1dWd4" alt="Maße Icon" class="step-icon">
+            </div>
+
+            <!-- Step 3: Farbe - Illustration 3 (40px - stays the same) -->
+            <div class="step-card">
+                <h3>
+                    <span class="step-number">3</span> 
+                    <span class="step-highlight">Farbe</span>
+                </h3>
+                <div class="step-text">
+                    Wählen Sie aus einer Vielzahl von Farben für Innen und Außen. Individuell anpassbar für Ihr Design.
+                </div>
+                <img src="https://private-user-images.githubusercontent.com/255354340/402719563-dcc6d3a8-3a8f-4e9e-b596-da95aa5b8f95.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mzc5MjUwNDEsIm5iZiI6MTczNzkyNDc0MSwicGF0aCI6Ii8yNTUzNTQzNDAvNDAyNzE5NTYzLWRjYzZkM2E4LTNhOGYtNGU5ZS1iNTk2LWRhOTVhYTViOGY5NS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTI2JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyNlQxOTE4NjFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04NTYyMDYzNTE1NmM0NWE5YjRmNDc0MWQwMGRmYzQ3ZmY1NGYxNzNlY2E0ZGU1OTE5NDNhYjc5OWU5ZGFiYWUyJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.gYGTU0A4VdIDfbz84BX-PoLrBnA-ybgJvEL-8PZz_TU" alt="Farbe Icon" class="step-icon">
+            </div>
+
+            <!-- Step 4: Glas - Illustration 4 (40px - stays the same) -->
+            <div class="step-card">
+                <h3>
+                    <span class="step-number">4</span> 
+                    <span class="step-highlight">Glas</span>
+                </h3>
+                <div class="step-text">
+                    Wählen Sie die Verglasung für Ihre Fenster. Verschiedene Optionen für Wärmedämmung und Sicherheit.
+                </div>
+                <img src="https://private-user-images.githubusercontent.com/255354340/402719576-1d506777-b740-4d6a-97a1-33ab9099d818.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mzc5MjUwNDEsIm5iZiI6MTczNzkyNDc0MSwicGF0aCI6Ii8yNTUzNTQzNDAvNDAyNzE5NTc2LTFkNTA2Nzc3LWI3NDAtNGQ2YS05N2ExLTMzYWI5MDk5ZDgxOC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTI2JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyNlQxOTE4NjFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT05ZTE3ZjVjMDQ3Y2Q1OTc1NmI4MzdiMDMwMDBkMGFhYzJjOGIzYzE2ODQ0YjJkY2IxZmFjYjE1MjcxYjNjNzZmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.qy6g1dBUpPM9xp92iZW8TYnISUXuuXx82JiPDHzp45M" alt="Glas Icon" class="step-icon">
+            </div>
+
+            <!-- Step 5: Sprossen - Illustration 5 (39px - 1mm smaller) -->
+            <div class="step-card">
+                <h3>
+                    <span class="step-number">5</span> 
+                    <span class="step-highlight">Sprossen</span>
+                </h3>
+                <div class="step-text">
+                    Wählen Sie zwischen verschiedenen Sprossenarten für Ihr Fenster. Innen- oder aufliegende Sprossen verfügbar.
+                </div>
+                <img src="https://private-user-images.githubusercontent.com/255354340/402719591-37d11239-1eeb-49cd-bae3-dd07ccb2dc9b.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mzc5MjUwNDEsIm5iZiI6MTczNzkyNDc0MSwicGF0aCI6Ii8yNTUzNTQzNDAvNDAyNzE5NTkxLTM3ZDExMjM5LTFlZWItNDljZC1iYWUzLWRkMDdjY2IyZGM5Yi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTI2JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyNlQxOTE4NjFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04NDA5ZGJhOTkxZDMzZjI1NmQ5OGU1OGQxZWVmMTFkNjZjNjAzY2Q5NWY2MWI5YTRjY2UxOTNjYWZkY2FkM2FjJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.jnmSn3AvFW0J34Ql2Rky44JWN1rqU_6p_UWLGDdoAHw" alt="Sprossen Icon" class="step-icon">
+            </div>
+
+            <!-- Step 6: Rollladen - Illustration 6 (40px - stays the same) -->
+            <div class="step-card">
+                <h3>
+                    <span class="step-number">6</span> 
+                    <span class="step-highlight">Rollladen</span>
+                </h3>
+                <div class="step-text">
+                    Fügen Sie den individuell zugeschnittenen Rollladen hinzu und vergessen Sie nicht den angepassten Insektenschutz.
+                </div>
+                <img src="https://private-user-images.githubusercontent.com/255354340/402719608-f67bbd4f-57be-4a3f-b154-d901abc56363.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mzc5MjUwNDEsIm5iZiI6MTczNzkyNDc0MSwicGF0aCI6Ii8yNTUzNTQzNDAvNDAyNzE5NjA4LWY2N2JiZDRmLTU3YmUtNGEzZi1iMTU0LWQ5MDFhYmM1NjM2My5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTI2JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyNlQxOTE4NjFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iNjMyZjA2ZjRkNGRjNzI3NjA3M2RlNTM1ZWYwMTI0NjY3YTUyYzNiY2U3MzE2OGUwYWY1YTFlNTU1N2YxZDY1JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.2wOMn8EXKb7EKKfbdm4MVSrjFfvkZrzMr7ckZOjCFZ4" alt="Rollladen Icon" class="step-icon">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
