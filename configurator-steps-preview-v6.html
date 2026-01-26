@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V32 V6 - Konfigurator Schritte Preview - Final mit verbesserten Icons</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @font-face {
+            font-family: 'Berlin Sans FB Demi';
+            src: local('Berlin Sans FB Demi Bold'), local('BerlinSansFB-Demi');
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        body {
+            font-family: 'Berlin Sans FB Demi', 'Arial', 'Helvetica Neue', sans-serif;
+            background-color: #f8f9fa;
+            padding: 60px 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: calc(100% - 2cm); /* 1cm each side */
+            margin: 0 auto;
+            padding: 0 1cm;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        .description {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 50px;
+            font-size: 16px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Steps Grid - 1 row x 6 cards, bigger boxes */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        /* Step Card with EXTREME Transparency */
+        .step-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.005); /* EXTREMELY transparent */
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+            border-radius: 18px;
+            padding: 22px 20px 20px 20px; /* More space at top */
+            min-height: 260px; /* Bigger boxes */
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 
+                0 8px 32px 0 rgba(31, 38, 135, 0.12),
+                inset 0 0 20px rgba(255, 255, 255, 0.04);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            overflow: visible;
+        }
+
+        /* Border shimmer animation */
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 18px;
+            padding: 1.5px;
+            background: linear-gradient(
+                135deg,
+                rgba(102, 144, 204, 0.3) 0%,
+                rgba(102, 144, 204, 0.1) 25%,
+                rgba(102, 144, 204, 0.05) 50%,
+                rgba(102, 144, 204, 0.1) 75%,
+                rgba(102, 144, 204, 0.3) 100%
+            );
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.6;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Hover Effects */
+        .step-card:hover {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(18px) saturate(200%);
+            -webkit-backdrop-filter: blur(18px) saturate(200%);
+            transform: scale(1.5) translateY(-8px);
+            z-index: 10;
+            box-shadow: 
+                0 20px 60px 0 rgba(102, 144, 204, 0.25),
+                inset 0 0 30px rgba(255, 255, 255, 0.1);
+        }
+
+        .step-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Minimal sibling blur */
+        .steps-grid:has(.step-card:hover) .step-card:not(:hover) {
+            filter: blur(0.5px);
+            opacity: 0.85;
+            transform: scale(0.98);
+        }
+
+        /* Heading */
+        .step-card h3 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.3;
+            color: #333;
+        }
+
+        .step-number {
+            color: #555555;
+            margin-right: 6px;
+        }
+
+        .step-highlight {
+            color: #6690CC;
+        }
+
+        /* Body Text - moved up, balanced lengths */
+        .step-card p {
+            font-size: 12.5px;
+            line-height: 1.55;
+            color: #6c757d;
+            font-weight: 400;
+            flex-grow: 1;
+            margin-bottom: 0;
+        }
+
+        /* Improved Icon Positioning */
+        .step-icon {
+            position: absolute;
+            bottom: 18px;
+            right: 18px;
+            width: 50px;
+            height: 50px;
+            opacity: 0.35;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .step-card:hover .step-icon {
+            opacity: 0.75;
+            transform: scale(1.15);
+        }
+
+        .step-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: #6690CC;
+            fill: none;
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* Responsive */
+        @media (max-width: 1400px) {
+            .steps-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+            }
+            .step-card {
+                min-height: 240px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            .step-card {
+                min-height: 200px;
+            }
+            .step-card:hover {
+                transform: scale(1.05) translateY(-4px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Konfigurator Schritte - V6 Final</h1>
+        <p class="description">
+            Ultra-transparente Glassmorphism-Karten mit verbesserten Icons, ausgeglichenen Textlängen und optimaler Lesbarkeit. 
+            6 Schritte in einer Reihe mit 1cm Rand zum Bildschirmrand.
+        </p>
+
+        <div class="steps-grid">
+            <!-- Step 1 - Profil -->
+            <div class="step-card">
+                <h3>
+                    <span class="step-number">1</span> 
+                    <span class="step-highlight">Profil</span>
+                </h3>
+                <p>Wählen Sie das passende Rahmenmaterial, den Hersteller sowie das Profil, den Typen und die gewünschte Öffnungsrichtung für Ihr Zuhause oder Projekt.</p>
+                <div class="step-icon">
+                    <svg viewBox="0 0 50 50">
+                        <!-- Window frame with profile details -->
+                        <rect x="8" y="8" width="34" height="34" rx="2"/>
+                        <line x1="25" y1="8" x2="25" y2="42"/>
+                        <line x1="8" y1="25" x2="42" y2="25"/>
+                        <rect x="12" y="12" width="10" height="10"/>
+                        <rect x="28" y="12" width="10" height="10"/>
+                        <rect x="12" y="28" width="10" height="10"/>
+                        <rect x="28" y="28" width="10" height="10"/>
+                        <circle cx="17" cy="17" r="1.5" fill="#6690CC"/>
+                        <circle cx="33" cy="17" r="1.5" fill="#6690CC"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Step 2 - Maße -->
+            <div class="step-card">
+                <h3>
+                    <span class="step-number">2</span> 
+                    <span class="step-highlight">Maße</span>
+                </h3>
+                <p>Geben Sie präzise Breite und Höhe Ihres Fensters ein. Unser System berücksichtigt automatisch alle Einbaumaße für eine passgenaue Konfiguration.</p>
+                <div class="step-icon">
+                    <svg viewBox="0 0 50 50">
+                        <!-- Ruler with measurements -->
+                        <rect x="6" y="15" width="38" height="20" rx="2"/>
+                        <line x1="15" y1="15" x2="15" y2="35"/>
+                        <line x1="20" y1="17" x2="20" y2="33"/>
+                        <line x1="25" y1="15" x2="25" y2="35"/>
+                        <line x1="30" y1="17" x2="30" y2="33"/>
+                        <line x1="35" y1="15" x2="35" y2="35"/>
+                        <line x1="10" y1="17" x2="10" y2="33"/>
+                        <line x1="40" y1="17" x2="40" y2="33"/>
+                        <!-- Arrow indicators -->
+                        <polyline points="7,10 12,10 12,6" fill="none"/>
+                        <polyline points="43,40 38,40 38,44" fill="none"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Step 3 - Farbe -->
+            <div class="step-card">
+                <h3>
+                    <span class="step-number">3</span> 
+                    <span class="step-highlight">Farbe</span>
+                </h3>
+                <p>Entscheiden Sie sich für Ihre Wunschfarbe innen und außen. Von klassischem Weiß über elegante Holzdekore bis zu modernen Anthrazit-Tönen.</p>
+                <div class="step-icon">
+                    <svg viewBox="0 0 50 50">
+                        <!-- Paint bucket with window -->
+                        <path d="M15 25 L20 15 L30 15 L35 25 L32 35 L18 35 Z"/>
+                        <ellipse cx="25" cy="35" rx="7" ry="3"/>
+                        <line x1="25" y1="15" x2="25" y2="8"/>
+                        <line x1="22" y1="10" x2="28" y2="10"/>
+                        <!-- Window in background -->
+                        <rect x="10" y="38" width="12" height="10" opacity="0.4"/>
+                        <line x1="16" y1="38" x2="16" y2="48" opacity="0.4"/>
+                        <line x1="10" y1="43" x2="22" y2="43" opacity="0.4"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Step 4 - Glas -->
+            <div class="step-card">
+                <h3>
+                    <span class="step-number">4</span> 
+                    <span class="step-highlight">Glas</span>
+                </h3>
+                <p>Bestimmen Sie Verglasung und Zusatzoptionen: Schallschutz für Ruhe, Sicherheitsglas für Schutz oder Sonnenschutz für angenehmes Raumklima.</p>
+                <div class="step-icon">
+                    <svg viewBox="0 0 50 50">
+                        <!-- Multiple glass panes with shine -->
+                        <rect x="10" y="12" width="14" height="26" rx="1"/>
+                        <rect x="26" y="12" width="14" height="26" rx="1"/>
+                        <!-- Shine effects -->
+                        <line x1="13" y1="16" x2="13" y2="28" opacity="0.6" stroke-width="1.5"/>
+                        <line x1="29" y1="16" x2="29" y2="28" opacity="0.6" stroke-width="1.5"/>
+                        <line x1="15" y1="34" x2="20" y2="34" opacity="0.3"/>
+                        <line x1="31" y1="34" x2="36" y2="34" opacity="0.3"/>
+                        <!-- Sparkles -->
+                        <circle cx="19" cy="20" r="1" fill="#6690CC" opacity="0.7"/>
+                        <circle cx="35" cy="24" r="1" fill="#6690CC" opacity="0.7"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Step 5 - Sprossen -->
+            <div class="step-card">
+                <h3>
+                    <span class="step-number">5</span> 
+                    <span class="step-highlight">Sprossen</span>
+                </h3>
+                <p>Wählen Sie zwischen verschiedenen Sprossenarten für Ihr Fenster. Zur Auswahl stehen innenliegende oder aufliegende Sprossen für individuelle Gestaltung.</p>
+                <div class="step-icon">
+                    <svg viewBox="0 0 50 50">
+                        <!-- Window with visible sprossen grid -->
+                        <rect x="10" y="10" width="30" height="30" rx="2"/>
+                        <!-- Vertical sprossen -->
+                        <line x1="20" y1="10" x2="20" y2="40"/>
+                        <line x1="30" y1="10" x2="30" y2="40"/>
+                        <!-- Horizontal sprossen -->
+                        <line x1="10" y1="20" x2="40" y2="20"/>
+                        <line x1="10" y1="30" x2="40" y2="30"/>
+                        <!-- Sprossen connection points -->
+                        <circle cx="20" cy="20" r="1.5" fill="#6690CC"/>
+                        <circle cx="30" cy="20" r="1.5" fill="#6690CC"/>
+                        <circle cx="20" cy="30" r="1.5" fill="#6690CC"/>
+                        <circle cx="30" cy="30" r="1.5" fill="#6690CC"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Step 6 - Rollladen -->
+            <div class="step-card">
+                <h3>
+                    <span class="step-number">6</span> 
+                    <span class="step-highlight">Rollladen</span>
+                </h3>
+                <p>Fügen Sie den individuell zugeschnittenen Rollladen hinzu und ergänzen Sie optional den angepassten Insektenschutz für zusätzlichen Komfort.</p>
+                <div class="step-icon">
+                    <svg viewBox="0 0 50 50">
+                        <!-- Venetian blinds with slats -->
+                        <rect x="10" y="8" width="30" height="34" rx="2"/>
+                        <!-- Horizontal slats -->
+                        <line x1="12" y1="12" x2="38" y2="12" stroke-width="3"/>
+                        <line x1="12" y1="17" x2="38" y2="17" stroke-width="3"/>
+                        <line x1="12" y1="22" x2="38" y2="22" stroke-width="3"/>
+                        <line x1="12" y1="27" x2="38" y2="27" stroke-width="3"/>
+                        <line x1="12" y1="32" x2="38" y2="32" stroke-width="3"/>
+                        <line x1="12" y1="37" x2="38" y2="37" stroke-width="3"/>
+                        <!-- Control cord -->
+                        <line x1="36" y1="8" x2="36" y2="42"/>
+                        <circle cx="36" cy="42" r="2" fill="none"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
