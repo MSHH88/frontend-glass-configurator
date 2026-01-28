@@ -2603,8 +2603,8 @@ nav.navbar.megamenu .main-navbar-collapsable ul.mainmenu &gt; li &gt; ul.collaps
 <style>
 .v32-configurator-heading {
     background: rgba(255, 255, 255, 0);
-    backdrop-filter: blur(5px) saturate(180%);
-    -webkit-backdrop-filter: blur(5px) saturate(180%);
+    backdrop-filter: blur(1px) saturate(180%);
+    -webkit-backdrop-filter: blur(1px) saturate(180%);
     border: 1.5px solid rgba(255, 255, 255, 0.2);
     border-radius: 20px;
     padding: 20px 30px;
@@ -2626,14 +2626,14 @@ nav.navbar.megamenu .main-navbar-collapsable ul.mainmenu &gt; li &gt; ul.collaps
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(66, 153, 225, 0.2),
+        rgba(66, 153, 225, 0.15),
         transparent
     );
     animation: v32-config-shimmer 20s infinite;
 }
 
 @keyframes v32-config-shimmer {
-    0%, 92% {
+    0% {
         left: -100%;
     }
     100% {
@@ -2643,11 +2643,11 @@ nav.navbar.megamenu .main-navbar-collapsable ul.mainmenu &gt; li &gt; ul.collaps
 
 .v32-configurator-heading h2 {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     color: #1a202c;
     margin: 0;
-    line-height: 1.3;
+    line-height: 1.1;
     letter-spacing: -0.3px;
     text-align: center;
 }
@@ -2658,7 +2658,7 @@ nav.navbar.megamenu .main-navbar-collapsable ul.mainmenu &gt; li &gt; ul.collaps
         margin: 2rem 1rem 1.5rem 1rem;
     }
     .v32-configurator-heading h2 {
-        font-size: 17px;
+        font-size: 16px;
     }
 }
 
@@ -2668,7 +2668,7 @@ nav.navbar.megamenu .main-navbar-collapsable ul.mainmenu &gt; li &gt; ul.collaps
         margin: 1.5rem 0.5rem 1rem 0.5rem;
     }
     .v32-configurator-heading h2 {
-        font-size: 15px;
+        font-size: 14px;
     }
 }
 </style>
@@ -2884,7 +2884,7 @@ nav.navbar.megamenu .main-navbar-collapsable ul.mainmenu &gt; li &gt; ul.collaps
         rgba(66, 153, 225, 0.15),
         transparent
     );
-    animation: v32-mfr-shimmer 6s infinite;
+    animation: v32-mfr-shimmer 20s infinite;
 }
 
 @keyframes v32-mfr-shimmer {
@@ -2893,14 +2893,14 @@ nav.navbar.megamenu .main-navbar-collapsable ul.mainmenu &gt; li &gt; ul.collaps
 }
 
 div.v32-manufacturers-heading h2 {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: 600;
     color: #1a202c;
     margin: 0 0 6px 0;
     line-height: 1.1;
     position: relative;
     z-index: 1;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.3px;
 }
 
 div.v32-manufacturers-heading p {
@@ -2992,7 +2992,7 @@ div.v32-manufacturers-heading p {
     }
     
     div.v32-manufacturers-heading h2 {
-        font-size: 17px;
+        font-size: 16px;
     }
     
     div.v32-manufacturers-heading p {
@@ -3012,7 +3012,7 @@ div.v32-manufacturers-heading p {
 
 @media (max-width: 480px) {
     div.v32-manufacturers-heading h2 {
-        font-size: 15px;
+        font-size: 14px;
     }
     
     div.v32-manufacturers-heading p {
