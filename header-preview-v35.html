@@ -51,8 +51,8 @@
            ======================================== */
 
         .new-header {
-            min-height: 252px;
-            padding: 1px 20px;
+            min-height: 200px;
+            padding: 0px 20px;
             background-color: #ffffff;
             border-bottom: 1px solid #e0e0e0;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -80,9 +80,10 @@
 
         .logo-section-v13 img {
             display: block;
-            width: 250px;
-            height: 250px;
+            width: 195px;
+            height: 195px;
             object-fit: contain;
+            margin: 2.5px 0;
         }
 
         /* Search Section */
@@ -142,15 +143,19 @@
             background: rgba(255, 255, 255, 0);  /* 100% transparent */
             backdrop-filter: blur(10px) saturate(180%);
             -webkit-backdrop-filter: blur(10px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-top-color: rgba(255, 255, 255, 0.7);  /* Light on top */
+            border-bottom-color: rgba(107, 114, 128, 0.3);  /* Dark on bottom */
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 
-                inset 0 1px 3px rgba(107, 114, 128, 0.3),    /* Top grey shadow */
-                inset 0 -1px 3px rgba(107, 114, 128, 0.2),   /* Bottom grey shadow */
-                0 2px 4px rgba(0, 0, 0, 0.05);               /* Subtle external */
+                inset 0 2px 4px rgba(255, 255, 255, 0.5),    /* Strong top highlight - glass bubble */
+                inset 0 -2px 4px rgba(107, 114, 128, 0.4),   /* Strong bottom shadow - depth */
+                0 0 8px rgba(102, 144, 204, 0.4),            /* BLUE SHIMMER ALWAYS */
+                0 4px 12px rgba(0, 0, 0, 0.15),              /* Drop shadow - sitting on page */
+                0 2px 6px rgba(102, 144, 204, 0.3);          /* BLUE SHADOW ALWAYS */
         }
 
         .search-button-v13:hover .icon-glassmorphism-v13 {
@@ -158,11 +163,11 @@
             -webkit-backdrop-filter: blur(12px) saturate(200%);
             transform: translateY(-4px) scale(1.4);
             box-shadow: 
-                inset 0 1px 3px rgba(107, 114, 128, 0.3),    /* Grey stays inside */
-                inset 0 -1px 3px rgba(107, 114, 128, 0.2),   /* Grey stays inside */
-                0 0 2px rgba(66, 153, 225, 0.3) inset,       /* Blue slightly inside */
-                0 6px 20px rgba(66, 153, 225, 0.4),          /* Wide blue underneath */
-                0 2px 8px rgba(66, 153, 225, 0.3);           /* Blue spreads 2px */
+                inset 0 2px 4px rgba(255, 255, 255, 0.6),    /* Stronger top highlight */
+                inset 0 -2px 4px rgba(107, 114, 128, 0.5),   /* Stronger bottom shadow */
+                0 0 12px rgba(102, 144, 204, 0.6),           /* Enhanced blue shimmer */
+                0 6px 20px rgba(102, 144, 204, 0.5),         /* Wide blue underneath */
+                0 2px 8px rgba(102, 144, 204, 0.4);          /* Blue spreads wider */
         }
 
         .icon-glassmorphism-v13 svg {
@@ -206,15 +211,19 @@
             background: rgba(255, 255, 255, 0);  /* 100% transparent */
             backdrop-filter: blur(10px) saturate(180%);
             -webkit-backdrop-filter: blur(10px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-top-color: rgba(255, 255, 255, 0.7);  /* Light on top */
+            border-bottom-color: rgba(107, 114, 128, 0.3);  /* Dark on bottom */
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 
-                inset 0 1px 3px rgba(107, 114, 128, 0.3),    /* Top grey shadow */
-                inset 0 -1px 3px rgba(107, 114, 128, 0.2),   /* Bottom grey shadow */
-                0 2px 4px rgba(0, 0, 0, 0.05);               /* Subtle external */
+                inset 0 2px 4px rgba(255, 255, 255, 0.5),    /* Strong top highlight - glass bubble */
+                inset 0 -2px 4px rgba(107, 114, 128, 0.4),   /* Strong bottom shadow - depth */
+                0 0 8px rgba(102, 144, 204, 0.4),            /* BLUE SHIMMER ALWAYS */
+                0 4px 12px rgba(0, 0, 0, 0.15),              /* Drop shadow - sitting on page */
+                0 2px 6px rgba(102, 144, 204, 0.3);          /* BLUE SHADOW ALWAYS */
         }
 
         .action-icon-v13 svg {
@@ -227,14 +236,11 @@
             -webkit-backdrop-filter: blur(12px) saturate(200%);
             transform: translateY(-4px) scale(1.4);
             box-shadow: 
-                inset 0 1px 3px rgba(107, 114, 128, 0.3),    /* Grey stays inside */
-                inset 0 -1px 3px rgba(107, 114, 128, 0.2),   /* Grey stays inside */
-                0 0 2px rgba(66, 153, 225, 0.3) inset,       /* Blue slightly inside */
-                0 6px 20px rgba(66, 153, 225, 0.4),          /* Wide blue underneath */
-                0 2px 8px rgba(66, 153, 225, 0.3);           /* Blue spreads 2px */
-        }
-                inset 0 -1px 2px rgba(107, 114, 128, 0.3),   /* Grey shadow */
-                0 0 12px rgba(66, 153, 225, 0.3);            /* Blue glow */
+                inset 0 2px 4px rgba(255, 255, 255, 0.6),    /* Stronger top highlight */
+                inset 0 -2px 4px rgba(107, 114, 128, 0.5),   /* Stronger bottom shadow */
+                0 0 12px rgba(102, 144, 204, 0.6),           /* Enhanced blue shimmer */
+                0 6px 20px rgba(102, 144, 204, 0.5),         /* Wide blue underneath */
+                0 2px 8px rgba(102, 144, 204, 0.4);          /* Blue spreads wider */
         }
 
         /* Separator Line */
@@ -270,13 +276,13 @@
 
         .contact-link-v13:hover {
             font-weight: 700;  /* Bold text like V34 navigation */
-            transform: translateY(-2px) scale(1.05);  /* Lift + growth */
-            box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);  /* Blue shadow */
-            color: #4299e1;  /* Light blue */
+            transform: scale(1.02);  /* Slight growth like navigation */
+            text-shadow: 0 2px 8px rgba(102, 144, 204, 0.3);  /* Blue text shadow */
+            color: #6690CC;  /* Blue text */
         }
 
         .contact-link-v13:hover svg {
-            color: #4299e1;  /* Blue on hover */
+            color: #6690CC;  /* Blue on hover */
             transform: scale(1.1);  /* Icon grows 10% */
         }
 
