@@ -80,10 +80,11 @@
 
         .logo-section-v13 img {
             display: block;
-            width: 200px;
-            height: 200px;
-            object-fit: contain;
-            margin: 2.5px 0;
+            height: 200px;          /* Fix height to fit 205px header */
+            width: auto;            /* Auto width maintains aspect ratio (will be ~265px) */
+            max-width: 270px;       /* Safety limit */
+            object-fit: contain;    /* Preserve aspect ratio */
+            margin: 2.5px 0;        /* Vertical centering in 205px header */
         }
 
         /* Search Section */
@@ -399,9 +400,7 @@
             <div class="logo-section-v13">
                 <a href="/">
                     <img src="Logo-01.png" 
-                         alt="FenTuRo Logo" 
-                         width="250" 
-                         height="250">
+                         alt="FenTuRo Logo">
                 </a>
             </div>
 
