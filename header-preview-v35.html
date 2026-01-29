@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Preview V35 - Perfect Header Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .preview-info {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .preview-info h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #1a202c;
+        }
+
+        .preview-info p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .specs {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #4299e1;
+            font-family: monospace;
+            font-size: 14px;
+        }
+
+        /* ========================================
+           HEADER V35 - PERFECT DESIGN
+           Copy from here for integration
+           ======================================== */
+
+        .new-header {
+            min-height: 260px;
+            padding: 5px 20px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1500px;
+            margin: 0 auto;
+            height: 100%;
+        }
+
+        /* Logo Section */
+        .logo-section-v13 {
+            flex: 0 0 auto;
+            margin-right: 60px;
+        }
+
+        .logo-section-v13 a {
+            display: block;
+            text-decoration: none;
+        }
+
+        .logo-section-v13 img {
+            display: block;
+            width: 250px;
+            height: 250px;
+            object-fit: contain;
+        }
+
+        /* Search Section */
+        .search-section-v13 {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 0px;
+            max-width: 600px;
+        }
+
+        .search-container-v13 {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .search-input-v13 {
+            width: 100%;
+            padding: 14px 45px 14px 60px;
+            border: 2px solid #e2e8f0;
+            border-radius: 24px;
+            font-size: 15px;
+            color: #2d3748;
+            background-color: #f7fafc;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .search-input-v13:focus {
+            border-color: #4299e1;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+        }
+
+        .search-input-v13::placeholder {
+            color: #a0aec0;
+        }
+
+        .search-button-v13 {
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 10;
+        }
+
+        .icon-glassmorphism-v13 {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(66, 153, 225, 0.1);
+            backdrop-filter: blur(10px) saturate(180%);
+            border: 1.5px solid rgba(66, 153, 225, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(66, 153, 225, 0.15);
+        }
+
+        .search-button-v13:hover .icon-glassmorphism-v13 {
+            background: rgba(66, 153, 225, 0.2);
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(66, 153, 225, 0.25);
+        }
+
+        .icon-glassmorphism-v13 svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        /* Contact Section */
+        .contact-section-v13 {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-left: 60px;
+        }
+
+        .contact-item-v13 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #2d3748;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 12px;
+        }
+
+        .contact-item-v13:hover {
+            background-color: #f7fafc;
+            color: #4299e1;
+        }
+
+        .contact-icon-v13 {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(66, 153, 225, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item-v13:hover .contact-icon-v13 {
+            background: rgba(66, 153, 225, 0.2);
+            transform: scale(1.1);
+        }
+
+        .contact-icon-v13 svg {
+            width: 20px;
+            height: 20px;
+            color: #4299e1;
+        }
+
+        .contact-text-v13 {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .contact-label-v13 {
+            font-size: 11px;
+            color: #718096;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-value-v13 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .header-main {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .logo-section-v13 {
+                margin-right: 0;
+            }
+
+            .search-section-v13 {
+                order: 3;
+                flex-basis: 100%;
+                max-width: 100%;
+                margin-top: 10px;
+            }
+
+            .contact-section-v13 {
+                margin-left: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .new-header {
+                padding: 5px 15px;
+            }
+
+            .logo-section-v13 img {
+                width: 180px;
+                height: 180px;
+            }
+
+            .contact-section-v13 {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .search-container-v13 {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-section-v13 img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .contact-item-v13 {
+                padding: 6px 12px;
+            }
+
+            .contact-text-v13 {
+                display: none;
+            }
+
+            .search-input-v13 {
+                padding: 12px 40px 12px 50px;
+                font-size: 14px;
+            }
+
+            .icon-glassmorphism-v13 {
+                width: 40px;
+                height: 40px;
+            }
+
+            .search-button-v13 {
+                right: -15px;
+            }
+        }
+
+        /* ========================================
+           END OF HEADER V35 CODE
+           ======================================== */
+
+    </style>
+</head>
+<body>
+    <div class="preview-info">
+        <h1>🎯 Header Preview V35 - Perfect Design</h1>
+        <p><strong>Status:</strong> Ready for Integration | <strong>Version:</strong> 35 | <strong>Date:</strong> 2026-01-29</p>
+        
+        <div class="specs">
+            <strong>Specifications:</strong><br>
+            • Header Height: 260px (250px logo + 5px top + 5px bottom)<br>
+            • Logo Size: 250×250px (forced, no auto-scaling)<br>
+            • Search Container: 450px max-width<br>
+            • Search Icon: -20px right position (close to input)<br>
+            • Input Left Padding: 60px (text close to icon)<br>
+            • Gap: ~40px between icon and text (was 200px)<br>
+            • No Vue.js interference<br>
+            • Pure HTML/CSS<br>
+            • Copy-paste ready
+        </div>
+
+        <p><strong>Integration Note:</strong> This is a standalone preview. The header below is exactly as it should appear. Use this as reference and copy the code for integration into any page.</p>
+    </div>
+
+    <!-- HEADER V35 - PERFECT IMPLEMENTATION -->
+    <header class="new-header">
+        <div class="header-main">
+            <!-- LEFT: Logo Section -->
+            <div class="logo-section-v13">
+                <a href="/">
+                    <img src="Logo-01.png" 
+                         alt="FenTuRo Logo" 
+                         width="250" 
+                         height="250">
+                </a>
+            </div>
+
+            <!-- CENTER: Search Section -->
+            <div class="search-section-v13">
+                <div class="search-container-v13">
+                    <input 
+                        type="text" 
+                        class="search-input-v13" 
+                        placeholder="Suchen Sie nach Produkten..."
+                        aria-label="Suche">
+                    <button class="search-button-v13" type="submit" aria-label="Suchen">
+                        <div class="icon-glassmorphism-v13">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" 
+                                      stroke="currentColor" 
+                                      stroke-width="2.5" 
+                                      stroke-linecap="round" 
+                                      stroke-linejoin="round" 
+                                      fill="none"
+                                      style="color: #4299e1;"/>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- RIGHT: Contact Section -->
+            <div class="contact-section-v13">
+                <a href="tel:+4932221092363" class="contact-item-v13">
+                    <div class="contact-icon-v13">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-text-v13">
+                        <span class="contact-label-v13">Telefon</span>
+                        <span class="contact-value-v13">0322 2109 2363</span>
+                    </div>
+                </a>
+
+                <a href="mailto:info@fenstermaxx24.com" class="contact-item-v13">
+                    <div class="contact-icon-v13">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-text-v13">
+                        <span class="contact-label-v13">E-Mail</span>
+                        <span class="contact-value-v13">info@fenstermaxx24.com</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="preview-info" style="margin-top: 40px;">
+        <h2 style="font-size: 20px; margin-bottom: 15px;">✅ Integration Checklist</h2>
+        <div style="line-height: 2;">
+            ☐ Copy entire &lt;style&gt; section (Lines 27-275)<br>
+            ☐ Copy entire &lt;header&gt; HTML (Lines 292-349)<br>
+            ☐ Ensure Logo-01.png is in correct path<br>
+            ☐ Test header height = 260px<br>
+            ☐ Verify logo displays at 250×250px<br>
+            ☐ Check search icon is close to input (~40px gap)<br>
+            ☐ Test on mobile/tablet (responsive)<br>
+            ☐ Verify no Vue.js or JavaScript conflicts<br>
+            ☐ Test all links work correctly<br>
+            ☐ Check cross-browser compatibility
+        </div>
+    </div>
+</body>
+</html>
