@@ -51,8 +51,8 @@
            ======================================== */
 
         .new-header {
-            min-height: 260px;
-            padding: 5px 20px;
+            min-height: 255px;
+            padding: 2.5px 20px;
             background-color: #ffffff;
             border-bottom: 1px solid #e0e0e0;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -160,71 +160,105 @@
             height: 22px;
         }
 
-        /* Contact Section */
-        .contact-section-v13 {
+        /* Right Section - Icons + Separator + Contact */
+        .right-section-v13 {
             flex: 0 0 auto;
             display: flex;
             align-items: center;
-            gap: 24px;
-            margin-left: 60px;
+            gap: 20px;
+            margin-left: 40px;
         }
 
-        .contact-item-v13 {
+        /* Actions Section - Account, Create Account, Cart */
+        .actions-section-v13 {
             display: flex;
             align-items: center;
             gap: 12px;
-            text-decoration: none;
-            color: #2d3748;
-            transition: all 0.3s ease;
-            padding: 8px 16px;
-            border-radius: 12px;
         }
 
-        .contact-item-v13:hover {
-            background-color: #f7fafc;
-            color: #4299e1;
-        }
-
-        .contact-icon-v13 {
-            width: 36px;
-            height: 36px;
+        .action-icon-v13 {
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
-            background: rgba(66, 153, 225, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .action-icon-v13 .icon-glassmorphism-v13 {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
         }
 
-        .contact-item-v13:hover .contact-icon-v13 {
-            background: rgba(66, 153, 225, 0.2);
-            transform: scale(1.1);
+        .action-icon-v13 svg {
+            color: #ffffff;
+            transition: all 0.3s ease;
         }
 
-        .contact-icon-v13 svg {
-            width: 20px;
-            height: 20px;
+        .action-icon-v13:hover svg {
+            color: #4299e1;
+        }
+
+        .action-icon-v13:hover .icon-glassmorphism-v13 {
+            background: rgba(66, 153, 225, 0.15);
+            backdrop-filter: blur(1px) saturate(180%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(66, 153, 225, 0.2);
+        }
+
+        /* Cart Icon Specific - White with Blue Hover */
+        .action-icon-v13.cart svg {
+            color: #ffffff;
+        }
+
+        .action-icon-v13.cart:hover svg {
+            color: #4299e1;
+        }
+
+        /* Separator Line */
+        .separator-v13 {
+            width: 1px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Contact Section */
+        .contact-section-v13 {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .contact-link-v13 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #2d3748;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link-v13 svg {
+            color: #4299e1;
+        }
+
+        .contact-link-v13:hover {
             color: #4299e1;
         }
 
         .contact-text-v13 {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .contact-label-v13 {
-            font-size: 11px;
-            color: #718096;
             font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .contact-value-v13 {
-            font-size: 15px;
-            font-weight: 600;
-            color: #2d3748;
         }
 
         /* Responsive Design */
@@ -312,12 +346,15 @@
         
         <div class="specs">
             <strong>Specifications:</strong><br>
-            • Header Height: 260px (250px logo + 5px top + 5px bottom)<br>
+            • Header Height: 255px (250px logo + 2.5px top + 2.5px bottom)<br>
             • Logo Size: 250×250px (forced, no auto-scaling)<br>
             • Search Container: 450px max-width<br>
             • Search Icon: -20px right position (close to input)<br>
             • Input Left Padding: 60px (text close to icon)<br>
             • Gap: ~40px between icon and text (was 200px)<br>
+            • Action Icons: Account, Create Account, Cart (white with blue hover)<br>
+            • Separator: 1px vertical line between icons and contact<br>
+            • Contact: Phone + Email links<br>
             • No Vue.js interference<br>
             • Pure HTML/CSS<br>
             • Copy-paste ready
@@ -363,31 +400,63 @@
                 </div>
             </div>
 
-            <!-- RIGHT: Contact Section -->
-            <div class="contact-section-v13">
-                <a href="tel:+4932221092363" class="contact-item-v13">
-                    <div class="contact-icon-v13">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+            <!-- RIGHT: Action Icons + Separator + Contact -->
+            <div class="right-section-v13">
+                <!-- Action Icons -->
+                <div class="actions-section-v13">
+                    <!-- Account Icon -->
+                    <a href="/my-account" class="action-icon-v13 account" title="Mein Konto">
+                        <div class="icon-glassmorphism-v13">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                    </a>
+                    
+                    <!-- Create Account Icon -->
+                    <a href="/register" class="action-icon-v13 create-account" title="Konto erstellen">
+                        <div class="icon-glassmorphism-v13">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <line x1="19" y1="8" x2="19" y2="14"></line>
+                                <line x1="22" y1="11" x2="16" y2="11"></line>
+                            </svg>
+                        </div>
+                    </a>
+                    
+                    <!-- Cart Icon - White with Blue Hover -->
+                    <a href="#" class="action-icon-v13 cart" title="Warenkorb">
+                        <div class="icon-glassmorphism-v13">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Separator -->
+                <div class="separator-v13"></div>
+                
+                <!-- Contact Section -->
+                <div class="contact-section-v13">
+                    <a href="tel:+493021238898" class="contact-link-v13">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                         </svg>
-                    </div>
-                    <div class="contact-text-v13">
-                        <span class="contact-label-v13">Telefon</span>
-                        <span class="contact-value-v13">0322 2109 2363</span>
-                    </div>
-                </a>
-
-                <a href="mailto:info@fenstermaxx24.com" class="contact-item-v13">
-                    <div class="contact-icon-v13">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        <span class="contact-text-v13">+49 (0) 30 212 388 98</span>
+                    </a>
+                    <a href="mailto:info@fenturo.de" class="contact-link-v13">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
                         </svg>
-                    </div>
-                    <div class="contact-text-v13">
-                        <span class="contact-label-v13">E-Mail</span>
-                        <span class="contact-value-v13">info@fenstermaxx24.com</span>
-                    </div>
-                </a>
+                        <span class="contact-text-v13">info@fenturo.de</span>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
