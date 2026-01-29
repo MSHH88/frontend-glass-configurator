@@ -139,25 +139,34 @@
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            background: rgba(66, 153, 225, 0.1);
+            background: rgba(255, 255, 255, 0);  /* 100% transparent */
             backdrop-filter: blur(10px) saturate(180%);
-            border: 1.5px solid rgba(66, 153, 225, 0.2);
+            -webkit-backdrop-filter: blur(10px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(66, 153, 225, 0.15);
+            box-shadow: 
+                inset 0 1px 2px rgba(255, 255, 255, 0.3),    /* Top light highlight */
+                inset 0 -1px 2px rgba(107, 114, 128, 0.2),   /* Bottom grey shadow */
+                0 4px 6px rgba(0, 0, 0, 0.1);                /* External depth */
         }
 
         .search-button-v13:hover .icon-glassmorphism-v13 {
-            background: rgba(66, 153, 225, 0.2);
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(66, 153, 225, 0.25);
+            backdrop-filter: blur(12px) saturate(200%);
+            -webkit-backdrop-filter: blur(12px) saturate(200%);
+            transform: translateY(-2px);
+            box-shadow: 
+                inset 0 1px 2px rgba(66, 153, 225, 0.4),     /* Blue highlight */
+                inset 0 -1px 2px rgba(107, 114, 128, 0.3),   /* Grey shadow */
+                0 0 12px rgba(66, 153, 225, 0.3);            /* Blue glow */
         }
 
         .icon-glassmorphism-v13 svg {
             width: 22px;
             height: 22px;
+            color: #6b7280;  /* Grey icons */
         }
 
         /* Right Section - Icons + Separator + Contact */
@@ -192,37 +201,33 @@
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0);  /* 100% transparent */
+            backdrop-filter: blur(10px) saturate(180%);
+            -webkit-backdrop-filter: blur(10px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
+            box-shadow: 
+                inset 0 1px 2px rgba(255, 255, 255, 0.3),    /* Top light highlight */
+                inset 0 -1px 2px rgba(107, 114, 128, 0.2),   /* Bottom grey shadow */
+                0 4px 6px rgba(0, 0, 0, 0.1);                /* External depth */
         }
 
         .action-icon-v13 svg {
-            color: #ffffff;
+            color: #6b7280;  /* Grey icons */
             transition: all 0.3s ease;
         }
 
-        .action-icon-v13:hover svg {
-            color: #4299e1;
-        }
-
         .action-icon-v13:hover .icon-glassmorphism-v13 {
-            background: rgba(66, 153, 225, 0.15);
-            backdrop-filter: blur(1px) saturate(180%);
+            backdrop-filter: blur(12px) saturate(200%);
+            -webkit-backdrop-filter: blur(12px) saturate(200%);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(66, 153, 225, 0.2);
-        }
-
-        /* Cart Icon Specific - White with Blue Hover */
-        .action-icon-v13.cart svg {
-            color: #ffffff;
-        }
-
-        .action-icon-v13.cart:hover svg {
-            color: #4299e1;
+            box-shadow: 
+                inset 0 1px 2px rgba(66, 153, 225, 0.4),     /* Blue highlight */
+                inset 0 -1px 2px rgba(107, 114, 128, 0.3),   /* Grey shadow */
+                0 0 12px rgba(66, 153, 225, 0.3);            /* Blue glow */
         }
 
         /* Separator Line */
@@ -250,11 +255,11 @@
         }
 
         .contact-link-v13 svg {
-            color: #4299e1;
+            color: #6b7280;  /* Grey icons */
         }
 
-        .contact-link-v13:hover {
-            color: #4299e1;
+        .contact-link-v13:hover svg {
+            color: #4299e1;  /* Blue on hover */
         }
 
         .contact-text-v13 {
