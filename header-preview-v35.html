@@ -52,7 +52,7 @@
 
         .new-header {
             min-height: 150px;      /* Compact header - KEEP at 150px */
-            padding: 0px 20px;      /* No vertical padding for perfect fit */
+            padding: 0 20px;        /* ZERO vertical padding */
             background-color: #ffffff;
             border-bottom: 1px solid #e0e0e0;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -322,13 +322,10 @@
 
         @media (max-width: 768px) {
             .new-header {
-                padding: 5px 15px;
+                padding: 0 15px;  /* No vertical padding */
             }
 
-            .logo-section-v13 img {
-                height: 150px;  /* Slightly smaller on tablets */
-                width: auto;
-            }
+            /* Logo stays 180px - NO OVERRIDE */
 
             .contact-section-v13 {
                 flex-direction: column;
