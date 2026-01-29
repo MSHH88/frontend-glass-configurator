@@ -61,7 +61,7 @@
 
         .header-main {
             display: flex;
-            align-items: flex-start;    /* FIX: Changed from center to flex-start */
+            align-items: center;    /* RESTORED: Keeps search/icons/contact centered */
             justify-content: space-between;
             max-width: 1500px;
             margin: 0 auto;
@@ -75,6 +75,8 @@
             margin-right: 60px;
             position: relative;
             z-index: 10;           /* Logo appears above other content */
+            align-self: flex-start;  /* Override: Logo aligns to top only */
+            margin-top: 2.5px;      /* 2.5px gap from top */
         }
 
         .logo-section-v13 a {
@@ -84,11 +86,11 @@
 
         .logo-section-v13 img {
             display: block;
-            height: 145px;          /* Perfect fit: 145px + 2.5px + 2.5px = 150px header */
+            height: 145px;          /* Perfect fit: 145px + 2.5px margin-top = 147.5px from top */
             width: auto;            /* Auto width maintains aspect ratio (will be ~192px) */
             max-width: 200px;       /* Safety limit */
             object-fit: contain;    /* Preserve aspect ratio */
-            margin: 2.5px 0;        /* 2.5px top + 2.5px bottom for perfect 150px fit */
+            margin: 0;              /* No margin on img - container has margin-top */
         }
 
         /* Search Section */
