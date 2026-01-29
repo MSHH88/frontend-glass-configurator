@@ -51,8 +51,8 @@
            ======================================== */
 
         .new-header {
-            min-height: 205px;
-            padding: 0px 20px;
+            min-height: 150px;
+            padding: 5px 20px;
             background-color: #ffffff;
             border-bottom: 1px solid #e0e0e0;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -80,11 +80,11 @@
 
         .logo-section-v13 img {
             display: block;
-            height: 200px;          /* Fix height to fit 205px header */
-            width: auto;            /* Auto width maintains aspect ratio (will be ~265px) */
-            max-width: 270px;       /* Safety limit */
+            height: 140px;          /* Large logo - fills most of 150px header */
+            width: auto;            /* Auto width maintains aspect ratio (will be ~185px) */
+            max-width: 200px;       /* Safety limit */
             object-fit: contain;    /* Preserve aspect ratio */
-            margin: 2.5px 0;        /* Vertical centering in 205px header */
+            margin: 0;              /* No margins - tight fit */
         }
 
         /* Search Section */
