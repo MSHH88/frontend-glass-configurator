@@ -86,9 +86,9 @@
 
         .logo-section-v13 img {
             display: block;
-            height: 145px;          /* Perfect fit: 145px + 2.5px margin-top = 147.5px from top */
-            width: auto;            /* Auto width maintains aspect ratio (will be ~192px) */
-            max-width: 200px;       /* Safety limit */
+            height: 180px;          /* Larger logo: 180px for more prominence */
+            width: auto;            /* Auto width maintains aspect ratio (will be ~238px) */
+            max-width: 250px;       /* Safety limit increased */
             object-fit: contain;    /* Preserve aspect ratio */
             margin: 0;              /* No margin on img - container has margin-top */
         }
@@ -326,8 +326,8 @@
             }
 
             .logo-section-v13 img {
-                width: 180px;
-                height: 180px;
+                height: 150px;  /* Slightly smaller on tablets */
+                width: auto;
             }
 
             .contact-section-v13 {
@@ -342,8 +342,8 @@
 
         @media (max-width: 480px) {
             .logo-section-v13 img {
-                width: 150px;
-                height: 150px;
+                height: 120px;  /* Even smaller on mobile */
+                width: auto;
             }
 
             .contact-item-v13 {
