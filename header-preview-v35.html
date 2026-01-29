@@ -86,11 +86,11 @@
 
         .logo-section-v13 img {
             display: block;
-            height: 220px;          /* DRAMATICALLY larger: 220px (46% bigger than original 150px) */
-            width: auto;            /* Auto width maintains aspect ratio (will be ~291px) */
-            max-width: 300px;       /* Increased safety limit */
-            object-fit: contain;    /* Preserve aspect ratio */
-            margin: 0;              /* No margin on img - container has margin-top */
+            height: 220px !important;    /* FORCE 220px - Large prominent logo */
+            width: auto !important;      /* FORCE auto width - maintains 1.32:1 ratio (~291px) */
+            max-width: 300px;            /* Safety limit - not constraining */
+            object-fit: contain;         /* Preserve aspect ratio */
+            margin: 0 !important;        /* FORCE no margin */
         }
 
         /* Search Section */
