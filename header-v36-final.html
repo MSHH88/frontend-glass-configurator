@@ -28,7 +28,6 @@
             border-bottom: 1px solid #e0e0e0;
             position: relative;
             overflow: visible;
-            background: rgba(255, 200, 200, 0.5) !important; /* DIAGNOSTIC - pinkish header */
         }
 
         .header-main {
@@ -47,13 +46,12 @@
            ============================================ */
         .logo-section-v13 {
             flex: 0 0 auto;
-            margin-right: 60px;
+            margin: 5px 60px 5px 0; /* Top Right Bottom Left - explicit margins */
+            padding: 0;
             position: relative;
             z-index: 10;
             align-self: flex-start;
-            margin-top: 5px;
-            border: 3px solid blue !important; /* DIAGNOSTIC */
-            background: rgba(0, 255, 0, 0.2) !important; /* DIAGNOSTIC */
+            line-height: 0; /* Eliminate line-height buffer */
         }
 
         .logo-section-v13 a {
@@ -63,13 +61,12 @@
 
         .logo-section-v13 img {
             display: block;
-            height: 150px !important;
-            width: auto !important;
+            height: 150px;
+            width: auto;
             max-width: 250px;
-            /* object-fit: contain; */ /* REMOVED - was causing logo to scale down and create gaps */
-            margin: 0 !important;
-            border: 3px solid red !important; /* DIAGNOSTIC */
-            background: rgba(255, 255, 0, 0.3) !important; /* DIAGNOSTIC */
+            margin: 0;
+            padding: 0;
+            vertical-align: top; /* Prevent inline-block spacing */
         }
 
         /* ============================================
