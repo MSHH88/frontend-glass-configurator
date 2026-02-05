@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FenTuRo - Header V2 with Grid</title>
+    <style>
+        /* Reset default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Header styling */
+        .site-header {
+            width: 100%;
+            height: 155px;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            background-image: 
+                repeating-linear-gradient(0deg, rgba(200,200,200,0.15) 0px, rgba(200,200,200,0.15) 1px, transparent 1px, transparent 10px),
+                repeating-linear-gradient(90deg, rgba(200,200,200,0.15) 0px, rgba(200,200,200,0.15) 1px, transparent 1px, transparent 10px);
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+
+        /* Logo link (hitbox) styling */
+        .logo-link {
+            display: block;
+            height: 150px;
+            margin-top: 2.5px;
+            margin-left: 2.5px;
+            margin-bottom: 2.5px;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            padding: 0;
+            line-height: 0;
+            font-size: 0;
+        }
+
+        /* Logo image styling */
+        .logo-image {
+            height: 150px;
+            width: auto;
+            display: block;
+            border: none;
+            outline: none;
+            padding: 0;
+            margin: 0;
+            object-fit: contain;
+        }
+
+        /* Main content area */
+        main {
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        main h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        main p {
+            margin-bottom: 10px;
+        }
+
+        main ul {
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        main code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .site-header {
+                height: 155px;
+            }
+
+            .logo-link {
+                height: 150px;
+            }
+
+            .logo-image {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="#" class="logo-link">
+            <img src="Logo-01.png" alt="FenTuRo Logo" class="logo-image">
+        </a>
+    </header>
+
+    <main>
+        <h2>Header V2 - With Measurement Grid</h2>
+        <p><strong>What's New:</strong></p>
+        <ul>
+            <li><strong>Gradient Grid:</strong> 10px × 10px measurement grid for precise positioning</li>
+            <li><strong>White Background:</strong> <code>rgba(255, 255, 255, 0.95)</code> from homepage color scheme</li>
+            <li><strong>Glassmorphism:</strong> <code>backdrop-filter: blur(15px)</code> for modern glass effect</li>
+            <li><strong>Grid Lines:</strong> Subtle gray lines every 10px horizontally and vertically</li>
+        </ul>
+        
+        <p><strong>Logo Positioning (unchanged from V1):</strong></p>
+        <ul>
+            <li>Height: 150px</li>
+            <li>Top margin: 2.5px</li>
+            <li>Left margin: 2.5px</li>
+            <li>Bottom margin: 2.5px</li>
+        </ul>
+
+        <p><strong>Grid Usage:</strong></p>
+        <p>The grid allows you to specify exact X and Y coordinates for icons and other elements. Each grid line represents 10px, making it easy to position elements precisely. For example:</p>
+        <ul>
+            <li>X: 0px = Left edge</li>
+            <li>X: 10px = First vertical line</li>
+            <li>X: 20px = Second vertical line</li>
+            <li>Y: 0px = Top edge</li>
+            <li>Y: 10px = First horizontal line</li>
+            <li>Y: 20px = Second horizontal line</li>
+        </ul>
+
+        <p><strong>Ready for:</strong> Icons and other elements to be placed at exact X,Y coordinates you specify.</p>
+    </main>
+
+</body>
+</html>
