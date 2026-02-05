@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header V37 - Integrated Design with Perfect Logo Sizing</title>
+    
+<style>
+/* ===== CRITICAL: Logo and Header Dimensions - DO NOT MODIFY ===== */
+/* Logo: 150px height (perfect from MANUS AI) */
+/* Header: 155px height (perfect from MANUS AI) */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #f5f5f5;
+}
+
+/* ===== HEADER CONTAINER ===== */
+.new-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    min-height: 155px; /* FIXED - DO NOT CHANGE */
+    padding: 0 20px;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.3);
+}
+
+.header-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1500px;
+    margin: 0 auto;
+    height: 155px; /* FIXED - DO NOT CHANGE */
+}
+
+/* ===== LEFT: LOGO SECTION (PERFECT - DO NOT MODIFY) ===== */
+.logo-section-v13 {
+    flex: 0 0 auto;
+    margin-right: 60px;
+    display: flex;
+    align-items: center;
+    height: 155px;
+}
+
+.logo-section-v13 a {
+    display: block;
+    line-height: 0;
+}
+
+.logo-section-v13 img {
+    display: block;
+    height: 150px; /* FIXED - DO NOT CHANGE */
+    width: auto;
+    max-width: 200px;
+}
+
+/* ===== CENTER: SEARCH BAR ===== */
+.search-section-v13 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.search-container-v13 {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+}
+
+.search-box-v13 {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search-input-v13 {
+    width: 100%;
+    padding: 14px 45px 14px 60px;
+    border: 2px solid rgba(102, 144, 204, 0.3);
+    border-radius: 30px;
+    font-family: inherit;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-input-v13:focus {
+    outline: none;
+    border-color: #6690CC;
+    background: white;
+    box-shadow: 0 4px 16px rgba(102, 144, 204, 0.2);
+}
+
+.search-button-v13 {
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-button-v13:hover {
+    transform: translateY(calc(-50% - 4px));
+}
+
+/* Search Icon with Glassmorphism */
+.icon-glassmorphism-v13 {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(102, 144, 204, 0.5);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(102, 144, 204, 0.6);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 2px 8px rgba(102, 144, 204, 0.3),
+        0 4px 16px rgba(0, 0, 0, 0.08),
+        inset 0 1px 2px rgba(255, 255, 255, 0.9),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.icon-glassmorphism-v13:hover {
+    transform: scale(1.15);
+    backdrop-filter: blur(6px);
+    box-shadow: 
+        0 4px 12px rgba(102, 144, 204, 0.4),
+        0 8px 24px rgba(0, 0, 0, 0.12),
+        0 0 20px rgba(102, 144, 204, 0.3),
+        inset 0 1px 3px rgba(255, 255, 255, 0.95),
+        inset 0 -2px 2px rgba(0, 0, 0, 0.08);
+}
+
+.icon-glassmorphism-v13 svg {
+    color: #333333;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-glassmorphism-v13:hover svg {
+    transform: scale(1.1);
+}
+
+/* ===== RIGHT: ACTION ICONS + CONTACT ===== */
+.right-section-v13 {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 7.5px;
+}
+
+/* Action Icons Container */
+.actions-section-v13 {
+    display: flex;
+    align-items: center;
+    gap: 7.5px;
+}
+
+/* Individual Action Icons */
+.action-icon-v13 {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    border: 1px solid;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.1),
+        0 4px 16px rgba(0, 0, 0, 0.08),
+        inset 0 1px 2px rgba(255, 255, 255, 0.9),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Account Icon - Sage Blue */
+.action-icon-v13.account {
+    background: rgba(102, 144, 204, 0.5);
+    border-color: rgba(102, 144, 204, 0.6);
+    box-shadow: 
+        0 2px 8px rgba(102, 144, 204, 0.3),
+        0 4px 16px rgba(0, 0, 0, 0.08),
+        inset 0 1px 2px rgba(255, 255, 255, 0.9),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.action-icon-v13.account:hover {
+    transform: scale(1.15) translateY(-4px);
+    backdrop-filter: blur(6px);
+    box-shadow: 
+        0 4px 12px rgba(102, 144, 204, 0.4),
+        0 8px 24px rgba(0, 0, 0, 0.12),
+        0 0 20px rgba(102, 144, 204, 0.3),
+        inset 0 1px 3px rgba(255, 255, 255, 0.95),
+        inset 0 -2px 2px rgba(0, 0, 0, 0.08);
+}
+
+/* Create Account Icon - Sage Blue */
+.action-icon-v13.create-account {
+    background: rgba(102, 144, 204, 0.5);
+    border-color: rgba(102, 144, 204, 0.6);
+    box-shadow: 
+        0 2px 8px rgba(102, 144, 204, 0.3),
+        0 4px 16px rgba(0, 0, 0, 0.08),
+        inset 0 1px 2px rgba(255, 255, 255, 0.9),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.action-icon-v13.create-account:hover {
+    transform: scale(1.15) translateY(-4px);
+    backdrop-filter: blur(6px);
+    box-shadow: 
+        0 4px 12px rgba(102, 144, 204, 0.4),
+        0 8px 24px rgba(0, 0, 0, 0.12),
+        0 0 20px rgba(102, 144, 204, 0.3),
+        inset 0 1px 3px rgba(255, 255, 255, 0.95),
+        inset 0 -2px 2px rgba(0, 0, 0, 0.08);
+}
+
+/* Cart Icon - Rich Orange */
+.action-icon-v13.cart {
+    background: rgba(240, 102, 0, 0.5);
+    border-color: rgba(240, 102, 0, 0.6);
+    box-shadow: 
+        0 2px 8px rgba(240, 102, 0, 0.3),
+        0 4px 16px rgba(0, 0, 0, 0.08),
+        inset 0 1px 2px rgba(255, 255, 255, 0.9),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.action-icon-v13.cart:hover {
+    transform: scale(1.15) translateY(-4px);
+    backdrop-filter: blur(6px);
+    box-shadow: 
+        0 4px 12px rgba(240, 102, 0, 0.4),
+        0 8px 24px rgba(0, 0, 0, 0.12),
+        0 0 20px rgba(240, 102, 0, 0.3),
+        inset 0 1px 3px rgba(255, 255, 255, 0.95),
+        inset 0 -2px 2px rgba(0, 0, 0, 0.08);
+}
+
+.action-icon-v13 svg {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.action-icon-v13:hover svg {
+    transform: scale(1.1);
+}
+
+.action-icon-v13.account svg,
+.action-icon-v13.create-account svg,
+.action-icon-v13.cart svg {
+    color: #333333;
+}
+
+/* Separator Line */
+.separator-v13 {
+    width: 2px;
+    height: 60px;
+    background: linear-gradient(180deg, 
+        rgba(204, 204, 204, 0.2) 0%, 
+        rgba(204, 204, 204, 0.6) 50%, 
+        rgba(204, 204, 204, 0.2) 100%);
+    margin: 0 7.5px;
+}
+
+/* Contact Details - Stacked Vertically */
+.contact-section-v13 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-left: 7.5px;
+}
+
+.contact-item-v13 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #666666;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-item-v13:hover {
+    color: #666666;
+    font-weight: 700;
+    transform: translateY(-4px);
+    text-shadow: 
+        0 2px 16px rgba(102, 144, 204, 0.8),
+        0 4px 20px rgba(0, 0, 0, 0.15),
+        0 0 32px rgba(102, 144, 204, 0.6);
+    filter: drop-shadow(0 6px 12px rgba(102, 144, 204, 0.5)) 
+            drop-shadow(0 10px 25px rgba(0, 0, 0, 0.18));
+    position: relative;
+}
+
+.contact-item-v13 span {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+}
+
+.contact-item-v13:hover span {
+    font-weight: 700;
+    transform: translateY(-1px);
+    letter-spacing: -0.015em;
+}
+
+/* Contact Icons - Sage Blue, Smaller Size */
+.contact-icon-v13 {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(102, 144, 204, 0.5);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(102, 144, 204, 0.6);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 2px 8px rgba(102, 144, 204, 0.3),
+        0 4px 16px rgba(0, 0, 0, 0.08),
+        inset 0 1px 2px rgba(255, 255, 255, 0.9),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.contact-item-v13:hover .contact-icon-v13 {
+    transform: scale(1.15) translateY(-4px);
+    backdrop-filter: blur(6px);
+    box-shadow: 
+        0 4px 12px rgba(102, 144, 204, 0.4),
+        0 8px 24px rgba(0, 0, 0, 0.12),
+        0 0 20px rgba(102, 144, 204, 0.3),
+        inset 0 1px 3px rgba(255, 255, 255, 0.95),
+        inset 0 -2px 2px rgba(0, 0, 0, 0.08);
+}
+
+.contact-icon-v13 svg {
+    color: #333333;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-item-v13:hover .contact-icon-v13 svg {
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .contact-section-v13 {
+        display: none;
+    }
+    .separator-v13 {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-main {
+        flex-wrap: wrap;
+        height: auto;
+        min-height: 155px;
+    }
+    
+    .search-section-v13 {
+        order: 3;
+        flex: 1 1 100%;
+        margin-top: 10px;
+        padding: 0;
+    }
+    
+    .actions-section-v13 {
+        gap: 5px;
+    }
+    
+    .action-icon-v13 {
+        width: 40px;
+        height: 40px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- NEW HEADER V37 INTEGRATED -->
+<header class="new-header">
+    <div class="header-main">
+        <!-- LEFT: Logo Section (PERFECT - DO NOT MODIFY) -->
+        <div class="logo-section-v13">
+            <a href="/">
+                <img src="Logo-01.png" alt="FenTuRo Logo">
+            </a>
+        </div>
+        
+        <!-- CENTER: Search Bar -->
+        <div class="search-section-v13">
+            <div class="search-container-v13">
+                <div class="search-box-v13">
+                    <input type="search" 
+                           class="search-input-v13" 
+                           placeholder="Suchbegriff / Artikelnummer" />
+                    <button type="submit" class="search-button-v13">
+                        <div class="icon-glassmorphism-v13">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="M21 21l-4.35-4.35"></path>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- RIGHT: Action Icons + Separator + Contact Details -->
+        <div class="right-section-v13">
+            <!-- Action Icons Container -->
+            <div class="actions-section-v13">
+                <!-- Account Icon (Login) -->
+                <a href="/my-account" class="action-icon-v13 account" title="Anmelden">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </a>
+                
+                <!-- Create Account Icon -->
+                <a href="/register" class="action-icon-v13 create-account" title="Konto erstellen">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <line x1="19" y1="8" x2="19" y2="14"></line>
+                        <line x1="22" y1="11" x2="16" y2="11"></line>
+                    </svg>
+                </a>
+                
+                <!-- Cart Icon -->
+                <a href="#" class="action-icon-v13 cart" title="Warenkorb">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                </a>
+            </div>
+            
+            <!-- Separator Line -->
+            <div class="separator-v13"></div>
+            
+            <!-- Contact Details - Stacked Vertically -->
+            <div class="contact-section-v13">
+                <!-- Phone Contact -->
+                <a href="tel:03043970759" class="contact-item-v13">
+                    <div class="contact-icon-v13">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                    </div>
+                    <span>030 439 707 59</span>
+                </a>
+                
+                <!-- Email Contact -->
+                <a href="mailto:info@fenstermaxx24.com" class="contact-item-v13">
+                    <div class="contact-icon-v13">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <span>info@fenstermaxx24.com</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Demo Content to Show Header -->
+<div style="padding: 40px; max-width: 1200px; margin: 0 auto;">
+    <h1>Header V37 - Integrated Design</h1>
+    <p style="margin-top: 20px; color: #666;">
+        This header combines your perfect logo sizing (150px logo in 155px header) 
+        with all the design elements from homepage-v34.html including:
+    </p>
+    <ul style="margin-top: 15px; color: #666; line-height: 1.8;">
+        <li>✓ White background with blur effect (#FFFFFF 95% opacity)</li>
+        <li>✓ Icons from homepage (not from previous bad header)</li>
+        <li>✓ Glassmorphism effects with sage blue (#6690CC)</li>
+        <li>✓ Search bar centered with proper styling</li>
+        <li>✓ Contact details (phone + email) with hover effects</li>
+        <li>✓ All hover animations and color scheme unified</li>
+        <li>✓ Logo sizing and placement untouched</li>
+    </ul>
+    
+    <div style="margin-top: 30px; padding: 20px; background: #f0f0f0; border-radius: 8px;">
+        <h3>Verification:</h3>
+        <ul style="margin-top: 10px; list-style: none;">
+            <li>✓ Logo Height: 150px (verified in CSS)</li>
+            <li>✓ Header Height: 155px (verified in CSS)</li>
+            <li>✓ Background: White with blur (from homepage-v34)</li>
+            <li>✓ Icons: From homepage-v34 (not old header)</li>
+            <li>✓ Color Scheme: #6690CC sage blue unified</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
