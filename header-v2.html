@@ -29,28 +29,6 @@
             width: 100%;
             height: 155px;
             background-color: #ffffff;
-            background-image: 
-                /* Quarter marker lines - BOLD and VISIBLE */
-                linear-gradient(0deg, rgba(255,0,0,0.3) 0px, rgba(255,0,0,0.3) 3px, transparent 3px, transparent 100%) 0 39px,
-                linear-gradient(0deg, rgba(0,0,255,0.4) 0px, rgba(0,0,255,0.4) 3px, transparent 3px, transparent 100%) 0 78px,
-                linear-gradient(0deg, rgba(255,0,0,0.3) 0px, rgba(255,0,0,0.3) 3px, transparent 3px, transparent 100%) 0 116px,
-                linear-gradient(0deg, rgba(0,128,0,0.4) 0px, rgba(0,128,0,0.4) 3px, transparent 3px, transparent 100%) 0 155px,
-                /* Vertical major markers every 100px */
-                linear-gradient(90deg, rgba(128,0,128,0.3) 0px, rgba(128,0,128,0.3) 3px, transparent 3px, transparent 100%) 100px 0,
-                linear-gradient(90deg, rgba(128,0,128,0.3) 0px, rgba(128,0,128,0.3) 3px, transparent 3px, transparent 100%) 200px 0,
-                linear-gradient(90deg, rgba(128,0,128,0.3) 0px, rgba(128,0,128,0.3) 3px, transparent 3px, transparent 100%) 300px 0,
-                linear-gradient(90deg, rgba(128,0,128,0.3) 0px, rgba(128,0,128,0.3) 3px, transparent 3px, transparent 100%) 400px 0,
-                linear-gradient(90deg, rgba(128,0,128,0.3) 0px, rgba(128,0,128,0.3) 3px, transparent 3px, transparent 100%) 500px 0,
-                linear-gradient(90deg, rgba(128,0,128,0.3) 0px, rgba(128,0,128,0.3) 3px, transparent 3px, transparent 100%) 600px 0,
-                linear-gradient(90deg, rgba(128,0,128,0.3) 0px, rgba(128,0,128,0.3) 3px, transparent 3px, transparent 100%) 700px 0,
-                linear-gradient(90deg, rgba(128,0,128,0.3) 0px, rgba(128,0,128,0.3) 3px, transparent 3px, transparent 100%) 800px 0,
-                linear-gradient(90deg, rgba(128,0,128,0.3) 0px, rgba(128,0,128,0.3) 3px, transparent 3px, transparent 100%) 900px 0,
-                linear-gradient(90deg, rgba(128,0,128,0.3) 0px, rgba(128,0,128,0.3) 3px, transparent 3px, transparent 100%) 1000px 0,
-                /* Regular 10px grid - subtle */
-                repeating-linear-gradient(0deg, rgba(200,200,200,0.15) 0px, rgba(200,200,200,0.15) 1px, transparent 1px, transparent 10px),
-                repeating-linear-gradient(90deg, rgba(200,200,200,0.15) 0px, rgba(200,200,200,0.15) 1px, transparent 1px, transparent 10px);
-            background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
-            background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat, repeat;
             display: flex;
             align-items: flex-start;
             justify-content: flex-start;
@@ -60,17 +38,53 @@
             position: relative;
         }
         
+        /* Grid lines - Horizontal (Height divisions - 1/4) */
+        .grid-line-h {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 0;
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        .grid-line-h.line-25 {
+            top: 25%;
+            border-top: 2px solid rgba(255,0,0,0.5);
+        }
+        
+        .grid-line-h.line-50 {
+            top: 50%;
+            border-top: 2px solid rgba(0,0,255,0.5);
+        }
+        
+        .grid-line-h.line-75 {
+            top: 75%;
+            border-top: 2px solid rgba(255,0,0,0.5);
+        }
+        
+        /* Grid lines - Vertical (Width divisions - 1/11) */
+        .grid-line-v {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 0;
+            pointer-events: none;
+            z-index: 10;
+            border-left: 2px solid rgba(0,0,255,0.4);
+        }
+        
         /* Grid number labels */
         .grid-label-y {
             position: absolute;
-            left: -50px;
-            font-size: 13px;
+            left: -60px;
+            font-size: 12px;
             font-weight: bold;
             color: #333;
             background: rgba(255,255,255,0.95);
-            padding: 2px 6px;
+            padding: 3px 8px;
             border-radius: 3px;
-            border: 1px solid #ccc;
+            border: 1px solid #999;
             transform: translateY(-50%);
             z-index: 1000;
             box-shadow: 0 1px 3px rgba(0,0,0,0.2);
@@ -78,23 +92,21 @@
         
         .grid-label-x {
             position: absolute;
-            top: -25px;
-            font-size: 13px;
+            top: -30px;
+            font-size: 11px;
             font-weight: bold;
             color: #333;
             background: rgba(255,255,255,0.95);
             padding: 2px 6px;
             border-radius: 3px;
-            border: 1px solid #ccc;
+            border: 1px solid #999;
             transform: translateX(-50%);
             z-index: 1000;
             box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
         
-        .grid-label-y.red { border-left: 3px solid rgba(255,0,0,0.6); }
-        .grid-label-y.blue { border-left: 3px solid rgba(0,0,255,0.6); }
-        .grid-label-y.green { border-left: 3px solid rgba(0,128,0,0.6); }
-        .grid-label-x.purple { border-top: 3px solid rgba(128,0,128,0.6); }
+        .grid-label-y.red { border-left: 3px solid rgba(255,0,0,0.7); }
+        .grid-label-y.blue { border-left: 3px solid rgba(0,0,255,0.7); }
 
         /* Logo link (hitbox) styling */
         .logo-link {
@@ -171,23 +183,39 @@
 <body>
 
     <header class="site-header">
-        <!-- Grid Labels - Y-axis (Height) -->
-        <div class="grid-label-y red" style="top: 39px;">39px (1/4)</div>
-        <div class="grid-label-y blue" style="top: 78px;">78px (2/4)</div>
-        <div class="grid-label-y red" style="top: 116px;">116px (3/4)</div>
-        <div class="grid-label-y green" style="top: 155px;">155px (4/4)</div>
+        <!-- Grid Lines - Horizontal (Height - 1/4 divisions) -->
+        <div class="grid-line-h line-25"></div>
+        <div class="grid-line-h line-50"></div>
+        <div class="grid-line-h line-75"></div>
         
-        <!-- Grid Labels - X-axis (Width) -->
-        <div class="grid-label-x purple" style="left: 100px;">100px</div>
-        <div class="grid-label-x purple" style="left: 200px;">200px</div>
-        <div class="grid-label-x purple" style="left: 300px;">300px</div>
-        <div class="grid-label-x purple" style="left: 400px;">400px</div>
-        <div class="grid-label-x purple" style="left: 500px;">500px</div>
-        <div class="grid-label-x purple" style="left: 600px;">600px</div>
-        <div class="grid-label-x purple" style="left: 700px;">700px</div>
-        <div class="grid-label-x purple" style="left: 800px;">800px</div>
-        <div class="grid-label-x purple" style="left: 900px;">900px</div>
-        <div class="grid-label-x purple" style="left: 1000px;">1000px</div>
+        <!-- Grid Lines - Vertical (Width - 1/11 divisions) -->
+        <div class="grid-line-v" style="left: 9.09%;"></div>
+        <div class="grid-line-v" style="left: 18.18%;"></div>
+        <div class="grid-line-v" style="left: 27.27%;"></div>
+        <div class="grid-line-v" style="left: 36.36%;"></div>
+        <div class="grid-line-v" style="left: 45.45%;"></div>
+        <div class="grid-line-v" style="left: 54.54%;"></div>
+        <div class="grid-line-v" style="left: 63.63%;"></div>
+        <div class="grid-line-v" style="left: 72.72%;"></div>
+        <div class="grid-line-v" style="left: 81.81%;"></div>
+        <div class="grid-line-v" style="left: 90.91%;"></div>
+        
+        <!-- Grid Labels - Y-axis (Height) -->
+        <div class="grid-label-y red" style="top: 25%;">39px (1/4)</div>
+        <div class="grid-label-y blue" style="top: 50%;">78px (2/4)</div>
+        <div class="grid-label-y red" style="top: 75%;">116px (3/4)</div>
+        
+        <!-- Grid Labels - X-axis (Width - every 1/11) -->
+        <div class="grid-label-x" style="left: 9.09%;">9%</div>
+        <div class="grid-label-x" style="left: 18.18%;">18%</div>
+        <div class="grid-label-x" style="left: 27.27%;">27%</div>
+        <div class="grid-label-x" style="left: 36.36%;">36%</div>
+        <div class="grid-label-x" style="left: 45.45%;">45%</div>
+        <div class="grid-label-x" style="left: 54.54%;">55%</div>
+        <div class="grid-label-x" style="left: 63.63%;">64%</div>
+        <div class="grid-label-x" style="left: 72.72%;">73%</div>
+        <div class="grid-label-x" style="left: 81.81%;">82%</div>
+        <div class="grid-label-x" style="left: 90.91%;">91%</div>
         
         <a href="#" class="logo-link">
             <img src="Logo-01.png" alt="FenTuRo Logo" class="logo-image">
@@ -195,20 +223,24 @@
     </header>
 
     <main>
-        <h2>Header V2 - With Measurement Grid & Visible Markers</h2>
-        <p><strong>What's New:</strong></p>
+        <h2>Header V2 - With Visible Grid Lines</h2>
+        <p><strong>Grid System:</strong></p>
         <ul>
-            <li><strong>Gradient Grid:</strong> 10px × 10px measurement grid for precise positioning</li>
-            <li><strong>BOLD Marker Lines:</strong> Highly visible 3px thick lines at key positions</li>
-            <li><strong>Color-Coded Markers:</strong>
+            <li><strong>Height Lines (1/4 divisions):</strong>
                 <ul>
-                    <li>Red lines: 39px (1/4), 116px (3/4)</li>
-                    <li>Blue line: 78px (2/4 - midpoint)</li>
-                    <li>Green line: 155px (4/4 - full height)</li>
-                    <li>Purple lines: Every 100px horizontally</li>
+                    <li>Line at 25% (39px) - Red</li>
+                    <li>Line at 50% (78px) - Blue (midpoint)</li>
+                    <li>Line at 75% (116px) - Red</li>
+                    <li>Creates 4 equal vertical sections</li>
                 </ul>
             </li>
-            <li><strong>Number Labels:</strong> Clear pixel measurements at all major markers</li>
+            <li><strong>Width Lines (1/11 divisions):</strong>
+                <ul>
+                    <li>10 blue lines dividing width into 11 equal sections</li>
+                    <li>Lines at: 9%, 18%, 27%, 36%, 45%, 55%, 64%, 73%, 82%, 91%</li>
+                </ul>
+            </li>
+            <li><strong>Line Style:</strong> 2px solid borders, semi-transparent</li>
             <li><strong>White Background:</strong> Solid white for contrast</li>
         </ul>
         
@@ -220,27 +252,15 @@
             <li>Bottom margin: 2.5px</li>
         </ul>
 
-        <p><strong>Height Markers (Quarters):</strong></p>
-        <ul>
-            <li><strong>39px (1/4):</strong> First quarter - Red line</li>
-            <li><strong>78px (2/4):</strong> Midpoint - Blue line</li>
-            <li><strong>116px (3/4):</strong> Third quarter - Red line</li>
-            <li><strong>155px (4/4):</strong> Full height - Green line</li>
-        </ul>
-
-        <p><strong>Width Markers (Every 100px):</strong></p>
-        <ul>
-            <li>Purple lines at: 100px, 200px, 300px, 400px, 500px, 600px, 700px, 800px, 900px, 1000px</li>
-        </ul>
-
         <p><strong>Grid Usage:</strong></p>
-        <p>The bold colored lines and number labels make it easy to position elements precisely. Use the numbers to specify exact coordinates:</p>
+        <p>The visible grid lines make it easy to position elements precisely:</p>
         <ul>
-            <li>Example: "Place icon at X:400px, Y:78px" (at midpoint)</li>
-            <li>Example: "Place icon at X:200px, Y:39px" (at first quarter)</li>
+            <li><strong>Height sections:</strong> 4 equal sections (0-25%, 25-50%, 50-75%, 75-100%)</li>
+            <li><strong>Width sections:</strong> 11 equal sections for distributing elements</li>
+            <li>Example: "Place icon in 3rd eleventh (between 18% and 27%) at 2nd quarter height"</li>
         </ul>
 
-        <p><strong>Ready for:</strong> Icons and other elements to be placed at exact X,Y coordinates you specify using the visible markers.</p>
+        <p><strong>Ready for:</strong> Icons and other elements to be placed at specific grid positions.</p>
     </main>
 
 </body>
