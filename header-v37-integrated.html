@@ -43,9 +43,7 @@ body {
 .logo-section-v13 {
     flex: 0 0 auto;
     margin-right: 60px;
-    display: flex;
-    align-items: center;
-    height: 155px;
+    /* Removed flex/align-items that were shrinking logo */
 }
 
 .logo-section-v13 a {
@@ -58,6 +56,7 @@ body {
     height: 150px; /* FIXED - DO NOT CHANGE */
     width: auto;
     max-width: 200px;
+    /* Logo displays at natural size without flex constraints */
 }
 
 /* ===== CENTER: SEARCH BAR ===== */
