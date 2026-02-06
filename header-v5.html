@@ -512,7 +512,7 @@
         /* Contact Section */
         .contact-section {
             position: absolute;
-            top: 37.5px;   /* Moved down 12.5px from 25px for better positioning */
+            top: 39.5px;   /* Moved down 2px more for fine-tuned positioning */
             right: 50px; /* Moved left 30px from 20px */
             display: flex;
             flex-direction: column;
@@ -588,6 +588,8 @@
             transition: all 0.3s ease;
             position: relative;
             white-space: nowrap;  /* Prevent wrapping */
+            text-align: left;      /* Force left alignment for stable hover */
+            display: inline-block;  /* Control sizing to prevent icon shift */
         }
 
         .contact-item:hover .contact-text {
@@ -595,29 +597,31 @@
             color: #666;  /* Stay grey, not blue */
         }
 
-        /* Shimmer background effect on hover */
+        /* Shimmer underline effect on hover */
         .contact-text::before {
             content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: radial-gradient(
-                circle,
-                rgba(102, 144, 204, 0.3) 0%,   /* Brighter (was 0.15) */
-                transparent 60%                 /* Tighter spread (was 70%) */
+            bottom: -2px;      /* Positioned just below text */
+            left: 0;
+            right: 0;
+            height: 2px;       /* Thin underline */
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(102, 144, 204, 0.6) 20%,   /* Blue glow from edges */
+                rgba(102, 144, 204, 0.8) 50%,   /* Brightest in center */
+                rgba(102, 144, 204, 0.6) 80%,   /* Blue glow to edges */
+                transparent 100%
             );
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            transition: width 0.4s ease, height 0.4s ease;
+            box-shadow: 0 0 8px rgba(102, 144, 204, 0.5);  /* Glowing effect */
+            opacity: 0;
+            transition: opacity 0.3s ease;
             z-index: -1;
             pointer-events: none;
         }
 
         .contact-item:hover .contact-text::before {
-            width: 120px;   /* Less spread (was 200px) */
-            height: 120px;
+            opacity: 1;  /* Fade in underline glow on hover */
         }
 
         /* Responsive design */
