@@ -140,8 +140,25 @@
         }
 
         .icon-new.active {
-            background: radial-gradient(circle at center, rgba(102, 144, 204, 0.5) 0%, rgba(102, 144, 204, 0.3) 100%);
+            transform: scale(1.15) translateY(-4px);
+            background: radial-gradient(circle at center, rgba(102, 144, 204, 0.55) 0%, rgba(102, 144, 204, 0.35) 100%);
             border: 1px solid rgba(102, 144, 204, 0.7);
+            box-shadow: 
+                0 0 0 1px rgba(102, 144, 204, 0.4),
+                0 8px 24px rgba(102, 144, 204, 0.4),
+                0 4px 12px rgba(0, 0, 0, 0.15),
+                inset 0 1px 2px rgba(255, 255, 255, 0.7),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(6px);
+        }
+        
+        .icon-new.active::after {
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.4) 40%,
+                transparent 100%
+            );
         }
 
         /* Background Overlay */
@@ -336,8 +353,9 @@
         }
 
         .cart-checkout:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 144, 204, 0.3);
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 6px 16px rgba(102, 144, 204, 0.4);
+            background: linear-gradient(135deg, #7AA0DD 0%, #6690CC 100%);
         }
 
         .cart-empty {
@@ -419,8 +437,9 @@
         }
 
         .account-login:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 144, 204, 0.3);
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 6px 16px rgba(102, 144, 204, 0.4);
+            background: linear-gradient(135deg, #7AA0DD 0%, #6690CC 100%);
         }
 
         .account-separator {
@@ -452,8 +471,8 @@
         .account-register:hover {
             background: #6690CC;
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 144, 204, 0.3);
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 6px 16px rgba(102, 144, 204, 0.4);
         }
 
         /* Demo Content */
