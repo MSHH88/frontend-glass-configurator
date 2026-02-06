@@ -81,7 +81,7 @@
             top: 55.5px;
             right: 260px;
             display: flex;
-            gap: 24px;
+            gap: 18px;  /* Reduced from 24px (25% reduction) */
             align-items: center;
         }
 
@@ -512,8 +512,8 @@
         /* Contact Section */
         .contact-section {
             position: absolute;
-            top: 50px;
-            right: 20px;
+            top: 25px;   /* Moved up 25px from 50px */
+            right: 50px; /* Moved left 30px from 20px */
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -529,9 +529,9 @@
 
         .contact-icon {
             position: relative;
-            width: 36px;
-            height: 36px;
-            border-radius: 9px;
+            width: 31px;   /* Reduced from 36px (15% reduction) */
+            height: 31px;  /* Reduced from 36px (15% reduction) */
+            border-radius: 8px;  /* Proportional reduction from 9px */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -572,8 +572,8 @@
         }
 
         .contact-icon svg {
-            width: 20px;
-            height: 20px;
+            width: 17px;   /* Proportional to 31px container (was 20px for 36px) */
+            height: 17px;
             stroke: #333;
             stroke-width: 2;
             fill: none;
@@ -583,13 +583,39 @@
 
         .contact-text {
             font-size: 14px;
-            color: #333;
+            color: #666;  /* Grey from color scheme */
             transition: all 0.3s ease;
+            position: relative;
         }
 
         .contact-item:hover .contact-text {
             font-weight: bold;
-            color: #6690CC;
+            color: #666;  /* Stay grey, not blue */
+        }
+
+        /* Shimmer background effect on hover */
+        .contact-text::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(
+                circle,
+                rgba(102, 144, 204, 0.15) 0%,
+                transparent 70%
+            );
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            transition: width 0.4s ease, height 0.4s ease;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .contact-item:hover .contact-text::before {
+            width: 200px;
+            height: 200px;
         }
 
         /* Responsive design */
