@@ -113,47 +113,148 @@
             letter-spacing: -0.015em;
         }
         
-        /* Contact Icons - Squared Glassmorphism Look with Sage Blue */
+        /* NEW CONTACT ICONS - iOS Glass Lens Effect with Grey-to-Blue Gradient */
         .contact-icon-v13 {
             width: 36px;
             height: 36px;
-            border-radius: 12px; /* Squared look */
+            border-radius: 10px; /* Squared look */
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(102, 144, 204, 0.5);
+            position: relative;
+            
+            /* 3-layer gradient: top highlight + blue shimmer + base gradient */
+            background: 
+                /* Top highlight ellipse (light refraction) */
+                radial-gradient(
+                    ellipse 100% 100% at 50% 20%,
+                    rgba(255, 255, 255, 0.4) 0%,
+                    transparent 50%
+                ),
+                /* Diagonal blue shimmer overlay */
+                linear-gradient(
+                    135deg,
+                    rgba(102, 144, 204, 0.3) 0%,
+                    transparent 50%
+                ),
+                /* Base radial gradient (grey edge to baby blue center) */
+                radial-gradient(
+                    circle at center,
+                    rgba(102, 144, 204, 0.35) 0%,
+                    rgba(102, 144, 204, 0.18) 50%,
+                    rgba(150, 150, 150, 0.15) 100%
+                );
+            
+            /* Border */
+            border: 1px solid rgba(150, 150, 150, 0.3);
+            
+            /* 5-layer shadow system for 3D depth */
+            box-shadow: 
+                /* Inset top highlight (light catching) */
+                inset 0 1px 2px rgba(255, 255, 255, 0.6),
+                /* Top outer glow (blue shimmer) */
+                0 1px 1px rgba(102, 144, 204, 0.3),
+                /* Inset bottom shadow (depth) */
+                inset 0 -1px 2px rgba(0, 0, 0, 0.1),
+                /* Blue ambient glow */
+                0 4px 12px rgba(102, 144, 204, 0.25),
+                /* Base depth shadow */
+                0 2px 6px rgba(0, 0, 0, 0.15);
+            
+            /* Blur effect */
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
-            border: 1px solid rgba(102, 144, 204, 0.6);
+            
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 
-                0 2px 8px rgba(102, 144, 204, 0.3),
-                0 4px 16px rgba(0, 0, 0, 0.08),
-                inset 0 1px 2px rgba(255, 255, 255, 0.9),
-                inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Curved top highlight (glass lens effect) */
+        .contact-icon-v13::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 40%;
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.7) 0%,
+                rgba(255, 255, 255, 0.3) 40%,
+                transparent 100%
+            );
+            border-radius: 50% 50% 80% 80% / 60% 60% 40% 40%;
+            pointer-events: none;
+            opacity: 0.8;
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .contact-item-v13:hover .contact-icon-v13 {
-            transform: scale(1.15) translateY(-4px);
+            /* Brighter gradient on hover */
+            background: 
+                radial-gradient(
+                    ellipse 100% 100% at 50% 20%,
+                    rgba(255, 255, 255, 0.5) 0%,
+                    transparent 50%
+                ),
+                linear-gradient(
+                    135deg,
+                    rgba(102, 144, 204, 0.35) 0%,
+                    transparent 50%
+                ),
+                radial-gradient(
+                    circle at center,
+                    rgba(102, 144, 204, 0.55) 0%,
+                    rgba(102, 144, 204, 0.35) 50%,
+                    rgba(102, 144, 204, 0.25) 100%
+                );
+            
+            /* Enhanced border */
+            border: 1px solid rgba(102, 144, 204, 0.6);
+            
+            /* Enhanced blur */
             backdrop-filter: blur(6px);
             -webkit-backdrop-filter: blur(6px);
+            
+            /* Enhanced shadows with stronger blue glow */
             box-shadow: 
-                0 4px 12px rgba(102, 144, 204, 0.4),
-                0 8px 24px rgba(0, 0, 0, 0.12),
-                0 0 20px rgba(102, 144, 204, 0.3),
-                inset 0 1px 3px rgba(255, 255, 255, 0.95),
-                inset 0 -2px 2px rgba(0, 0, 0, 0.08);
+                inset 0 1px 2px rgba(255, 255, 255, 0.8),
+                0 1px 2px rgba(102, 144, 204, 0.5),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.15),
+                0 8px 24px rgba(102, 144, 204, 0.4),
+                0 8px 24px rgba(0, 0, 0, 0.12);
+            
+            /* Lift and scale */
+            transform: scale(1.15) translateY(-4px);
+        }
+        
+        /* Enhanced glass lens highlight on hover */
+        .contact-item-v13:hover .contact-icon-v13::after {
+            opacity: 1;
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.4) 40%,
+                transparent 100%
+            );
         }
         
         .contact-icon-v13 svg {
-            width: 18px;
-            height: 18px;
-            color: #333333;
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: #333333;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            position: relative;
+            z-index: 1;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .contact-item-v13:hover .contact-icon-v13 svg {
-            transform: scale(1.1);
+            stroke: #222222;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
         }
 
         /* Main content area */
