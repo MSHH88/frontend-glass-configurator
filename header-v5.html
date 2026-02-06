@@ -585,43 +585,51 @@
         .contact-text {
             font-size: 14px;
             color: #666;  /* Grey from color scheme */
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             white-space: nowrap;  /* Prevent wrapping */
-            text-align: left;      /* Force left alignment for stable hover */
-            display: inline-block;  /* Control sizing to prevent icon shift */
+            justify-self: start;  /* Anchor to start of grid cell - prevents left shift */
+            width: fit-content;   /* Only take needed space */
+            margin-right: auto;   /* Ensure left alignment in grid */
         }
 
         .contact-item:hover .contact-text {
             font-weight: bold;
             color: #666;  /* Stay grey, not blue */
+            letter-spacing: -0.015em;  /* Compensate for bold width increase */
+            /* Shimmer glow from behind/underneath the text */
+            text-shadow: 
+                0 0 12px rgba(102, 144, 204, 0.6),
+                0 0 24px rgba(102, 144, 204, 0.4),
+                0 0 36px rgba(102, 144, 204, 0.2);
         }
 
-        /* Shimmer underline effect on hover */
+        /* Shimmer glow effect spreading from behind the text */
         .contact-text::before {
             content: '';
             position: absolute;
-            bottom: -2px;      /* Positioned just below text */
-            left: 0;
-            right: 0;
-            height: 2px;       /* Thin underline */
-            background: linear-gradient(
-                90deg,
-                transparent 0%,
-                rgba(102, 144, 204, 0.6) 20%,   /* Blue glow from edges */
-                rgba(102, 144, 204, 0.8) 50%,   /* Brightest in center */
-                rgba(102, 144, 204, 0.6) 80%,   /* Blue glow to edges */
-                transparent 100%
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                ellipse at center,
+                rgba(102, 144, 204, 0.4) 0%,
+                rgba(102, 144, 204, 0.2) 30%,
+                transparent 70%
             );
-            box-shadow: 0 0 8px rgba(102, 144, 204, 0.5);  /* Glowing effect */
+            filter: blur(10px);
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: -1;
             pointer-events: none;
         }
 
         .contact-item:hover .contact-text::before {
-            opacity: 1;  /* Fade in underline glow on hover */
+            opacity: 1;
+            width: 150%;   /* Spread outward */
+            height: 150%;  /* Spread outward */
         }
 
         /* Responsive design */
