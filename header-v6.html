@@ -78,19 +78,19 @@
         /* Icon container */
         .icon-container {
             position: absolute;
-            top: 53.5px;
-            right: 240px;
+            top: 55.5px;
+            right: 260px;
             display: flex;
-            gap: 26px;
+            gap: 18px;  /* Reduced from 24px (25% reduction) */
             align-items: center;
         }
 
         /* Icons with iOS Glass Lens Effect */
         .icon-new {
             position: relative;
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+            width: 44px;
+            height: 44px;
+            border-radius: 11px;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -158,8 +158,8 @@
         }
 
         .icon-new svg {
-            width: 26px;
-            height: 26px;
+            width: 24px;
+            height: 24px;
             stroke: #333;
             stroke-width: 2;
             fill: none;
@@ -509,6 +509,129 @@
             box-shadow: 0 6px 16px rgba(102, 144, 204, 0.4);
         }
 
+        /* Contact Section */
+        .contact-section {
+            position: absolute;
+            top: 39.5px;   /* Moved down 2px more for fine-tuned positioning */
+            right: 50px; /* Moved left 30px from 20px */
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: grid;
+            grid-template-columns: 31px 1fr;  /* Fixed icon column, flexible text */
+            gap: 10px;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact-icon {
+            position: relative;
+            width: 31px;   /* Reduced from 36px (15% reduction) */
+            height: 31px;  /* Reduced from 36px (15% reduction) */
+            border-radius: 8px;  /* Proportional reduction from 9px */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* 3-layer gradient for water droplet effect */
+            background: 
+                radial-gradient(ellipse 100% 100% at 50% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(102, 144, 204, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at center, rgba(102, 144, 204, 0.35) 0%, rgba(102, 144, 204, 0.18) 50%, rgba(150, 150, 150, 0.15) 100%);
+            
+            border: 1px solid rgba(102, 144, 204, 0.4);
+            
+            /* 5-layer shadow system for 3D depth */
+            box-shadow:
+                inset 0 1px 2px rgba(255, 255, 255, 0.6),
+                0 1px 1px rgba(102, 144, 204, 0.3),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.1),
+                0 4px 12px rgba(102, 144, 204, 0.25),
+                0 2px 6px rgba(0, 0, 0, 0.15);
+            
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        /* Curved top highlight (glass lens effect) */
+        .contact-icon::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 40%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.3) 40%, transparent 100%);
+            border-radius: 50% 50% 80% 80% / 60% 60% 40% 40%;
+            pointer-events: none;
+        }
+
+        .contact-icon svg {
+            width: 17px;   /* Proportional to 31px container (was 20px for 36px) */
+            height: 17px;
+            stroke: #333;
+            stroke-width: 2;
+            fill: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-text {
+            font-size: 14px;
+            color: #666;  /* Grey from color scheme */
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            white-space: nowrap;  /* Prevent wrapping */
+            justify-self: start;  /* Anchor to start of grid cell - prevents left shift */
+            width: fit-content;   /* Only take needed space */
+            margin-right: auto;   /* Ensure left alignment in grid */
+        }
+
+        .contact-item:hover .contact-text {
+            font-weight: bold;
+            color: #666;  /* Stay grey, not blue */
+            letter-spacing: -0.015em;  /* Compensate for bold width increase */
+            /* Shimmer glow from behind/underneath the text */
+            text-shadow: 
+                0 0 12px rgba(102, 144, 204, 0.6),
+                0 0 24px rgba(102, 144, 204, 0.4),
+                0 0 36px rgba(102, 144, 204, 0.2);
+        }
+
+        /* Shimmer glow effect spreading from behind the text */
+        .contact-text::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                ellipse at center,
+                rgba(102, 144, 204, 0.4) 0%,
+                rgba(102, 144, 204, 0.2) 30%,
+                transparent 70%
+            );
+            filter: blur(10px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .contact-item:hover .contact-text::before {
+            opacity: 1;
+            width: 150%;   /* Spread outward */
+            height: 150%;  /* Spread outward */
+        }
+
         /* Responsive design */
         @media (max-width: 768px) {
             .site-header {
@@ -588,6 +711,30 @@
                     <circle cx="20" cy="21" r="1"></circle>
                     <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                 </svg>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <!-- Phone -->
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                </div>
+                <span class="contact-text">030 439 707 59</span>
+            </div>
+
+            <!-- Email -->
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </div>
+                <span class="contact-text">fenturo@fenster.de</span>
             </div>
         </div>
     </header>
