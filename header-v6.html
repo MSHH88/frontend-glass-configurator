@@ -591,12 +591,13 @@
             justify-self: start;  /* Anchor to start of grid cell - prevents left shift */
             width: fit-content;   /* Only take needed space */
             margin-right: auto;   /* Ensure left alignment in grid */
+            min-width: 150px;     /* Reserve minimum space to prevent grid reflow */
         }
 
         .contact-item:hover .contact-text {
             font-weight: bold;
             color: #666;  /* Stay grey, not blue */
-            letter-spacing: -0.015em;  /* Compensate for bold width increase */
+            letter-spacing: -0.03em;  /* Increased compensation for bold width (was -0.015em) */
             /* Shimmer glow from behind/underneath the text */
             text-shadow: 
                 0 0 12px rgba(102, 144, 204, 0.6),
