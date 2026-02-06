@@ -512,7 +512,7 @@
         /* Contact Section */
         .contact-section {
             position: absolute;
-            top: 25px;   /* Moved up 25px from 50px */
+            top: 37.5px;   /* Moved down 12.5px from 25px for better positioning */
             right: 50px; /* Moved left 30px from 20px */
             display: flex;
             flex-direction: column;
@@ -520,9 +520,10 @@
         }
 
         .contact-item {
-            display: flex;
-            align-items: center;
+            display: grid;
+            grid-template-columns: 31px 1fr;  /* Fixed icon column, flexible text */
             gap: 10px;
+            align-items: center;
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -586,6 +587,7 @@
             color: #666;  /* Grey from color scheme */
             transition: all 0.3s ease;
             position: relative;
+            white-space: nowrap;  /* Prevent wrapping */
         }
 
         .contact-item:hover .contact-text {
@@ -603,8 +605,8 @@
             height: 0;
             background: radial-gradient(
                 circle,
-                rgba(102, 144, 204, 0.15) 0%,
-                transparent 70%
+                rgba(102, 144, 204, 0.3) 0%,   /* Brighter (was 0.15) */
+                transparent 60%                 /* Tighter spread (was 70%) */
             );
             transform: translate(-50%, -50%);
             border-radius: 50%;
@@ -614,8 +616,8 @@
         }
 
         .contact-item:hover .contact-text::before {
-            width: 200px;
-            height: 200px;
+            width: 120px;   /* Less spread (was 200px) */
+            height: 120px;
         }
 
         /* Responsive design */
