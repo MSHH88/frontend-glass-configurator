@@ -512,8 +512,8 @@
         /* Contact Section */
         .contact-section {
             position: absolute;
-            top: 39.5px;   /* Moved down 2px more for fine-tuned positioning */
-            right: 50px; /* Moved left 30px from 20px */
+            top: 40px;     /* Moved down 0.5px more (39.5px + 0.5px = 40px) */
+            right: 25px;   /* Moved right 25px (50px - 25px = 25px) - space for future separator line */
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -591,12 +591,13 @@
             justify-self: start;  /* Anchor to start of grid cell - prevents left shift */
             width: fit-content;   /* Only take needed space */
             margin-right: auto;   /* Ensure left alignment in grid */
+            min-width: 150px;     /* Reserve minimum space to prevent grid reflow */
         }
 
         .contact-item:hover .contact-text {
             font-weight: bold;
             color: #666;  /* Stay grey, not blue */
-            letter-spacing: -0.015em;  /* Compensate for bold width increase */
+            letter-spacing: -0.03em;  /* Increased compensation for bold width (was -0.015em) */
             /* Shimmer glow from behind/underneath the text */
             text-shadow: 
                 0 0 12px rgba(102, 144, 204, 0.6),
@@ -630,6 +631,26 @@
             opacity: 1;
             width: 150%;   /* Spread outward */
             height: 150%;  /* Spread outward */
+        }
+
+        /* Separator Line */
+        .separator-line {
+            position: absolute;
+            top: 0;
+            right: 142.5px;  /* Midpoint between action icons (260px) and contact (25px) */
+            width: 0.75px;
+            height: 155px;  /* Full header height */
+            background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                transparent 10%,
+                #666 37.8%,      /* Fade in - grey from color scheme */
+                #666 62.2%,      /* Solid grey for 1cm (24.4% of height) */
+                transparent 90%,
+                transparent 100%
+            );
+            z-index: 50;  /* Below icons (101), above background */
+            pointer-events: none;  /* Don't block clicks */
         }
 
         /* Responsive design */
@@ -713,6 +734,9 @@
                 </svg>
             </div>
         </div>
+
+        <!-- Separator Line -->
+        <div class="separator-line"></div>
 
         <!-- Contact Section -->
         <div class="contact-section">
