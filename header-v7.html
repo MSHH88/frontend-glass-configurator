@@ -637,17 +637,19 @@
         .separator-line {
             position: absolute;
             top: 0;
-            right: 232.5px;  /* Was 142.5px - moved 90px to the left */
+            right: 234px;  /* Was 232.5px - moved 1.5px more to the left */
             width: 1px;      /* Was 0.75px - increased thickness */
             height: 155px;  /* Full header height */
             background: linear-gradient(
                 to bottom,
-                transparent 0%,
-                transparent 10%,
-                #666 37.8%,      /* Fade in - grey from color scheme */
-                #666 62.2%,      /* Solid grey for 1cm (24.4% of height) */
-                transparent 90%,
-                transparent 100%
+                rgba(102, 144, 204, 0) 0%,        /* Fade to blue instead of transparent */
+                rgba(102, 144, 204, 0.2) 10%,
+                rgba(102, 144, 204, 0.4) 20%,
+                #666 37.8%,                        /* Grey center start */
+                #666 62.2%,                        /* Grey center end (1cm solid) */
+                rgba(102, 144, 204, 0.4) 80%,
+                rgba(102, 144, 204, 0.2) 90%,
+                rgba(102, 144, 204, 0) 100%        /* Fade to blue matches shimmer */
             );
             box-shadow: 0 0 2px 0.75px rgba(102, 144, 204, 0.4);  /* Blue shine underneath, spreading 0.75px to each side */
             z-index: 50;  /* Below icons (101), above background */
