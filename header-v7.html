@@ -536,7 +536,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             
             /* 3-layer gradient for water droplet effect */
             background: 
@@ -580,6 +580,11 @@
             fill: none;
             position: relative;
             z-index: 1;
+        }
+
+        /* Hover effect for contact icons - 10% bigger */
+        .contact-item:hover .contact-icon {
+            transform: scale(1.1);  /* 10% bigger on hover */
         }
 
         .contact-text {
@@ -637,18 +642,18 @@
         .separator-line {
             position: absolute;
             top: 0;
-            right: 236.5px;  /* Was 235.5px - moved 1px more to the left */
+            right: 237px;  /* Was 236.5px - moved 0.5px more to the left */
             width: 1px;      /* Keep 1px thick as specified */
             height: 155px;   /* Full header height */
             background: linear-gradient(
                 to bottom,
                 rgba(102, 144, 204, 0) 0%,        /* Blue fade from top */
-                rgba(102, 144, 204, 0.2) 6%,
-                rgba(102, 144, 204, 0.4) 12%,
-                #666 34.6%,                        /* Grey start - extended another 5px longer */
-                #666 65.4%,                        /* Grey end - another 5px longer (47.8px total) */
-                rgba(102, 144, 204, 0.4) 88%,
-                rgba(102, 144, 204, 0.2) 94%,
+                rgba(102, 144, 204, 0.2) 5%,      /* Faster transition */
+                rgba(102, 144, 204, 0.4) 10%,     /* Reach blue sooner */
+                #666 30%,                          /* Grey starts earlier (was 34.6%) - less fade */
+                #666 70%,                          /* Grey ends later (was 65.4%) - less fade */
+                rgba(102, 144, 204, 0.4) 90%,     /* Less blue fade at bottom */
+                rgba(102, 144, 204, 0.2) 95%,
                 rgba(102, 144, 204, 0) 100%        /* Blue fade reaches nearly to edge */
             );
             box-shadow: 0 0 2px 0.75px rgba(102, 144, 204, 0.4);  /* Blue shine underneath, spreading 0.75px to each side */
