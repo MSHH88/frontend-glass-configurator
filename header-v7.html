@@ -637,8 +637,8 @@
         .separator-line {
             position: absolute;
             top: 0;
-            right: 142.5px;  /* Midpoint between action icons (260px) and contact (25px) */
-            width: 0.75px;
+            right: 232.5px;  /* Was 142.5px - moved 90px to the left */
+            width: 1px;      /* Was 0.75px - increased thickness */
             height: 155px;  /* Full header height */
             background: linear-gradient(
                 to bottom,
@@ -649,6 +649,7 @@
                 transparent 90%,
                 transparent 100%
             );
+            box-shadow: 0 0 2px 0.75px rgba(102, 144, 204, 0.4);  /* Blue shine underneath, spreading 0.75px to each side */
             z-index: 50;  /* Below icons (101), above background */
             pointer-events: none;  /* Don't block clicks */
         }
