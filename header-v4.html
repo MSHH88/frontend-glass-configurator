@@ -26,6 +26,7 @@
 
         /* Header styling */
         .site-header {
+            position: relative;
             width: 100%;
             height: 155px;
             background: rgba(255, 255, 255, 0.95);
@@ -74,6 +75,440 @@
             line-height: 1.6;
         }
 
+        /* Icon container */
+        .icon-container {
+            position: absolute;
+            top: 59.5px;
+            right: 40px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        /* Icons with iOS Glass Lens Effect */
+        .icon-new {
+            position: relative;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* 3-layer gradient for water droplet effect */
+            background: 
+                radial-gradient(ellipse 100% 100% at 50% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(102, 144, 204, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at center, rgba(102, 144, 204, 0.35) 0%, rgba(102, 144, 204, 0.18) 50%, rgba(150, 150, 150, 0.15) 100%);
+            
+            border: 1px solid rgba(102, 144, 204, 0.4);
+            
+            /* 5-layer shadow system for 3D depth */
+            box-shadow:
+                inset 0 1px 2px rgba(255, 255, 255, 0.6),
+                0 1px 1px rgba(102, 144, 204, 0.3),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.1),
+                0 4px 12px rgba(102, 144, 204, 0.25),
+                0 2px 6px rgba(0, 0, 0, 0.15);
+            
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        /* Curved top highlight (glass lens effect) */
+        .icon-new::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 40%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.3) 40%, transparent 100%);
+            border-radius: 50% 50% 80% 80% / 60% 60% 40% 40%;
+            pointer-events: none;
+        }
+
+        .icon-new:hover {
+            transform: scale(1.15) translateY(-4px);
+            
+            /* Brighter blue shimmer on hover */
+            background:
+                radial-gradient(ellipse 100% 100% at 50% 20%, rgba(255, 255, 255, 0.5) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(102, 144, 204, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at center, rgba(102, 144, 204, 0.55) 0%, rgba(102, 144, 204, 0.35) 50%, rgba(102, 144, 204, 0.25) 100%);
+            
+            border: 1px solid rgba(102, 144, 204, 0.6);
+            
+            box-shadow:
+                inset 0 1px 2px rgba(255, 255, 255, 0.7),
+                0 1px 2px rgba(102, 144, 204, 0.4),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.1),
+                0 8px 24px rgba(102, 144, 204, 0.4),
+                0 4px 12px rgba(0, 0, 0, 0.2);
+            
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+        .icon-new:hover::after {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.4) 40%, transparent 100%);
+        }
+
+        .icon-new svg {
+            width: 20px;
+            height: 20px;
+            stroke: #333;
+            stroke-width: 2;
+            fill: none;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .icon-new:hover svg {
+            stroke: #222;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+        }
+
+        .icon-new.active {
+            transform: scale(1.15) translateY(-4px);
+            background: radial-gradient(circle at center, rgba(102, 144, 204, 0.55) 0%, rgba(102, 144, 204, 0.35) 100%);
+            border: 1px solid rgba(102, 144, 204, 0.7);
+            box-shadow: 
+                0 0 0 1px rgba(102, 144, 204, 0.4),
+                0 8px 24px rgba(102, 144, 204, 0.4),
+                0 4px 12px rgba(0, 0, 0, 0.15),
+                inset 0 1px 2px rgba(255, 255, 255, 0.7),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(6px);
+        }
+        
+        .icon-new.active::after {
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.4) 40%,
+                transparent 100%
+            );
+        }
+
+        /* Background Overlay */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Search Dropdown */
+        .search-dropdown {
+            position: fixed;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-20px);
+            width: 600px;
+            max-width: 90vw;
+            background: rgba(255, 255, 255, 0.005);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 2px rgba(255, 255, 255, 0.5);
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .search-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .search-input-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input-container svg {
+            position: absolute;
+            left: 20px;
+            width: 24px;
+            height: 24px;
+            stroke: #666;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .search-dropdown input {
+            width: 100%;
+            padding: 18px 20px 18px 60px;
+            font-size: 18px;
+            border: 2px solid rgba(102, 144, 204, 0.3);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-dropdown input:focus {
+            border-color: rgba(102, 144, 204, 0.6);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 4px rgba(102, 144, 204, 0.1);
+        }
+
+        /* Cart Dropdown */
+        .cart-dropdown {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            width: 300px;
+            max-height: 400px;
+            background: rgba(255, 255, 255, 0.005);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 2px rgba(255, 255, 255, 0.5);
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-20px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+        }
+
+        .cart-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .cart-header {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .cart-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .cart-item-image {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .cart-item-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .cart-item-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .cart-item-price {
+            font-size: 16px;
+            font-weight: 600;
+            color: #6690CC;
+        }
+
+        .cart-total {
+            padding: 15px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .cart-checkout {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #6690CC 0%, #5580BB 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cart-checkout:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 6px 16px rgba(102, 144, 204, 0.4);
+            background: linear-gradient(135deg, #7AA0DD 0%, #6690CC 100%);
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+        }
+
+        /* Account Dropdown */
+        .account-dropdown {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            width: 320px;
+            background: rgba(255, 255, 255, 0.005);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 2px rgba(255, 255, 255, 0.5);
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-20px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .account-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .account-header {
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .account-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .account-form input {
+            padding: 14px 16px;
+            font-size: 15px;
+            border: 2px solid rgba(102, 144, 204, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .account-form input:focus {
+            border-color: rgba(102, 144, 204, 0.6);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 4px rgba(102, 144, 204, 0.1);
+        }
+
+        .account-login {
+            padding: 14px;
+            background: linear-gradient(135deg, #6690CC 0%, #5580BB 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+        }
+
+        .account-login:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 6px 16px rgba(102, 144, 204, 0.4);
+            background: linear-gradient(135deg, #7AA0DD 0%, #6690CC 100%);
+        }
+
+        .account-separator {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .account-signup-text {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .account-register {
+            width: 100%;
+            padding: 14px;
+            background: rgba(255, 255, 255, 0.15);
+            color: #6690CC;
+            border: 2px solid #6690CC;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .account-register:hover {
+            background: #6690CC;
+            color: white;
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 6px 16px rgba(102, 144, 204, 0.4);
+        }
+
         /* Responsive design */
         @media (max-width: 768px) {
             .site-header {
@@ -87,6 +522,39 @@
             .logo-image {
                 height: 150px;
             }
+
+            .icon-container {
+                gap: 15px;
+                right: 20px;
+            }
+
+            .icon-new {
+                width: 40px;
+                height: 40px;
+            }
+
+            .icon-new svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .search-dropdown,
+            .cart-dropdown,
+            .account-dropdown {
+                right: 10px;
+                left: 10px;
+                width: auto;
+                max-width: none;
+            }
+
+            .search-dropdown {
+                transform: none;
+                left: 10px;
+            }
+
+            .search-dropdown.active {
+                transform: none;
+            }
         }
     </style>
 </head>
@@ -96,12 +564,172 @@
         <a href="#" class="logo-link">
             <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663028449717/xHNkqSOeBdZSQVyZ.webp" alt="FenTuRo Logo" class="logo-image">
         </a>
+        <div class="icon-container">
+            <!-- Search Icon -->
+            <div class="icon-new" id="searchIcon" data-dropdown="search">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </div>
+
+            <!-- Account Icon -->
+            <div class="icon-new" id="accountIcon" data-dropdown="account">
+                <svg viewBox="0 0 24 24">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </div>
+
+            <!-- Cart Icon -->
+            <div class="icon-new" id="cartIcon" data-dropdown="cart">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+            </div>
+        </div>
     </header>
+
+    <!-- Background Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Search Dropdown -->
+    <div class="search-dropdown" id="searchDropdown">
+        <div class="search-input-container">
+            <svg viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            <input type="text" placeholder="Suchen..." autofocus>
+        </div>
+    </div>
+
+    <!-- Cart Dropdown -->
+    <div class="cart-dropdown" id="cartDropdown">
+        <div class="cart-header">Warenkorb</div>
+        <div class="cart-items">
+            <div class="cart-item">
+                <div class="cart-item-image"></div>
+                <div class="cart-item-info">
+                    <div class="cart-item-name">Glastür Premium</div>
+                    <div class="cart-item-price">€299,99</div>
+                </div>
+            </div>
+            <div class="cart-item">
+                <div class="cart-item-image"></div>
+                <div class="cart-item-info">
+                    <div class="cart-item-name">Schiebetür System</div>
+                    <div class="cart-item-price">€449,99</div>
+                </div>
+            </div>
+        </div>
+        <div class="cart-total">
+            <span>Gesamt:</span>
+            <span>€749,98</span>
+        </div>
+        <button class="cart-checkout">Zur Kasse</button>
+    </div>
+
+    <!-- Account Dropdown -->
+    <div class="account-dropdown" id="accountDropdown">
+        <div class="account-header">Anmelden</div>
+        <div class="account-form">
+            <input type="email" placeholder="E-Mail-Adresse">
+            <input type="password" placeholder="Passwort">
+            <button class="account-login">Anmelden</button>
+        </div>
+        <hr class="account-separator">
+        <div class="account-signup-text">Noch kein Konto?</div>
+        <button class="account-register">Registrieren</button>
+    </div>
 
     <main>
         <h2>Header Preview Ready</h2>
         <p>Your header is now set up with clean, professional code. The logo is referenced as a clean URL, making it easy to edit and maintain. You can now add navigation items, search bars, or other elements to the right of the logo as needed.</p>
     </main>
+
+    <script>
+        // Dropdown functionality
+        const overlay = document.getElementById('overlay');
+        const dropdowns = {
+            search: document.getElementById('searchDropdown'),
+            cart: document.getElementById('cartDropdown'),
+            account: document.getElementById('accountDropdown')
+        };
+        const icons = {
+            search: document.getElementById('searchIcon'),
+            cart: document.getElementById('cartIcon'),
+            account: document.getElementById('accountIcon')
+        };
+
+        let activeDropdown = null;
+
+        function closeAllDropdowns() {
+            Object.values(dropdowns).forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+            Object.values(icons).forEach(icon => {
+                icon.classList.remove('active');
+            });
+            overlay.classList.remove('active');
+            activeDropdown = null;
+        }
+
+        function toggleDropdown(dropdownName) {
+            if (activeDropdown === dropdownName) {
+                closeAllDropdowns();
+            } else {
+                closeAllDropdowns();
+                dropdowns[dropdownName].classList.add('active');
+                icons[dropdownName].classList.add('active');
+                
+                // Only activate overlay for search dropdown
+                if (dropdownName === 'search') {
+                    overlay.classList.add('active');
+                }
+                
+                activeDropdown = dropdownName;
+            }
+        }
+
+        // Icon click handlers
+        Object.entries(icons).forEach(([name, icon]) => {
+            icon.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleDropdown(name);
+            });
+        });
+
+        // Overlay click to close
+        overlay.addEventListener('click', closeAllDropdowns);
+
+        // Prevent dropdown clicks from closing
+        Object.values(dropdowns).forEach(dropdown => {
+            dropdown.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        });
+
+        // ESC key to close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeAllDropdowns();
+            }
+        });
+
+        // Click outside to close
+        document.addEventListener('click', (e) => {
+            if (activeDropdown && 
+                !e.target.closest('.icon-new') && 
+                !e.target.closest('.search-dropdown') &&
+                !e.target.closest('.cart-dropdown') &&
+                !e.target.closest('.account-dropdown')) {
+                closeAllDropdowns();
+            }
+        });
+    </script>
 
 </body>
 </html>
