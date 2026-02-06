@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FenTuRo - Header Preview</title>
+    <title>FenTuRo - Header V5 - Simple with Icons</title>
     <style>
         /* Reset default browser styles */
         * {
@@ -67,7 +67,127 @@
             object-fit: contain;
         }
 
-        /* Contact Section - Positioned at 9.5/11 on right */
+        /* Action Icons Section - Positioned at 7.5/11 (68.18%) */
+        .action-icons-section {
+            position: absolute;
+            left: 68.18%;
+            top: 53.5px;  /* Icon middle at 77.5px (header center) */
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        /* Icons with iOS Glass Lens Effect (from icon-pop-out-preview.html) */
+        .icon-new {
+            position: relative;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* 3-layer gradient for water droplet effect */
+            background: 
+                radial-gradient(ellipse 100% 100% at 50% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(102, 144, 204, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at center, rgba(102, 144, 204, 0.35) 0%, rgba(102, 144, 204, 0.18) 50%, rgba(150, 150, 150, 0.15) 100%);
+            
+            border: 1px solid rgba(102, 144, 204, 0.4);
+            
+            /* 5-layer shadow system for 3D depth */
+            box-shadow:
+                inset 0 1px 2px rgba(255, 255, 255, 0.6),
+                0 1px 1px rgba(102, 144, 204, 0.3),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.1),
+                0 4px 12px rgba(102, 144, 204, 0.25),
+                0 2px 6px rgba(0, 0, 0, 0.15);
+            
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        /* Curved top highlight (glass lens effect) */
+        .icon-new::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 40%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.3) 40%, transparent 100%);
+            border-radius: 50% 50% 80% 80% / 60% 60% 40% 40%;
+            pointer-events: none;
+        }
+
+        .icon-new:hover {
+            transform: scale(1.15) translateY(-4px);
+            
+            /* Brighter blue shimmer on hover */
+            background:
+                radial-gradient(ellipse 100% 100% at 50% 20%, rgba(255, 255, 255, 0.5) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(102, 144, 204, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at center, rgba(102, 144, 204, 0.55) 0%, rgba(102, 144, 204, 0.35) 50%, rgba(102, 144, 204, 0.25) 100%);
+            
+            border: 1px solid rgba(102, 144, 204, 0.6);
+            
+            box-shadow:
+                inset 0 1px 2px rgba(255, 255, 255, 0.7),
+                0 1px 2px rgba(102, 144, 204, 0.4),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.1),
+                0 8px 24px rgba(102, 144, 204, 0.4),
+                0 4px 12px rgba(0, 0, 0, 0.2);
+            
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+        .icon-new:hover::after {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.4) 40%, transparent 100%);
+        }
+
+        .icon-new svg {
+            width: 20px;
+            height: 20px;
+            stroke: #333;
+            stroke-width: 2;
+            fill: none;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .icon-new:hover svg {
+            stroke: #222;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+        }
+
+        .icon-new.active {
+            transform: scale(1.15) translateY(-4px);
+            background: radial-gradient(circle at center, rgba(102, 144, 204, 0.55) 0%, rgba(102, 144, 204, 0.35) 100%);
+            border: 1px solid rgba(102, 144, 204, 0.7);
+            box-shadow: 
+                0 0 0 1px rgba(102, 144, 204, 0.4),
+                0 8px 24px rgba(102, 144, 204, 0.4),
+                0 4px 12px rgba(0, 0, 0, 0.15),
+                inset 0 1px 2px rgba(255, 255, 255, 0.7),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(6px);
+        }
+        
+        .icon-new.active::after {
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.4) 40%,
+                transparent 100%
+            );
+        }
+
+        /* Contact Section - Right side */
         .contact-section-v13 {
             position: absolute;
             right: 20px;
@@ -98,74 +218,59 @@
                 0 4px 20px rgba(0, 0, 0, 0.15),
                 0 0 32px rgba(102, 144, 204, 0.6);
             filter: drop-shadow(0 6px 12px rgba(102, 144, 204, 0.5)) 
-                    drop-shadow(0 10px 25px rgba(0, 0, 0, 0.18));
-            position: relative;
+                    drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2));
+            letter-spacing: 0.5px;
         }
         
-        .contact-item-v13 span {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-block;
+        .contact-item-v13:hover .contact-icon-v13 {
+            transform: scale(1.15) translateY(-4px);
+            box-shadow: 
+                0 0 0 1px rgba(102, 144, 204, 0.4),
+                0 8px 24px rgba(102, 144, 204, 0.4),
+                0 4px 12px rgba(0, 0, 0, 0.15),
+                inset 0 1px 2px rgba(255, 255, 255, 0.7),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
         }
         
-        .contact-item-v13:hover span {
-            font-weight: 700;
-            transform: translateY(-1px);
-            letter-spacing: -0.015em;
+        .contact-item-v13:hover .contact-icon-v13::after {
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.4) 40%,
+                transparent 100%
+            );
         }
         
-        /* NEW CONTACT ICONS - iOS Glass Lens Effect with Grey-to-Blue Gradient */
         .contact-icon-v13 {
+            position: relative;
             width: 36px;
             height: 36px;
-            border-radius: 10px; /* Squared look */
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             
-            /* 3-layer gradient: top highlight + blue shimmer + base gradient */
+            /* 3-layer gradient system (grey to baby blue) */
             background: 
-                /* Top highlight ellipse (light refraction) */
-                radial-gradient(
-                    ellipse 100% 100% at 50% 20%,
-                    rgba(255, 255, 255, 0.4) 0%,
-                    transparent 50%
-                ),
-                /* Diagonal blue shimmer overlay */
-                linear-gradient(
-                    135deg,
-                    rgba(102, 144, 204, 0.3) 0%,
-                    transparent 50%
-                ),
-                /* Base radial gradient (grey edge to baby blue center) */
-                radial-gradient(
-                    circle at center,
-                    rgba(102, 144, 204, 0.35) 0%,
-                    rgba(102, 144, 204, 0.18) 50%,
-                    rgba(150, 150, 150, 0.15) 100%
-                );
+                radial-gradient(ellipse 100% 100% at 50% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(102, 144, 204, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at center, rgba(102, 144, 204, 0.35) 0%, rgba(102, 144, 204, 0.18) 50%, rgba(150, 150, 150, 0.15) 100%);
             
-            /* Border */
             border: 1px solid rgba(150, 150, 150, 0.3);
             
             /* 5-layer shadow system for 3D depth */
-            box-shadow: 
-                /* Inset top highlight (light catching) */
+            box-shadow:
                 inset 0 1px 2px rgba(255, 255, 255, 0.6),
-                /* Top outer glow (blue shimmer) */
                 0 1px 1px rgba(102, 144, 204, 0.3),
-                /* Inset bottom shadow (depth) */
                 inset 0 -1px 2px rgba(0, 0, 0, 0.1),
-                /* Blue ambient glow */
                 0 4px 12px rgba(102, 144, 204, 0.25),
-                /* Base depth shadow */
                 0 2px 6px rgba(0, 0, 0, 0.15);
             
-            /* Blur effect */
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
-            
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         /* Curved top highlight (glass lens effect) */
@@ -177,133 +282,80 @@
             transform: translateX(-50%);
             width: 70%;
             height: 40%;
-            background: linear-gradient(
-                180deg,
-                rgba(255, 255, 255, 0.7) 0%,
-                rgba(255, 255, 255, 0.3) 40%,
-                transparent 100%
-            );
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.3) 40%, transparent 100%);
             border-radius: 50% 50% 80% 80% / 60% 60% 40% 40%;
             pointer-events: none;
-            opacity: 0.8;
-            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .contact-item-v13:hover .contact-icon-v13 {
-            /* Brighter gradient on hover */
-            background: 
-                radial-gradient(
-                    ellipse 100% 100% at 50% 20%,
-                    rgba(255, 255, 255, 0.5) 0%,
-                    transparent 50%
-                ),
-                linear-gradient(
-                    135deg,
-                    rgba(102, 144, 204, 0.35) 0%,
-                    transparent 50%
-                ),
-                radial-gradient(
-                    circle at center,
-                    rgba(102, 144, 204, 0.55) 0%,
-                    rgba(102, 144, 204, 0.35) 50%,
-                    rgba(102, 144, 204, 0.25) 100%
-                );
-            
-            /* Enhanced border */
-            border: 1px solid rgba(102, 144, 204, 0.6);
-            
-            /* Enhanced blur */
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            
-            /* Enhanced shadows with stronger blue glow */
-            box-shadow: 
-                inset 0 1px 2px rgba(255, 255, 255, 0.8),
-                0 1px 2px rgba(102, 144, 204, 0.5),
-                inset 0 -1px 2px rgba(0, 0, 0, 0.15),
-                0 8px 24px rgba(102, 144, 204, 0.4),
-                0 8px 24px rgba(0, 0, 0, 0.12);
-            
-            /* Lift and scale */
-            transform: scale(1.15) translateY(-4px);
-        }
-        
-        /* Enhanced glass lens highlight on hover */
-        .contact-item-v13:hover .contact-icon-v13::after {
-            opacity: 1;
-            background: linear-gradient(
-                180deg,
-                rgba(255, 255, 255, 0.9) 0%,
-                rgba(255, 255, 255, 0.4) 40%,
-                transparent 100%
-            );
         }
         
         .contact-icon-v13 svg {
             width: 16px;
             height: 16px;
-            fill: none;
             stroke: #333333;
             stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+            fill: none;
+            transition: all 0.3s ease;
             position: relative;
             z-index: 1;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .contact-item-v13:hover .contact-icon-v13 svg {
             stroke: #222222;
-            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
-        }
-
-        /* Main content area */
-        main {
-            padding: 20px;
-            color: #666;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .site-header {
-                height: 155px;
-            }
-
-            .logo-link {
-                height: 150px;
-            }
-
-            .logo-image {
-                height: 150px;
-            }
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
         }
     </style>
 </head>
 <body>
-
+    <!-- Header Section -->
     <header class="site-header">
+        <!-- Logo -->
         <a href="#" class="logo-link">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663028449717/xHNkqSOeBdZSQVyZ.webp" alt="FenTuRo Logo" class="logo-image">
+            <img src="https://via.placeholder.com/400x150/6690CC/FFFFFF?text=FenTuRo+Logo" alt="FenTuRo Logo" class="logo-image">
         </a>
-        
-        <!-- Contact Section - Positioned at 9.5/11 on right -->
+
+        <!-- Action Icons Section (Search, Account, Cart) -->
+        <div class="action-icons-section">
+            <!-- Search Icon -->
+            <div class="icon-new" id="search-icon" title="Search">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </div>
+            
+            <!-- Account Icon -->
+            <div class="icon-new" id="account-icon" title="Account">
+                <svg viewBox="0 0 24 24">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </div>
+            
+            <!-- Cart Icon -->
+            <div class="icon-new" id="cart-icon" title="Cart">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
         <div class="contact-section-v13">
-            <!-- Phone Contact -->
+            <!-- Phone -->
             <a href="tel:03043970759" class="contact-item-v13">
                 <div class="contact-icon-v13">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24">
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                     </svg>
                 </div>
                 <span>030 439 707 59</span>
             </a>
             
-            <!-- Email Contact -->
+            <!-- Email -->
             <a href="mailto:Fenturo@fenster.de" class="contact-item-v13">
                 <div class="contact-icon-v13">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                         <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
@@ -313,10 +365,26 @@
         </div>
     </header>
 
-    <main>
-        <h2>Header Preview Ready</h2>
-        <p>Your header is now set up with clean, professional code. The logo is referenced as a clean URL, making it easy to edit and maintain. You can now add navigation items, search bars, or other elements to the right of the logo as needed.</p>
-    </main>
-
+    <!-- Simple Demo Content -->
+    <div style="padding: 40px; max-width: 1200px; margin: 0 auto;">
+        <h1 style="color: #333; margin-bottom: 20px;">Header V5 - Simple with Action Icons</h1>
+        <p style="color: #666; line-height: 1.6;">
+            This version includes:<br>
+            - Logo (left, 150px height)<br>
+            - 3 Action Icons (center at 68.18%, 36px with iOS glass lens effect)<br>
+            - Contact Info (right side, 36px icons)<br>
+            <br>
+            <strong>What's NOT included (step-by-step approach):</strong><br>
+            - No dropdown functionality<br>
+            - No separator line<br>
+            - No sticky scroll behavior<br>
+            - No JavaScript<br>
+            <br>
+            <strong>Icons are aligned:</strong><br>
+            - Top at 53.5px<br>
+            - Middle at 77.5px (header center)<br>
+            - Perfect center alignment without auto-centering<br>
+        </p>
+    </div>
 </body>
 </html>
