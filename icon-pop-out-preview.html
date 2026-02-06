@@ -717,7 +717,12 @@
                 closeAllDropdowns();
                 dropdowns[dropdownName].classList.add('active');
                 icons[dropdownName].classList.add('active');
-                overlay.classList.add('active');
+                
+                // Only activate overlay for search dropdown
+                if (dropdownName === 'search') {
+                    overlay.classList.add('active');
+                }
+                
                 activeDropdown = dropdownName;
             }
         }
