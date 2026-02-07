@@ -1255,6 +1255,111 @@ input:focus, textarea:focus, select:focus {
     }
   }
 
+  /* ===== NEW HEADER V13 DESIGN ===== */
+  .new-header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(15px);
+      min-height: 260px;
+      padding: 5px 20px;
+      border-bottom: 1px solid rgba(204, 204, 204, 0.3);
+  }
+  
+  .header-main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1500px;
+      margin: 0 auto;
+  }
+  
+  /* LEFT: Logo Section with Proper Spacing */
+  .logo-section-v13 {
+      flex: 0 0 auto;
+      margin-right: 60px;
+  }
+  
+  .logo-section-v13 a {
+      display: block;
+  }
+  
+  .logo-section-v13 img {
+      display: block;
+      width: 250px;
+      height: 250px;
+  }
+  
+  /* CENTER: Search Bar - Truly Centered in Header */
+  .search-section-v13 {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 0px;
+  }
+  
+  .search-container-v13 {
+      position: relative;
+      width: 100%;
+      max-width: 450px;
+  }
+  
+  .search-box-v13 {
+      display: flex;
+      align-items: center;
+      position: relative;
+  }
+  
+  .search-input-v13 {
+      width: 100%;
+      padding: 14px 45px 14px 60px;
+      border: 2px solid rgba(102, 144, 204, 0.3);
+      border-radius: 30px;
+      font-family: inherit;
+      font-size: 15px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .search-input-v13:focus {
+      outline: none;
+      border-color: #6690CC;
+      background: white;
+      box-shadow: 0 4px 16px rgba(102, 144, 204, 0.2);
+  }
+  
+  .search-button-v13 {
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .search-button-v13:hover {
+      transform: translateY(calc(-50% - 4px));
+  }
+  
+  /* Search Icon with iOS Floating Lens Effect */
+  
+  
+  
+  
+  
+  
+  
+  
+  /* RIGHT: Action Icons + Separator + Contact Details */
+  .right-section-v13 {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 7.5px;
+  }
   
   /* Action Icons Container */
   .actions-section-v13 {
