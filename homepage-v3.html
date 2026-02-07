@@ -914,7 +914,7 @@ body {
 }
 
 /* Icon glassmorphism containers */
-.icon-container, .icon-box, i, .fa, [class*="icon-"] {
+.icon-container:not(.icon-new), .icon-box, i, .fa, [class*="icon-"]:not(.icon-new) {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -970,7 +970,7 @@ a.btn-sage-green:hover,
 }
 
 /* Icon hover effects with scale and glow */
-.icon-container:hover, .icon-box:hover, i:hover, .fa:hover, [class*="icon-"]:hover {
+.icon-container:not(.icon-new):hover, .icon-box:hover, i:hover, .fa:hover, [class*="icon-"]:not(.icon-new):hover {
     transform: scale(1.15);
     background: rgba(225, 244, 242, 0.3);
     box-shadow: 0 0 20px rgba(225, 244, 242, 0.8);
@@ -1009,9 +1009,9 @@ a {
 }
 
 /* Enhanced glassmorphism for icons */
-.icon-container,
+.icon-container:not(.icon-new),
 .icon-box,
-[class*="icon-"]:not(.btn),
+[class*="icon-"]:not(.btn):not(.icon-new),
 .fa:not(.btn),
 .fas:not(.btn),
 .far:not(.btn),
@@ -1026,9 +1026,9 @@ a {
 }
 
 /* Icon hover with enhanced glassmorphism */
-.icon-container:hover,
+.icon-container:not(.icon-new):hover,
 .icon-box:hover,
-[class*="icon-"]:not(.btn):hover,
+[class*="icon-"]:not(.btn):not(.icon-new):hover,
 .fa:not(.btn):hover,
 .fas:not(.btn):hover,
 .far:not(.btn):hover,
