@@ -2211,15 +2211,15 @@ div[class*="border"] {
 
         /* Individual icon positioning (no container) */
         #searchIcon {
-            right: 260px;  /* Leftmost icon - moved left 35px */
+            left: calc(100% - 304px);  /* Explicit x,y positioning from left edge (260 + 44 icon width) */
         }
 
         #accountIcon {
-            right: 207px;  /* Middle icon - moved left 35px (260 - 53 = 207) */
+            left: calc(100% - 251px);  /* Explicit x,y positioning from left edge (207 + 44 icon width) */
         }
 
         #cartIcon {
-            right: 154px;  /* Rightmost icon - moved left 35px (207 - 53 = 154) */
+            left: calc(100% - 198px);  /* Explicit x,y positioning from left edge (154 + 44 icon width) */
         }
 
         .icon-new:hover svg {
