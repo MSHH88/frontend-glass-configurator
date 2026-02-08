@@ -970,7 +970,7 @@ a.btn-sage-green:hover,
 }
 
 /* Icon hover effects with scale and glow */
-.icon-container:not(.icon-new):hover, .icon-box:hover, i:hover, .fa:hover, [class*="icon-"]:not(.icon-new):hover {
+.icon-container:not(.site-header .icon-container):hover, .icon-box:hover, i:hover, .fa:hover, [class*="icon-"]:not(.icon-new):hover {
     transform: scale(1.15);
     background: rgba(225, 244, 242, 0.3);
     box-shadow: 0 0 20px rgba(225, 244, 242, 0.8);
@@ -1026,7 +1026,7 @@ a {
 }
 
 /* Icon hover with enhanced glassmorphism */
-.icon-container:not(.icon-new):hover,
+.icon-container:not(.site-header .icon-container):hover,
 .icon-box:hover,
 [class*="icon-"]:not(.btn):not(.icon-new):hover,
 .fa:not(.btn):hover,
@@ -2131,6 +2131,7 @@ div[class*="border"] {
             display: flex;
             gap: 18px;  /* Reduced from 24px (25% reduction) */
             align-items: center;
+            background: transparent;  /* No background on container - only individual icons */
         }
 
         /* Icons with iOS Glass Lens Effect */
