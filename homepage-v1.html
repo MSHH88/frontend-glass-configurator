@@ -914,7 +914,7 @@ body {
 }
 
 /* Icon glassmorphism containers */
-.icon-container, .icon-box, i, .fa, [class*="icon-"] {
+.icon-container:not(.icon-new), .icon-box, i, .fa, [class*="icon-"]:not(.icon-new) {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -970,7 +970,7 @@ a.btn-sage-green:hover,
 }
 
 /* Icon hover effects with scale and glow */
-.icon-container:hover, .icon-box:hover, i:hover, .fa:hover, [class*="icon-"]:hover {
+.icon-container:not(.site-header .icon-container):hover, .icon-box:hover, i:hover, .fa:hover, [class*="icon-"]:not(.icon-new):hover {
     transform: scale(1.15);
     background: rgba(225, 244, 242, 0.3);
     box-shadow: 0 0 20px rgba(225, 244, 242, 0.8);
@@ -1009,9 +1009,9 @@ a {
 }
 
 /* Enhanced glassmorphism for icons */
-.icon-container,
+.icon-container:not(.icon-new),
 .icon-box,
-[class*="icon-"]:not(.btn),
+[class*="icon-"]:not(.btn):not(.icon-new),
 .fa:not(.btn),
 .fas:not(.btn),
 .far:not(.btn),
@@ -1026,9 +1026,9 @@ a {
 }
 
 /* Icon hover with enhanced glassmorphism */
-.icon-container:hover,
+.icon-container:not(.site-header .icon-container):hover,
 .icon-box:hover,
-[class*="icon-"]:not(.btn):hover,
+[class*="icon-"]:not(.btn):not(.icon-new):hover,
 .fa:not(.btn):hover,
 .fas:not(.btn):hover,
 .far:not(.btn):hover,
@@ -1152,7 +1152,7 @@ a:hover {
    ======================================== */
 /* Professional color scheme for icons */
 .icon-sage { color: #6690CC; }
-.icon-orange { background: rgba(240, 102, 0, 0.15); }
+
 .icon-ice { color: #E1F4F2; }
 
 /* Glow effect on hover */
@@ -1255,141 +1255,6 @@ input:focus, textarea:focus, select:focus {
     }
   }
 
-  /* ===== NEW HEADER V13 DESIGN ===== */
-  .new-header {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(15px);
-      min-height: 260px;
-      padding: 5px 20px;
-      border-bottom: 1px solid rgba(204, 204, 204, 0.3);
-  }
-  
-  .header-main {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1500px;
-      margin: 0 auto;
-  }
-  
-  /* LEFT: Logo Section with Proper Spacing */
-  .logo-section-v13 {
-      flex: 0 0 auto;
-      margin-right: 60px;
-  }
-  
-  .logo-section-v13 a {
-      display: block;
-  }
-  
-  .logo-section-v13 img {
-      display: block;
-      width: 250px;
-      height: 250px;
-  }
-  
-  /* CENTER: Search Bar - Truly Centered in Header */
-  .search-section-v13 {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0 0px;
-  }
-  
-  .search-container-v13 {
-      position: relative;
-      width: 100%;
-      max-width: 450px;
-  }
-  
-  .search-box-v13 {
-      display: flex;
-      align-items: center;
-      position: relative;
-  }
-  
-  .search-input-v13 {
-      width: 100%;
-      padding: 14px 45px 14px 60px;
-      border: 2px solid rgba(102, 144, 204, 0.3);
-      border-radius: 30px;
-      font-family: inherit;
-      font-size: 15px;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .search-input-v13:focus {
-      outline: none;
-      border-color: #6690CC;
-      background: white;
-      box-shadow: 0 4px 16px rgba(102, 144, 204, 0.2);
-  }
-  
-  .search-button-v13 {
-      position: absolute;
-      right: -20px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .search-button-v13:hover {
-      transform: translateY(calc(-50% - 4px));
-  }
-  
-  /* Search Icon with iOS Floating Lens Effect */
-  .icon-glassmorphism-v13 {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(102, 144, 204, 0.5);
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(102, 144, 204, 0.6);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 
-          0 2px 8px rgba(102, 144, 204, 0.3),
-          0 4px 16px rgba(0, 0, 0, 0.08),
-          inset 0 1px 2px rgba(255, 255, 255, 0.9),
-          inset 0 -1px 1px rgba(0, 0, 0, 0.05);
-  }
-  
-  .icon-glassmorphism-v13:hover {
-      transform: scale(1.15);
-      backdrop-filter: blur(6px);
-      box-shadow: 
-          0 4px 12px rgba(102, 144, 204, 0.4),
-          0 8px 24px rgba(0, 0, 0, 0.12),
-          0 0 20px rgba(102, 144, 204, 0.3),
-          inset 0 1px 3px rgba(255, 255, 255, 0.95),
-          inset 0 -2px 2px rgba(0, 0, 0, 0.08);
-  }
-  
-  .icon-glassmorphism-v13 svg {
-      color: #333333;
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .icon-glassmorphism-v13:hover svg {
-      transform: scale(1.1);
-  }
-  
-  /* RIGHT: Action Icons + Separator + Contact Details */
-  .right-section-v13 {
-      flex: 0 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 7.5px;
-  }
   
   /* Action Icons Container */
   .actions-section-v13 {
@@ -2185,6 +2050,737 @@ div[class*="border"] {
     border-radius: 12px;
 }
 </style>
+
+    <!-- HEADER-V7 STYLES -->
+    <style>
+/* Reset default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Header styling */
+        .site-header {
+            position: relative;
+            width: 100%;
+            height: 155px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Logo link (hitbox) styling */
+        .logo-link {
+            display: block;
+            height: 150px;
+            margin-top: 2.5px;
+            margin-left: 2.5px;
+            margin-bottom: 2.5px;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            padding: 0;
+            line-height: 0;
+            font-size: 0;
+        }
+
+        /* Logo image styling */
+        .logo-image {
+            height: 150px;
+            width: auto;
+            display: block;
+            border: none;
+            outline: none;
+            padding: 0;
+            margin: 0;
+            object-fit: contain;
+        }
+
+        /* Main content area */
+        main {
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Icon container */
+        /* Icons with iOS Glass Lens Effect - positioned individually */
+        .icon-new {
+            position: absolute;  /* Changed from relative to absolute */
+            top: 51.5px;  /* Positioned directly in header - moved down 3px more (total 6px from original) */
+            z-index: 110;  /* Ensure above other elements */
+            width: 44px;
+            height: 44px;
+            border-radius: 11px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* 3-layer gradient for water droplet effect */
+            background: 
+                radial-gradient(ellipse 100% 100% at 50% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(102, 144, 204, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at center, rgba(102, 144, 204, 0.35) 0%, rgba(102, 144, 204, 0.18) 50%, rgba(150, 150, 150, 0.15) 100%);
+            
+            border: 1px solid rgba(102, 144, 204, 0.4);
+            
+            /* 5-layer shadow system for 3D depth */
+            box-shadow:
+                inset 0 1px 2px rgba(255, 255, 255, 0.6),
+                0 1px 1px rgba(102, 144, 204, 0.3),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.1),
+                0 4px 12px rgba(102, 144, 204, 0.25),
+                0 2px 6px rgba(0, 0, 0, 0.15);
+            
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        /* Curved top highlight (glass lens effect) */
+        .icon-new::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 40%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.3) 40%, transparent 100%);
+            border-radius: 50% 50% 80% 80% / 60% 60% 40% 40%;
+            pointer-events: none;
+        }
+
+        .icon-new:hover {
+            transform: scale(1.15) translateY(-4px);
+            
+            /* Brighter blue shimmer on hover */
+            background:
+                radial-gradient(ellipse 100% 100% at 50% 20%, rgba(255, 255, 255, 0.5) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(102, 144, 204, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at center, rgba(102, 144, 204, 0.55) 0%, rgba(102, 144, 204, 0.35) 50%, rgba(102, 144, 204, 0.25) 100%);
+            
+            border: 1px solid rgba(102, 144, 204, 0.6);
+            
+            box-shadow:
+                inset 0 1px 2px rgba(255, 255, 255, 0.7),
+                0 1px 2px rgba(102, 144, 204, 0.4),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.1),
+                0 8px 24px rgba(102, 144, 204, 0.4),
+                0 4px 12px rgba(0, 0, 0, 0.2);
+            
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+        .icon-new:hover::after {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.4) 40%, transparent 100%);
+        }
+
+        .icon-new svg {
+            width: 24px;
+            height: 24px;
+            stroke: #333;
+            stroke-width: 2;
+            fill: none;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Individual icon positioning (no container) */
+        #searchIcon {
+            left: calc(100% - 414px);  /* Explicit x,y positioning from left edge - moved 110px more left */
+        }
+
+        #accountIcon {
+            left: calc(100% - 361px);  /* Explicit x,y positioning from left edge - moved 110px more left */
+        }
+
+        #cartIcon {
+            left: calc(100% - 308px);  /* Explicit x,y positioning from left edge - moved 110px more left */
+        }
+
+        .icon-new:hover svg {
+            stroke: #222;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+        }
+
+        .icon-new.active {
+            transform: scale(1.15) translateY(-4px);
+            background: radial-gradient(circle at center, rgba(102, 144, 204, 0.55) 0%, rgba(102, 144, 204, 0.35) 100%);
+            border: 1px solid rgba(102, 144, 204, 0.7);
+            box-shadow: 
+                0 0 0 1px rgba(102, 144, 204, 0.4),
+                0 8px 24px rgba(102, 144, 204, 0.4),
+                0 4px 12px rgba(0, 0, 0, 0.15),
+                inset 0 1px 2px rgba(255, 255, 255, 0.7),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(6px);
+        }
+        
+        .icon-new.active::after {
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.4) 40%,
+                transparent 100%
+            );
+        }
+
+        /* Background Overlay */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Search Dropdown */
+        .search-dropdown {
+            position: fixed;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-20px);
+            width: 600px;
+            max-width: 90vw;
+            background: rgba(255, 255, 255, 0.005);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 2px rgba(255, 255, 255, 0.5);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .search-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .search-input-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input-container svg {
+            position: absolute;
+            left: 20px;
+            width: 24px;
+            height: 24px;
+            stroke: #666;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .search-dropdown input {
+            width: 100%;
+            padding: 18px 20px 18px 60px;
+            font-size: 18px;
+            border: 2px solid rgba(102, 144, 204, 0.3);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-dropdown input:focus {
+            border-color: rgba(102, 144, 204, 0.6);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 4px rgba(102, 144, 204, 0.1);
+        }
+
+        /* Cart Dropdown */
+        .cart-dropdown {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            width: 300px;
+            max-height: 400px;
+            background: rgba(255, 255, 255, 0.005);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 2px rgba(255, 255, 255, 0.5);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-20px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+        }
+
+        .cart-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .cart-header {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .cart-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .cart-item-image {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .cart-item-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .cart-item-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .cart-item-price {
+            font-size: 16px;
+            font-weight: 600;
+            color: #6690CC;
+        }
+
+        .empty-cart-message {
+            padding: 10px 20px 20px 20px;  /* Reduced top padding to move text up */
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .cart-total {
+            padding: 15px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .cart-checkout {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #6690CC 0%, #5580BB 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cart-checkout:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 6px 16px rgba(102, 144, 204, 0.4);
+            background: linear-gradient(135deg, #7AA0DD 0%, #6690CC 100%);
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+        }
+
+        /* Account Dropdown */
+        .account-dropdown {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            width: 320px;
+            background: rgba(255, 255, 255, 0.005);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 2px rgba(255, 255, 255, 0.5);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-20px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .account-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .account-header {
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .account-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .account-form input {
+            padding: 14px 16px;
+            font-size: 15px;
+            border: 2px solid rgba(102, 144, 204, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .account-form input:focus {
+            border-color: rgba(102, 144, 204, 0.6);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 4px rgba(102, 144, 204, 0.1);
+        }
+
+        .account-login {
+            padding: 14px;
+            background: linear-gradient(135deg, #6690CC 0%, #5580BB 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+        }
+
+        .account-login:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 6px 16px rgba(102, 144, 204, 0.4);
+            background: linear-gradient(135deg, #7AA0DD 0%, #6690CC 100%);
+        }
+
+        .account-separator {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .account-signup-text {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .account-register {
+            width: 100%;
+            padding: 14px;
+            background: rgba(255, 255, 255, 0.15);
+            color: #6690CC;
+            border: 2px solid #6690CC;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .account-register:hover {
+            background: #6690CC;
+            color: white;
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 6px 16px rgba(102, 144, 204, 0.4);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            position: absolute;
+            top: 40px;     /* Moved down 0.5px more (39.5px + 0.5px = 40px) */
+            right: 25px;   /* Moved right 25px (50px - 25px = 25px) - space for future separator line */
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: grid;
+            grid-template-columns: 31px 1fr;  /* Fixed icon column, flexible text */
+            gap: 10px;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact-icon {
+            position: relative;
+            width: 31px;   /* Reduced from 36px (15% reduction) */
+            height: 31px;  /* Reduced from 36px (15% reduction) */
+            border-radius: 8px;  /* Proportional reduction from 9px */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* 3-layer gradient for water droplet effect */
+            background: 
+                radial-gradient(ellipse 100% 100% at 50% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(102, 144, 204, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at center, rgba(102, 144, 204, 0.35) 0%, rgba(102, 144, 204, 0.18) 50%, rgba(150, 150, 150, 0.15) 100%);
+            
+            border: 1px solid rgba(102, 144, 204, 0.4);
+            
+            /* 5-layer shadow system for 3D depth */
+            box-shadow:
+                inset 0 1px 2px rgba(255, 255, 255, 0.6),
+                0 1px 1px rgba(102, 144, 204, 0.3),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.1),
+                0 4px 12px rgba(102, 144, 204, 0.25),
+                0 2px 6px rgba(0, 0, 0, 0.15);
+            
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        /* Curved top highlight (glass lens effect) */
+        .contact-icon::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 40%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.3) 40%, transparent 100%);
+            border-radius: 50% 50% 80% 80% / 60% 60% 40% 40%;
+            pointer-events: none;
+        }
+
+        .contact-icon svg {
+            width: 17px;   /* Proportional to 31px container (was 20px for 36px) */
+            height: 17px;
+            stroke: #333;
+            stroke-width: 2;
+            fill: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hover effect for contact icons - 10% bigger */
+        .contact-item:hover .contact-icon {
+            transform: scale(1.15);  /* 15% bigger on hover - 5% more growth */
+        }
+
+        .contact-text {
+            font-size: 14px;
+            color: #666;  /* Grey from color scheme */
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            white-space: nowrap;  /* Prevent wrapping */
+            justify-self: start;  /* Anchor to start of grid cell - prevents left shift */
+            width: fit-content;   /* Only take needed space */
+            margin-right: auto;   /* Ensure left alignment in grid */
+            min-width: 150px;     /* Reserve minimum space to prevent grid reflow */
+        }
+
+        .contact-item:hover .contact-text {
+            font-weight: bold;
+            color: #666;  /* Stay grey, not blue */
+            letter-spacing: -0.03em;  /* Increased compensation for bold width (was -0.015em) */
+            /* Shimmer glow from behind/underneath the text */
+            text-shadow: 
+                0 0 12px rgba(102, 144, 204, 0.6),
+                0 0 24px rgba(102, 144, 204, 0.4),
+                0 0 36px rgba(102, 144, 204, 0.2);
+        }
+
+        /* Shimmer glow effect spreading from behind the text */
+        .contact-text::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                ellipse at center,
+                rgba(102, 144, 204, 0.4) 0%,
+                rgba(102, 144, 204, 0.2) 30%,
+                transparent 70%
+            );
+            filter: blur(10px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .contact-item:hover .contact-text::before {
+            opacity: 1;
+            width: 150%;   /* Spread outward */
+            height: 150%;  /* Spread outward */
+        }
+
+        /* Separator Line */
+        .separator-line {
+            position: absolute;
+            top: 0;
+            right: 239px;  /* Was 237px - moved 2px more to the left */
+            width: 1px;      /* Keep 1px thick as specified */
+            height: 155px;   /* Full header height */
+            background: linear-gradient(
+                to bottom,
+                rgba(102, 144, 204, 0) 0%,        /* Blue fade from top */
+                rgba(102, 144, 204, 0.2) 5%,      /* Faster transition */
+                rgba(102, 144, 204, 0.4) 10%,     /* Reach blue sooner */
+                #666 30%,                          /* Grey starts earlier (was 34.6%) - less fade */
+                #666 70%,                          /* Grey ends later (was 65.4%) - less fade */
+                rgba(102, 144, 204, 0.4) 90%,     /* Less blue fade at bottom */
+                rgba(102, 144, 204, 0.2) 95%,
+                rgba(102, 144, 204, 0) 100%        /* Blue fade reaches nearly to edge */
+            );
+            box-shadow: 0 0 2px 0.75px rgba(102, 144, 204, 0.4);  /* Blue shine underneath, spreading 0.75px to each side */
+            z-index: 50;  /* Below icons (101), above background */
+            pointer-events: none;  /* Don't block clicks */
+        }
+
+        /* Overlay for dropdown backdrop */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9998;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .site-header {
+                height: 155px;
+            }
+
+            .logo-link {
+                height: 150px;
+            }
+
+            .logo-image {
+                height: 150px;
+            }
+
+            .icon-new {
+                width: 40px;
+                height: 40px;
+            }
+
+            .icon-new svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .search-dropdown,
+            .cart-dropdown,
+            .account-dropdown {
+                right: 10px;
+                left: 10px;
+                width: auto;
+                max-width: none;
+            }
+
+            .search-dropdown {
+                transform: none;
+                left: 10px;
+            }
+
+            .search-dropdown.active {
+                transform: none;
+            }
+        }
+    </style>
 </head>
 
 /* Additional comprehensive color overrides for ULTRA-PROFESSIONAL theme */
@@ -2286,64 +2882,22 @@ i.txt-orange {
 }
 
 /* Glassmorphism Icon Container Styles */
-.icon-glassmorphism {
-    width: 48px;
-    height: 48px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(102, 144, 204, 0.2);
-    backdrop-filter: blur(20px);
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    position: relative;
-    vertical-align: middle;
-    color: #333333; /* Dark gray for SVG currentColor inheritance */
-}
 
-.icon-glassmorphism:hover {
-    backdrop-filter: blur(25px);
-    transform: scale(1.15) translateY(-4px);
-    box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.2),
-        0 0 30px rgba(225, 244, 242, 0.6),
-        inset 0 2px 0 rgba(255, 255, 255, 0.4),
-        inset 0 -2px 0 rgba(0, 0, 0, 0.15);
-}
 
-.icon-glassmorphism svg {
-    width: 24px;
-    height: 24px;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-    transition: all 0.3s ease;
-}
 
-.icon-glassmorphism:hover svg {
-    transform: scale(1.1);
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-}
+
+
+
+
 
 /* Color Variants */
-.icon-sage-green {
-    background: rgba(102, 144, 204, 0.2);
-}
 
-.icon-orange {
-    background: rgba(240, 102, 0, 0.15);
-}
 
-.icon-sage-green {
-    background: rgba(102, 144, 204, 0.2);
-}
 
-.icon-ice-blue {
-    background: rgba(225, 244, 242, 0.2);
-}
+
+
+
+
 
 .icon-dark {
     background: rgba(51, 51, 51, 0.15);
@@ -2371,118 +2925,110 @@ i.txt-orange {
     <div><div style="display:none;">
 </div> <ul class="mobile_menu"><li class="toplevel"><a href="https://www.fenstermaxx24.com/konfigurator" data-catId="277" title="Fenster und Türen Konfigurator">Konfigurator</a> <a href="https://www.fenstermaxx24.com/konfigurator" data-catId="277" class="mobileShowSub "><span class="icon-glassmorphism icon-dark"><svg viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:middle"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a> <ul class="submenu blocks"><li><a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-fenster" data-catId="877">Fensterkonfigurator</a> <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-fenster" data-catId="877" class="mobileShowSub "><span class="icon-glassmorphism icon-dark"><svg viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:middle"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a> <ul class="submenu links"><li><a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-fenster" title="Kunststofffenster konfigurieren" data-catId="877">Kunststofffenster Konfigurator</a></li> <li><a href="https://www.fenstermaxx24.com/konfigurator/pvc-alu-fenster" title="Kunststoff/PVC-Alu Fenster konfigurieren" data-catId="1861">Kunststoff-Alu Fenster Konfigurator</a></li> <li><a href="https://www.fenstermaxx24.com/konfigurator/alu-fenster" title="Alu Fenster konfigurieren" data-catId="1367">Alu Fenster Konfigurator</a></li> <li><a href="https://www.fenstermaxx24.com/konfigurator/holz-fenster" title="Holzfenster konfigurieren" data-catId="1381">Holzfenster Konfigurator</a></li> <li><a href="https://www.fenstermaxx24.com/konfigurator/holz-alu-fenster" title="Holz-Alu Fensterkonfigurieren" data-catId="1392">Holz-Alu Fenster Konfigurator</a></li> <li><a href="https://www.fenstermaxx24.com/konfigurator/alu-schiebefenster" title="Schiebefenster konfigurieren" data-catId="1369">Schiebefenster Konfigurator</a></li></ul></li><li><a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-balkontueren" data-catId="878">Balkontürkonfigurator</a> <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-balkontueren" data-catId="878" class="mobileShowSub "><span class="icon-glassmorphism icon-dark"><svg viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:middle"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a> <ul class="submenu links"><li><a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-balkontueren" title="Kunststoff Balkontüren konfigurieren" data-catId="878">Kunststoff Balkontür Konfigurator</a></li> <li><a href="https://www.fenstermaxx24.com/konfigurator/gealan-balkontuer-pvc-alu" title="Kunststoff/PVC-Alu Balkontür konfigurieren" data-catId="1830">Kunststoff-Alu Balkontür Konfigurator</a></li> <li><a href="https://www.fenstermaxx24.com/konfigurator/alu-balkontuer" title="Alu Balkontüren konfigurieren" data-catId="1366">Alu Balkontür Konfigurator</a></li> <li><a href="https://www.fenstermaxx24.com/konfigurator/holz-balkontuer" title="Holz Balkontüren konfigurieren" data-catId="1382">Holz Balkontür Konfigurator</a></li> <li><a href="https://www.fenstermaxx24.com/konfigurator/holz-alu-balkontuer" title="Holz-Alu Balkontüren konfigurieren" data-catId="1393">Holz-Alu Balkontür Konfigurator</a></li></ul></li><li><a rel="nofollow" data-catId="881" class="nolink ">Terrassentürkonfigurator</a> <ul class="submenu links"><li><a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-parallel-schiebe-kipp-tueren-psk" title="Parallel-Schiebe-Kipptüren konfigurieren" data-catId="881">Parallel-Schiebe-Kipptür Konfigurator</a></li> <li><a href="https://www.fenstermaxx24.com/konfigurator/gealan-schiebetuer/" title="Smart-Slide-Schiebetüren konfigurieren" data-catId="1509">Smart-Slide-Schiebetür Konfigurator</a></li> <li><a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-hebe-schiebe-tueren-hs" title="Hebe-Schiebetüren konfigurieren" data-catId="880">Hebe-Schiebetür Konfigurator</a></li> <li><a href="https://www.fenstermaxx24.com/konfigurator/alu-faltschiebetuer" title="Falt-Schiebetüren konfigurieren" data-catId="1379">Falt-Schiebetür Konfigurator</a></li></ul></li><li><a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-haustueren" data-catId="879">Türenkonfigurator</a> <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-haustueren" data-catId="879" class="mobileShowSub "><span class="icon-glassmorphism icon-dark"><svg viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:middle"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a> <ul class="submenu links"><li><a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-haustueren" title="Kunststoff Haustüren konfigurieren" data-catId="879">Kunststoff Haustür Konfigurator</a></li> <li><a href="https://www.fenstermaxx24.com/konfigurator/alu-haustuer" title="Alu Haustüren konfigurieren" data-catId="1371">Alu Haustür Konfigurator</a></li> <li><a href="https://www.fenstermaxx24.com/konfigurator/holz-haustuer" title="Holz Haustüren konfigurieren" data-catId="1410">Holz Haustür Konfigurator</a></li> <li><a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-nebeneingangstueren" title="Kunststoff Nebeneingangstüren konfigurieren" data-catId="1043">Kunststoff Nebeneingangstüren Konfigurator</a></li> <li><a href="https://www.fenstermaxx24.com/konfigurator/alu-nebentuer" title="Alu Nebeneingangstüren konfigurieren" data-catId="1370">Alu Nebeneingangstüren Konfigurator</a></li> <li><a href="https://www.fenstermaxx24.com/konfigurator/holz-nebeneingangstuer" title="Holz Nebeneingangstüren konfigurieren" data-catId="1383">Holz Nebeneingangstüren Konfigurator</a></li></ul></li><li><a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-aufsatzrollladen" data-catId="1064">Rolladenkonfigurator</a> <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-aufsatzrollladen" data-catId="1064" class="mobileShowSub "><span class="icon-glassmorphism icon-dark"><svg viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:middle"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a> <ul class="submenu links"><li><a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-aufsatzrollladen" title="Aufsatzrollladen konfigurieren" data-catId="1064">Aufsatzrollladen Konfigurator</a></li> <li><a href="https://www.fenstermaxx24.com/konfigurator/aufsatzrollladen-styropor" title="Styropor Aufsatzrollladen konfigurieren" data-catId="1373">Styropor Aufsatzrollladen Konfigurator</a></li> <li><a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-vorsatzrollladen" title="Vorsatzrollladen konfigurieren" data-catId="1063">Vorsatzrollladen Konfigurator</a></li> <li><a href="https://www.fenstermaxx24.com/konfigurator/raffstores" title="Raffstore konfigurieren" data-catId="1439">Raffstore Konfigurator</a></li> <li><a href="https://www.fenstermaxx24.com/konfigurator/alu-insektenschutz-plissee" title="Insektenschutz-Plissee konfigurieren" data-catId="1720">Insektenschutz-Plissee Konfigurator</a></li></ul></li><li><a href="https://www.fenstermaxx24.com/konfigurator#jump_video" data-catId="277"></a> <ul class="submenu links"><li><a href="https://www.fenstermaxx24.com/konfigurator#jump_video" title="blockimage" data-catId="277"></a></li></ul></li></ul></li> <li class="toplevel"><a href="https://www.fenstermaxx24.com/fenster" data-catId="256" title="Günstige Fenster online kaufen">Fenster</a> <a href="https://www.fenstermaxx24.com/fenster" data-catId="256" class="mobileShowSub "><span class="icon-glassmorphism icon-dark"><svg viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:middle"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a> <ul class="submenu blocks"><li><a rel="nofollow" data-catId="257" class="nolink ">Fenster</a> <a rel="nofollow" data-catId="257" class="nolink mobileShowSub "><span class="icon-glassmorphism icon-dark"><svg viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:middle"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a> <ul class="submenu links"><li><a href="https://www.fenstermaxx24.com/fenster/kunststofffenster" title="Kunststofffenster kaufen" data-catId="257">Kunststofffenster</a></li> <li><a href="https://www.fenstermaxx24.com/fenster/kunststoff-alu-fenster" title="Kunststoff/PVC-Alu Fenster kaufen" data-catId="1821">Kunststoff-Alu Fenster</a></li> <li><a href="https://www.fenstermaxx24.com/fenster/holzfenster" title="Holzfenster kaufen" data-catId="258">Holzfenster</a></li> <li><a href="https://www.fenstermaxx24.com/fenster/aluminium-fenster" title="Aluminium Fenster kaufen" data-catId="488">Aluminium Fenster</a></li> <li><a href="https://www.fenstermaxx24.com/fenster/holz-alu-fenster" title="Holz Alu Fenster kaufen" data-catId="259">Holz Alu Fenster</a></li> <li><a href="https://www.fenstermaxx24.com/inhalte/produkte/pvc-fenster" title="PVC Fenster kaufen" data-catId="993">PVC Fenster</a></li> <li><br></li> <li><a href="https://www.fenstermaxx24.com/shop/lagerware/fenster" title="Fenster Sonderposten" data-catId="1585">Fenster Sonderposten</a></li></ul></li><li><a href="https://www.fenstermaxx24.com/fensterhersteller" data-catId="1761">Fensterhersteller</a> <a href="https://www.fenstermaxx24.com/fensterhersteller" data-catId="1761" class="mobileShowSub "><span class="icon-glassmorphism icon-dark"><svg viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:middle"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a> <ul class="submenu links"><li><a href="https://www.fenstermaxx24.com/fenster/drutex" title="Drutex Fenster kaufen" data-catId="1543">Drutex Fenster</a></li> <li><a href="https://www.fenstermaxx24.com/fenster/gealan" title="Gealan Fenster kaufen" data-catId="1511">Gealan Fenster</a></li> <li><a href="https://www.fenstermaxx24.com/fenster/aluplast" title="Aluplast Fenster kaufen" data-catId="1547">Aluplast Fenster</a></li> <li><a href="https://www.fenstermaxx24.com/fenster/salamander" title="Salamander Fenster kaufen" data-catId="1546">Salamander Fenster</a></li> <li><a href="https://www.fenstermaxx24.com/fenster/veka" title="Veka Fenster kaufen" data-catId="1549">Veka Fenster</a></li> <li><a href="https://www.fenstermaxx24.com/fenster/trocal" title="Trocal Fenster kaufen" data-catId="1548">Trocal Fenster</a></li> <li><a href="https://www.fenstermaxx24.com/fenster/koemmerling" title="Kömmerling Fenster kaufen" data-catId="1544">Kömmerling Fenster</a></li> <li><a href="https://www.fenstermaxx24.com/fenster/schueco" title="Schüco Fenster kaufen" data-catId="1565">Schüco Fenster</a></li></ul></li><li><br> <ul class="submenu links"><li><br></li></ul></li></ul></li> <li class="toplevel"><a href="https://www.fenstermaxx24.com/balkontueren" data-catId="764" title="Balkontüren kaufen">Balkontüren</a> <a href="https://www.fenstermaxx24.com/balkontueren" data-catId="764" class="mobileShowSub "><span class="icon-glassmorphism icon-dark"><svg viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:middle"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a> <ul class="submenu links"><li><a href="/balkontueren/kunststoff-balkontuer" title="Kunststoff Balkontüren kaufen" data-catId="483">Kunststoff Balkontüren</a></li> <li><a href="/balkontueren/balkontueren-aus-holz" title="Holz Balkontüren kaufen" data-catId="796">Holz Balkontüren</a></li> <li><a href="/balkontueren/balkontueren-aus-aluminium" title="Aluminium Balkontüren kaufen" data-catId="797">Aluminium Balkontüren</a></li> <li><a href="/balkontueren/balkontueren-aus-holz-aluminium" title="Holz Alu Balkontüren kaufen" data-catId="799">Holz Alu Balkontüren</a></li> <li><a href="/balkontueren/kunststoff-alu" title="Kunststoff Aluminium kaufen" data-catId="1869">Kunststoff Aluminium Balkontüren</a></li> <li><br></li> <li><a href="/shop/lagerware/balkontueren" title="Balkontüren Sonderposten" data-catId="1588">Balkontüren Sonderposten</a></li> <li><br></li> <li><br></li></ul></li> <li class="toplevel"><a href="https://www.fenstermaxx24.com/terrassentueren" data-catId="489" title="Terrassentüren kaufen">Terrassentüren</a> <a href="https://www.fenstermaxx24.com/terrassentueren" data-catId="489" class="mobileShowSub "><span class="icon-glassmorphism icon-dark"><svg viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:middle"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a> <ul class="submenu blocks"><li><a href="https://www.fenstermaxx24.com/terrassentueren/parallel-schiebe-kipp-tueren" data-catId="763">Parallel-Schiebe-Kipp-Türen (PSK)</a> <ul class="submenu links"><li><a href="https://www.fenstermaxx24.com/terrassentueren/parallel-schiebe-kipp-tueren/psk-tueren-aus-kunststoff" title="PSK Tür - Kunststoff" data-catId="486">PSK Tür - Kunststoff</a></li> <li><a href="https://www.fenstermaxx24.com/terrassentueren/parallel-schiebe-kipp-tueren/parallel-kipp-schiebetueren-aus-holz" title="PSK Tür - Holz" data-catId="795">PSK Tür - Holz</a></li> <li><a href="https://www.fenstermaxx24.com/terrassentueren/parallel-schiebe-kipp-tueren/parallel-kipp-schiebetueren-aluminium" title="PSK Tür - Aluminium" data-catId="495">PSK Tür - Aluminium</a></li> <li><a href="https://www.fenstermaxx24.com/terrassentueren/parallel-schiebe-kipp-tueren/parallel-kipp-schiebetueren-aus-holz-aluminium" title="PSK Tür - Holz-Aluminium" data-catId="794">PSK Tür - Holz-Aluminium</a></li></ul></li><li><a href="https://www.fenstermaxx24.com/terrassentueren/hebe-schiebe-tueren" data-catId="765">Hebeschiebetüren (HST)</a> <ul class="submenu links"><li><a href="https://www.fenstermaxx24.com/terrassentueren/hebe-schiebe-tueren/hs-tueren-aus-kunststoff" title data-catId="487">HS-Tür - Kunststofff</a></li> <li><a href="https://www.fenstermaxx24.com/terrassentueren/hebe-schiebe-tueren/hebe-schiebetueren-holz" title="HS-Tür - Holz" data-catId="494">HS-Tür - Holz</a></li> <li><a href="https://www.fenstermaxx24.com/terrassentueren/hebe-schiebe-tueren/hs-tueren-aus-aluminium" title="HS-Tür - Aluminium" data-catId="766">HS-Tür - Aluminium</a></li> <li><a href="https://www.fenstermaxx24.com/terrassentueren/hebe-schiebe-tueren/hs-tueren-aus-holz-aluminium" title="HS-Tür - Holz-Alu" data-catId="767">HS-Tür - Holz-Alu</a></li></ul></li><li><a href="https://www.fenstermaxx24.com/terrassentueren/faltanlagen" data-catId="543">Faltschiebetüren (FST) / Faltanlagen</a> <ul class="submenu links"><li><a href="https://www.fenstermaxx24.com/terrassentueren/faltanlagen/faltanlagen-aus-holz" title="FST Tür - Holz" data-catId="762">FST Tür - Holz</a></li> <li><a href="https://www.fenstermaxx24.com/terrassentueren/faltanlagen/faltanlagen-aus-aluminium" title="FST Tür - Aluminium" data-catId="761">FST Tür - Aluminium</a></li> <li><br></li> <li><a href="https://www.fenstermaxx24.com/terrassentueren/wintergaerten" title="Wintergärten kaufen" data-catId="735">Wintergärten</a></li> <li><a href="https://www.fenstermaxx24.com/shop/lagerware/schiebetueren" title="Sonderposten Schiebetüren" data-catId="1589">Sonderposten Schiebetüren</a></li></ul></li></ul></li> <li class="toplevel"><a href="https://www.fenstermaxx24.com/tueren" data-catId="260" title="Türen kaufen">Türen</a> <a href="https://www.fenstermaxx24.com/tueren" data-catId="260" class="mobileShowSub "><span class="icon-glassmorphism icon-dark"><svg viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:middle"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a> <ul class="submenu blocks"><li><a href="https://www.fenstermaxx24.com/tueren/haustueren" data-catId="276">Haustüren</a> <a href="https://www.fenstermaxx24.com/tueren/haustueren" data-catId="276" class="mobileShowSub "><span class="icon-glassmorphism icon-dark"><svg viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:middle"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a> <ul class="submenu links"><li><a href="https://www.fenstermaxx24.com/tueren/haustueren/haustuer-kunststoff" title="Kunststoff Haustüren" data-catId="493">Kunststoff Haustüren</a></li> <li><a href="https://www.fenstermaxx24.com/tueren/haustueren/haustuer-holz" title="Holz Haustüren" data-catId="492">Holz Haustüren</a></li> <li><a href="https://www.fenstermaxx24.com/tueren/haustueren/haustuer-aluminium" title="Aluminium Haustüren" data-catId="491">Aluminium Haustüren</a></li> <li><br></li> <li><a href="https://www.fenstermaxx24.com/shop/lagerware/haustueren" title="Haustüren Sonderposten" data-catId="1467">Haustüren Sonderposten</a></li></ul></li><li><a href="https://www.fenstermaxx24.com/tueren/nebeneingangstueren" data-catId="760">Nebeneingangstüren</a> <a href="https://www.fenstermaxx24.com/tueren/nebeneingangstueren" data-catId="760" class="mobileShowSub "><span class="icon-glassmorphism icon-dark"><svg viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:middle"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a> <ul class="submenu links"><li><a href="https://www.fenstermaxx24.com/tueren/nebeneingangstueren/nebeneingangstueren-aus-kunststoff" title="Nebeneingangstüren Kunststoff" data-catId="572">Nebeneingangstüren Kunststoff</a></li> <li><a href="https://www.fenstermaxx24.com/tueren/nebeneingangstueren/nebeneingangstueren-aus-holz" title="Nebeneingangstüren Holz" data-catId="715">Nebeneingangstüren Holz</a></li> <li><a href="https://www.fenstermaxx24.com/tueren/nebeneingangstueren/nebeneingangstueren-aus-aluminium" title="Nebeneingangstüren Aluminium" data-catId="716">Nebeneingangstüren Aluminium</a></li> <li><br></li> <li><a href="https://www.fenstermaxx24.com/shop/lagerware/nebeneingangstueren" title="Nebeneingangstüren Sonderposten" data-catId="1461">Nebeneingangstüren Sonderposten</a></li> <li><br></li> <li><a href="https://www.fenstermaxx24.com/tueren/brandschutztueren" title="Brandschutztüren" data-catId="712">Brandschutztüren</a></li></ul></li><li><br> <br> <ul class="submenu links"><li><a href="https://www.fenstermaxx24.com/pirnar-haustueren/" title="PIRNAR Türen kaufen" data-catId="1080">PIRNAR Türen</a></li> <li><a href="https://www.fenstermaxx24.com/shop/produktionsware/nebeneingangstueren/fm/fm-aluminium-stahl-tueren " title="FM Türen kaufen" data-catId="1451">FM Türen</a></li> <li><a href="https://www.fenstermaxx24.com/inhalte/produkte/garagentore" title="Garagentore kaufen" data-catId="1973">Garagentore</a></li></ul></li></ul></li> <li class="toplevel"><a href="https://www.fenstermaxx24.com/rolllaeden" data-catId="261" title="Rollläden kaufen">Rollläden</a> <a href="https://www.fenstermaxx24.com/rolllaeden" data-catId="261" class="mobileShowSub "><span class="icon-glassmorphism icon-dark"><svg viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:middle"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a> <ul class="submenu links"><li><a href="/rolllaeden/aufsatzrolllaeden-aus-kunststoff" title="Kunststoff Aufsatzrollläden kaufen" data-catId="718">Kunststoff Aufsatzrollläden</a></li> <li><a href="/rolllaeden/aufsatzrolllaeden-aus-kunststoff/aufsatzrollladen-rs-styropor" title="Styropor Aufsatzrollladen kaufen" data-catId="1142">Styropor Aufsatzrollladen</a></li> <li><a href="/rolllaeden/adaptionsrolllaeden-aus-aluminium" title="Aluminium Vorsatzrollladen kaufen" data-catId="719">Aluminium Vorsatzrollladen</a></li> <li><br></li> <li><a href="/shop/lagerware/rolllaeden" title="Rollläden Sonderposten" data-catId="1624">Rollläden Sonderposten</a></li> <li><a href="/konfigurator/aufsatzrollladen-styropor" title="Styropor Aufsatzrollladen konfigurieren" data-catId="1373">Styropor Aufsatzrollladen Konfigurator</a></li> <li><a href="/konfigurator/konfigurator-vorsatzrollladen" title="Vorsatzrollladen konfigurieren" data-catId="1063">Vorsatzrollladen Konfigurator</a></li> <li><a href="/konfigurator/raffstores" title="Raffstore konfigurieren" data-catId="1439">Raffstore Konfigurator</a></li> <li><a href="/konfigurator/alu-insektenschutz-plissee" title="Insektenschutz-Plissee konfigurieren" data-catId="1720">Insektenschutz-Plissee Konfigurator</a></li> <li><br></li></ul></li></ul></div> 
 
-    <!-- NEW HEADER V13 DESIGN -->
-    <header class="new-header">
-        <div class="header-main">
-            <!-- LEFT: Logo Section -->
-            <div class="logo-section-v13">
-                <a href="/">
-                    <img src="Logo-01.png" 
-                         alt="FenTuRo Logo" 
-                         width="250" 
-                         height="250">
-                </a>
+    
+
+ <!----> <div id="page-body" class="main">
+
+    <!-- HEADER-V7 INTEGRATION -->
+    <header class="site-header">
+        <a href="/" class="logo-link">
+            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663028449717/xHNkqSOeBdZSQVyZ.webp" alt="FenTuRo Logo" class="logo-image">
+        </a>
+        <!-- Search Icon (positioned individually) -->
+        <div class="icon-new" id="searchIcon" data-dropdown="search">
+            <svg viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+            </svg>
+        </div>
+
+        <!-- Account Icon (positioned individually) -->
+        <div class="icon-new" id="accountIcon" data-dropdown="account">
+            <svg viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+        </div>
+
+        <!-- Cart Icon (positioned individually) -->
+        <div class="icon-new" id="cartIcon" data-dropdown="cart">
+            <svg viewBox="0 0 24 24">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+        </div>
+
+        <!-- Separator Line -->
+        <div class="separator-line"></div>
+
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <!-- Phone -->
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                </div>
+                <span class="contact-text">0721 96884688</span>
             </div>
-            
-            <!-- CENTER: Search Bar -->
-            <div class="search-section-v13">
-                <div class="search-container-v13">
-                    <item-search>
-                        <div class="search-box-v13">
-                            <div class="search-box-shadow-frame">
-                                <input type="search" 
-                                       class="search-input-v13" 
-                                       placeholder="Suchbegriff / Artikelnummer" 
-                                       aria-placeholder="Suchbegriff / Artikelnummer" />
-                                <div class="">
-                                    <button type="submit" class="search-button-v13">
-                                        <div class="icon-glassmorphism-v13">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                                <circle cx="11" cy="11" r="8"></circle>
-                                                <path d="M21 21l-4.35-4.35"></path>
-                                            </svg>
-                                        </div>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </item-search>
+
+            <!-- Email -->
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
                 </div>
-            </div>
-            
-            <!-- RIGHT: Action Icons + Separator + Contact Details -->
-            <div class="right-section-v13">
-                <!-- Action Icons Container -->
-                <div class="actions-section-v13">
-                    <!-- Account Icon (Login) -->
-                    <client-only>
-                        <user-login-handler>
-                            <a href="/my-account" class="action-icon-v13 account" title="Anmelden" data-toggle="modal">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="12" cy="7" r="4"></circle>
-                                </svg>
-                            </a>
-                        </user-login-handler>
-                    </client-only>
-                    
-                    <!-- Create Account Icon -->
-                    <a href="/register" class="action-icon-v13 create-account" title="Konto erstellen">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <line x1="19" y1="8" x2="19" y2="14"></line>
-                            <line x1="22" y1="11" x2="16" y2="11"></line>
-                        </svg>
-                    </a>
-                    
-                    <!-- Cart Icon with Vue.js Integration -->
-                    <lazy-hydrate when-idle>
-                        <a v-toggle-basket-preview 
-                           href="#" 
-                           class="action-icon-v13 cart" 
-                           title="Warenkorb"
-                           @mouseover.once="$store.dispatch('loadComponent', 'basket-preview')">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                            </svg>
-                        </a>
-                    </lazy-hydrate>
-                </div>
-                
-                <!-- Separator Line -->
-                <div class="separator-v13"></div>
-                
-                <!-- Contact Details - Stacked Vertically -->
-                <div class="contact-section-v13">
-                    <!-- Phone Contact -->
-                    <a href="tel:03043970759" class="contact-item-v13">
-                        <div class="contact-icon-v13">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                            </svg>
-                        </div>
-                        <span>030 439 707 59</span>
-                    </a>
-                    
-                    <!-- Email Contact -->
-                    <a href="mailto:info@fenstermaxx24.com" class="contact-item-v13">
-                        <div class="contact-icon-v13">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                        </div>
-                        <span>info@fenstermaxx24.com</span>
-                    </a>
-                </div>
+                <span class="contact-text">fenturo@fenster.de</span>
             </div>
         </div>
     </header>
 
-<header id="page-header" class="default-header d-print-none"><div class="container-max"><div class="row flex-row-reverse position-relative"><div id="page-header-parent" class="col-12 header-container"><div class="main-nav-bg-white hidden-xs hidden-sm"><div class="hidden-unstuck stuck-left"><a href="/" class="stuck-logo"><img data-src="Logo-01.png" height="200" width="200" alt="FenTuRo Logo" class="easyLazy img-fluid"></a> <span><span class="icon-glassmorphism icon-ice-blue"><svg viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:middle"><circle cx="11" cy="11" r="8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 21l-4.35-4.35" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div> <nav class="navbar p-0 megamenu"><div class="container-max d-block"><div class="row mx-0 position-relative mx-0 ml-0 mr-2"><div class="main-navbar-collapsable d-none d-lg-block"><ul class="mainmenu p-0 m-0 d-flex"><li class="ddown navblock-konfigurator "><a href="https://www.fenstermaxx24.com/konfigurator" data-catId="277" title="Fenster und Türen Konfigurator">Konfigurator</a> <ul data-level="1" class="collapse nav-dropdown-0  li_top  "><li><ul class="collapse-inner"><li class="level1 menuPadding "><p class="bold"><span class="icon-glassmorphism icon-dark" style="width:16px;height:16px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" style="width:10px;height:10px;"><rect x="7" y="7" width="10" height="10" fill="currentColor"/></svg></span>Fensterkonfigurator
+    <!-- Overlay for dropdown backdrop -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Search Dropdown -->
+    <div class="search-dropdown" id="searchDropdown">
+        <div class="search-input-container">
+            <svg viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            <input type="text" placeholder="Suchen..." autofocus>
+        </div>
+    </div>
+
+    <!-- Cart Dropdown -->
+    <div class="cart-dropdown" id="cartDropdown">
+        <div class="cart-header">Warenkorb</div>
+        <div class="cart-items">
+            <p class="empty-cart-message">Ihr Warenkorb ist leer</p>
+        </div>
+    </div>
+
+    <!-- Account Dropdown -->
+    <div class="account-dropdown" id="accountDropdown">
+        <div class="account-header">Anmelden</div>
+        <div class="account-form">
+            <input type="email" placeholder="E-Mail-Adresse">
+            <input type="password" placeholder="Passwort">
+            <button class="account-login">Anmelden</button>
+        </div>
+        <hr class="account-separator">
+        <div class="account-signup-text">Noch kein Konto?</div>
+        <button class="account-register">Registrieren</button>
+    </div>
+
+
+
+    
+
+<!-- Preserved Navigation Menu -->
+<nav class="navbar p-0 megamenu">
+<div class="container-max d-block"><div class="row mx-0 position-relative mx-0 ml-0 mr-2"><div class="main-navbar-collapsable d-none d-lg-block"><ul class="mainmenu p-0 m-0 d-flex"><li class="ddown navblock-konfigurator "><a href="https://www.fenstermaxx24.com/konfigurator" data-catId="277" title="Fenster und Türen Konfigurator">Konfigurator</a> <ul data-level="1" class="collapse nav-dropdown-0  li_top  "><li><ul class="collapse-inner"><li class="level1 menuPadding "><p class="bold"><span class="icon-glassmorphism icon-dark" style="width:16px;height:16px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" style="width:10px;height:10px;"><rect x="7" y="7" width="10" height="10" fill="currentColor"/></svg></span>Fensterkonfigurator
                                                         </p></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-fenster" title="Kunststofffenster konfigurieren" data-catId="877">Kunststofffenster Konfigurator</a></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/konfigurator/pvc-alu-fenster" title="Kunststoff/PVC-Alu Fenster konfigurieren" data-catId="1861">Kunststoff-Alu Fenster Konfigurator</a></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/konfigurator/alu-fenster" title="Alu Fenster konfigurieren" data-catId="1367">Alu Fenster Konfigurator</a></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/konfigurator/holz-fenster" title="Holzfenster konfigurieren" data-catId="1381">Holzfenster Konfigurator</a></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/konfigurator/holz-alu-fenster" title="Holz-Alu Fensterkonfigurieren" data-catId="1392">Holz-Alu Fenster Konfigurator</a></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/konfigurator/alu-schiebefenster" title="Schiebefenster konfigurieren" data-catId="1369">Schiebefenster Konfigurator</a></li> <li class="menuPadding "><a data-catId="877" href="https://www.fenstermaxx24.com/konfigurator/konfigurator-fenster" title="Fenster konfigurieren" class="btn menu-block-button"><span class="icon-glassmorphism icon-sage-green" style="width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" style="width:12px;height:12px;"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Zum Fenster-Konfigurator
                                                                 </a></li> <li class="level1 menuPadding  forcedColBreak"><p class="bold"><span class="icon-glassmorphism icon-dark" style="width:16px;height:16px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" style="width:10px;height:10px;"><rect x="7" y="7" width="10" height="10" fill="currentColor"/></svg></span>Balkontürkonfigurator
                                                         </p></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-balkontueren" title="Kunststoff Balkontüren konfigurieren" data-catId="878">Kunststoff Balkontür Konfigurator</a></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/konfigurator/gealan-balkontuer-pvc-alu" title="Kunststoff/PVC-Alu Balkontür konfigurieren" data-catId="1830">Kunststoff-Alu Balkontür Konfigurator</a></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/konfigurator/alu-balkontuer" title="Alu Balkontüren konfigurieren" data-catId="1366">Alu Balkontür Konfigurator</a></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/konfigurator/holz-balkontuer" title="Holz Balkontüren konfigurieren" data-catId="1382">Holz Balkontür Konfigurator</a></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/konfigurator/holz-alu-balkontuer" title="Holz-Alu Balkontüren konfigurieren" data-catId="1393">Holz-Alu Balkontür Konfigurator</a></li> <li class="menuPadding "><a data-catId="878" href="https://www.fenstermaxx24.com/konfigurator/konfigurator-balkontueren" title="Balkontüren konfigurieren" class="btn menu-block-button"><span class="icon-glassmorphism icon-sage-green" style="width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" style="width:12px;height:12px;"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Zum Balkontür-Konfigurator
@@ -2502,12 +3048,10 @@ i.txt-orange {
                                                         </p></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/pirnar-haustueren/" title="PIRNAR Türen kaufen" data-catId="1080">PIRNAR Türen</a></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/shop/produktionsware/nebeneingangstueren/fm/fm-aluminium-stahl-tueren " title="FM Türen kaufen" data-catId="1451">FM Türen</a></li> <li class="menuPadding "><a data-catId="e1" rel="nofollow" href="https://www.haven-exclusive.com" target="_blank" title="HAVEN Exclusive kaufen" class="btn menu-block-button"><span class="icon-glassmorphism icon-sage-green" style="width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" style="width:12px;height:12px;"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span> HAVEN Exclusive
                                                                 </a></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/inhalte/produkte/garagentore" title="Garagentore kaufen" data-catId="1973">Garagentore</a></li></ul></li></ul></li> <li class="ddown navblock-rollladen "><a href="https://www.fenstermaxx24.com/rolllaeden" data-catId="261" title="Rollläden kaufen">Rollläden</a> <ul data-level="1" class="collapse nav-dropdown-0  li_top  "><li><ul class="collapse-inner"><li class="level1 menuPadding "><p class="bold"><span class="icon-glassmorphism icon-dark" style="width:16px;height:16px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" style="width:10px;height:10px;"><rect x="7" y="7" width="10" height="10" fill="currentColor"/></svg></span>Rollläden
                                                         </p></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/rolllaeden/aufsatzrolllaeden-aus-kunststoff" title="Kunststoff Aufsatzrollläden kaufen" data-catId="718">Kunststoff Aufsatzrollläden</a></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/rolllaeden/aufsatzrolllaeden-aus-kunststoff/aufsatzrollladen-rs-styropor" title="Styropor Aufsatzrollladen kaufen" data-catId="1142">Styropor Aufsatzrollladen</a></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/rolllaeden/adaptionsrolllaeden-aus-aluminium" title="Aluminium Vorsatzrollladen kaufen" data-catId="719">Aluminium Vorsatzrollladen</a></li> <li class="level1 menuPadding "><br></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/shop/lagerware/rolllaeden" title="Rollläden Sonderposten" data-catId="1624">Rollläden Sonderposten</a></li> <li class="level1 menuPadding  forcedColBreak"><p class="bold"><span class="icon-glassmorphism icon-dark" style="width:16px;height:16px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" style="width:10px;height:10px;"><rect x="7" y="7" width="10" height="10" fill="currentColor"/></svg></span>Rollladen Konfiguratoren
-                                                        </p></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-aufsatzrollladen" title="Aufsatzrollladen konfigurieren" data-catId="1064">Aufsatzrollladen Konfigurator</a></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/konfigurator/aufsatzrollladen-styropor" title="Styropor Aufsatzrollladen konfigurieren" data-catId="1373">Styropor Aufsatzrollladen Konfigurator</a></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-vorsatzrollladen" title="Vorsatzrollladen konfigurieren" data-catId="1063">Vorsatzrollladen Konfigurator</a></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/konfigurator/raffstores" title="Raffstore konfigurieren" data-catId="1439">Raffstore Konfigurator</a></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/konfigurator/alu-insektenschutz-plissee" title="Insektenschutz-Plissee konfigurieren" data-catId="1720">Insektenschutz-Plissee Konfigurator</a></li> <li class="level1 no-padding  forcedColBreak"><img loading="lazy" src="https://cdn03.plentymarkets.com/xbqx3akj5qia/frontend/img/landing/photos/fenster.webp" alt="blockimage" class="img-fluid menu-block-image"></li></ul></li></ul></li></ul></div></div></div></nav> <style>
-    /* macht margin-top verbindlicher und sorgt für Stapelreihenfolge */
-nav.navbar.megamenu .main-navbar-collapsable ul.mainmenu &gt; li &gt; ul.collapse.li_bottom {
-    margin-top: 350px;
-    }
-</style> <div class="hidden-unstuck stuck-right"><!----> <a href="#" class="stuck-basket"><span class="icon-glassmorphism icon-orange"><svg viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:middle"><circle cx="9" cy="21" r="1" fill="currentColor"/><circle cx="20" cy="21" r="1" fill="currentColor"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span> <span class="amount">0</span></a></div></div></div></div></div></header> <!----> <div id="page-body" class="main"><div id="countdown-wrapper" class="container-max d-print-none" style="background-color: transparent;"><div class="ml-0 ml-lg-4 mr-0 mr-lg-4 mt-3 mt-lg-0"><div id="countdown-banner" class="text-center p-3 text-white"><div id="countdown-container" class="d-flex flex-column flex-md-row justify-content-center align-items-center" style="font-size: 18px; font-weight: normal; line-height: 1.2; color: #ffffff; background-color: transparent; padding: 4px 0;"><strong>40%</strong> Rabatt auf Fenster &amp; Türen nach Maß
+                                                        </p></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-aufsatzrollladen" title="Aufsatzrollladen konfigurieren" data-catId="1064">Aufsatzrollladen Konfigurator</a></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/konfigurator/aufsatzrollladen-styropor" title="Styropor Aufsatzrollladen konfigurieren" data-catId="1373">Styropor Aufsatzrollladen Konfigurator</a></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-vorsatzrollladen" title="Vorsatzrollladen konfigurieren" data-catId="1063">Vorsatzrollladen Konfigurator</a></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/konfigurator/raffstores" title="Raffstore konfigurieren" data-catId="1439">Raffstore Konfigurator</a></li> <li class="level2 menuPadding "><a href="https://www.fenstermaxx24.com/konfigurator/alu-insektenschutz-plissee" title="Insektenschutz-Plissee konfigurieren" data-catId="1720">Insektenschutz-Plissee Konfigurator</a></li> <li class="level1 no-padding  forcedColBreak"><img loading="lazy" src="https://cdn03.plentymarkets.com/xbqx3akj5qia/frontend/img/landing/photos/fenster.webp" alt="blockimage" class="img-fluid menu-block-image"></li></ul></li></ul></li></ul></div></div></div>
+</nav>
+
+<div id="countdown-wrapper" class="container-max d-print-none" style="background-color: transparent;"><div class="ml-0 ml-lg-4 mr-0 mr-lg-4 mt-3 mt-lg-0"><div id="countdown-banner" class="text-center p-3 text-white"><div id="countdown-container" class="d-flex flex-column flex-md-row justify-content-center align-items-center" style="font-size: 18px; font-weight: normal; line-height: 1.2; color: #ffffff; background-color: transparent; padding: 4px 0;"><strong>40%</strong> Rabatt auf Fenster &amp; Türen nach Maß
 
       </div></div></div></div> <div style="display:none;">
   document.addEventListener(&quot;DOMContentLoaded&quot;, function () {
@@ -4043,12 +4587,7 @@ Für nicht abgeholte Ware bei Selbstabholung berechnen wir Lagerkosten in Höhe 
             <div id="page-header-parent" class="col-12 header-container"> <!--  data-header-offset -->
 
                 <div class="main-nav-bg-white hidden-xs hidden-sm">
-                    <div class="hidden-unstuck stuck-left">
-                        <a href="/" class="stuck-logo">
-                            <img class="easyLazy img-fluid" data-src="Logo-01.png" height="50" width="320"
-                                 alt="Fenstermaxx24 Logo"></a>
-                        <span><svg viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:middle"><circle cx="11" cy="11" r="8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 21l-4.35-4.35" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    </div>
+                    
                                                                         <nav class="navbar p-0 megamenu">
     <div class="container-max d-block">
         <div class="row mx-0 position-relative mx-0 ml-0 mr-2">
@@ -4800,13 +5339,7 @@ Für nicht abgeholte Ware bei Selbstabholung berechnen wir Lagerkosten in Höhe 
 nav.navbar.megamenu .main-navbar-collapsable ul.mainmenu > li > ul.collapse.li_bottom {
     margin-top: 350px;
     }
-</style>                                                                <div class="hidden-unstuck stuck-right">
-                        <client-only>
-                        <lazy-hydrate when-idle>
-                        <user-login-handler :user-data="null">
-                            <div id="login-change" class="login">
-                                 <div><a data-toggle="modal" href="" class="stuck-user"><svg viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:middle"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-                                </div>
+</style>                                                                
                             </div>
                         </user-login-handler>
                         </lazy-hydrate>
@@ -10943,5 +11476,87 @@ Für nicht abgeholte Ware bei Selbstabholung berechnen wir Lagerkosten in Höhe 
 </script>
 
 <!-- / TRK Bottom -->
+
+    <!-- HEADER-V7 JAVASCRIPT -->
+    <script>
+// Dropdown functionality
+        const overlay = document.getElementById('overlay');
+        const dropdowns = {
+            search: document.getElementById('searchDropdown'),
+            cart: document.getElementById('cartDropdown'),
+            account: document.getElementById('accountDropdown')
+        };
+        const icons = {
+            search: document.getElementById('searchIcon'),
+            cart: document.getElementById('cartIcon'),
+            account: document.getElementById('accountIcon')
+        };
+
+        let activeDropdown = null;
+
+        function closeAllDropdowns() {
+            Object.values(dropdowns).forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+            Object.values(icons).forEach(icon => {
+                icon.classList.remove('active');
+            });
+            overlay.classList.remove('active');
+            activeDropdown = null;
+        }
+
+        function toggleDropdown(dropdownName) {
+            if (activeDropdown === dropdownName) {
+                closeAllDropdowns();
+            } else {
+                closeAllDropdowns();
+                dropdowns[dropdownName].classList.add('active');
+                icons[dropdownName].classList.add('active');
+                
+                // Only activate overlay for search dropdown
+                if (dropdownName === 'search') {
+                    overlay.classList.add('active');
+                }
+                
+                activeDropdown = dropdownName;
+            }
+        }
+
+        // Icon click handlers
+        Object.entries(icons).forEach(([name, icon]) => {
+            icon.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleDropdown(name);
+            });
+        });
+
+        // Overlay click to close
+        overlay.addEventListener('click', closeAllDropdowns);
+
+        // Prevent dropdown clicks from closing
+        Object.values(dropdowns).forEach(dropdown => {
+            dropdown.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        });
+
+        // ESC key to close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeAllDropdowns();
+            }
+        });
+
+        // Click outside to close
+        document.addEventListener('click', (e) => {
+            if (activeDropdown && 
+                !e.target.closest('.icon-new') && 
+                !e.target.closest('.search-dropdown') &&
+                !e.target.closest('.cart-dropdown') &&
+                !e.target.closest('.account-dropdown')) {
+                closeAllDropdowns();
+            }
+        });
+    </script>
 </body>
 </html>
