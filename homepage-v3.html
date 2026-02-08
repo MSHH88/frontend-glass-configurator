@@ -2127,7 +2127,7 @@ div[class*="border"] {
         /* Icons with iOS Glass Lens Effect - positioned individually */
         .icon-new {
             position: absolute;  /* Changed from relative to absolute */
-            top: 50.5px;  /* Positioned directly in header - moved down 5px */
+            top: 48.5px;  /* Positioned directly in header - moved down 3px */
             z-index: 110;  /* Ensure above other elements */
             width: 44px;
             height: 44px;
@@ -2211,15 +2211,15 @@ div[class*="border"] {
 
         /* Individual icon positioning (no container) */
         #searchIcon {
-            right: 255px;  /* Leftmost icon - moved left 40px */
+            right: 260px;  /* Leftmost icon - moved left 35px */
         }
 
         #accountIcon {
-            right: 202px;  /* Middle icon - moved left 40px (255 - 53 = 202) */
+            right: 207px;  /* Middle icon - moved left 35px (260 - 53 = 207) */
         }
 
         #cartIcon {
-            right: 149px;  /* Rightmost icon - moved left 40px (202 - 53 = 149) */
+            right: 154px;  /* Rightmost icon - moved left 35px (207 - 53 = 154) */
         }
 
         .icon-new:hover svg {
@@ -2284,7 +2284,7 @@ div[class*="border"] {
             box-shadow:
                 0 8px 32px rgba(0, 0, 0, 0.1),
                 inset 0 1px 2px rgba(255, 255, 255, 0.5);
-            z-index: 1001;
+            z-index: 9999;
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2347,7 +2347,7 @@ div[class*="border"] {
             box-shadow:
                 0 8px 32px rgba(0, 0, 0, 0.1),
                 inset 0 1px 2px rgba(255, 255, 255, 0.5);
-            z-index: 1001;
+            z-index: 9999;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-20px);
@@ -2474,7 +2474,7 @@ div[class*="border"] {
             box-shadow:
                 0 8px 32px rgba(0, 0, 0, 0.1),
                 inset 0 1px 2px rgba(255, 255, 255, 0.5);
-            z-index: 1001;
+            z-index: 9999;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-20px);
@@ -2730,7 +2730,7 @@ div[class*="border"] {
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
-            z-index: 99;
+            z-index: 9998;
             display: none;
         }
 
