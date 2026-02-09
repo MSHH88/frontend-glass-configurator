@@ -2256,7 +2256,9 @@ div[class*="border"] {
             width: 100%;     /* Full width */
             z-index: 999;    /* Below icons/logo (1000) but above content */
             height: 80px;  /* Reduced from 155px */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: transparent;  /* Remove white banner for floating effect */
+            backdrop-filter: none;    /* Remove blur effect */
+            box-shadow: none;         /* Remove shadow for clean look */
             transition: all 0.3s ease;
         }
 
