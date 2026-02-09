@@ -2210,16 +2210,16 @@ div[class*="border"] {
         }
 
         /* Individual icon positioning (no container) */
-        #searchIcon {
-            left: calc(100% - 414px);  /* Explicit x,y positioning from left edge - moved 110px more left */
+        #searchIcon:not(.sticky) {
+            left: calc(100% - 414px);  /* Normal positioning - only when NOT sticky */
         }
 
-        #accountIcon {
-            left: calc(100% - 361px);  /* Explicit x,y positioning from left edge - moved 110px more left */
+        #accountIcon:not(.sticky) {
+            left: calc(100% - 361px);  /* Normal positioning - only when NOT sticky */
         }
 
-        #cartIcon {
-            left: calc(100% - 308px);  /* Explicit x,y positioning from left edge - moved 110px more left */
+        #cartIcon:not(.sticky) {
+            left: calc(100% - 308px);  /* Normal positioning - only when NOT sticky */
         }
 
         .icon-new:hover svg {
@@ -2284,18 +2284,15 @@ div[class*="border"] {
 
         /* Adjust sticky icon positions - top right corner */
         #searchIcon.sticky {
-            right: 140px;  /* From right edge */
-            left: auto;  /* Override left positioning */
+            right: 140px;  /* From right edge - clean positioning without left override */
         }
 
         #accountIcon.sticky {
-            right: 90px;  /* From right edge */
-            left: auto;  /* Override left positioning */
+            right: 90px;  /* From right edge - clean positioning without left override */
         }
 
         #cartIcon.sticky {
-            right: 40px;  /* From right edge */
-            left: auto;  /* Override left positioning */
+            right: 40px;  /* From right edge - clean positioning without left override */
         }
 
         /* Sticky icon SVG scaling */
