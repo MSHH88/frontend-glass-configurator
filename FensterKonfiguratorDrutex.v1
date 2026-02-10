@@ -528,6 +528,56 @@
 
 
 <style type="text/css">
+    /* ========================================
+       V1 DESIGN SYSTEM - COLOR VARIABLES
+       ======================================== */
+    :root {
+        /* Primary Colors */
+        --primary-purple: #E6690CC;
+        --navy-blue: #000C49;
+        
+        /* Light Variants */
+        --light-purple: rgba(230, 105, 12, 0.1);
+        --light-navy: rgba(0, 12, 73, 0.1);
+        
+        /* Transparency Variants */
+        --purple-50: rgba(230, 105, 12, 0.5);
+        --purple-70: rgba(230, 105, 12, 0.7);
+        --purple-90: rgba(230, 105, 12, 0.9);
+        --navy-50: rgba(0, 12, 73, 0.5);
+        --navy-70: rgba(0, 12, 73, 0.7);
+        --navy-90: rgba(0, 12, 73, 0.9);
+        
+        /* Neutral Colors */
+        --white: #ffffff;
+        --light-gray: #f8f9fa;
+        --medium-gray: #e9ecef;
+        --dark-gray: #6c757d;
+        --black: #000000;
+    }
+    
+    /* ========================================
+       V1 TYPOGRAPHY - BERLIN SANS FB
+       ======================================== */
+    @font-face {
+        font-family: 'Berlin Sans FB Demi Bold';
+        src: local('Berlin Sans FB Demi Bold'), local('BerlinSansFB-Demi');
+        font-weight: 600;
+        font-style: normal;
+    }
+    
+    /* Apply V1 font to body and headings */
+    body {
+        font-family: 'Berlin Sans FB Demi Bold', 'Berlin Sans FB', Arial, sans-serif !important;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Berlin Sans FB Demi Bold', 'Berlin Sans FB', Arial, sans-serif !important;
+    }
+    
+    /* ========================================
+       ORIGINAL STYLES BEGIN
+       ======================================== */
     .cookie-bar {
         box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
     }
