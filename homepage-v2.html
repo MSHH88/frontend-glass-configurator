@@ -1192,14 +1192,22 @@ input:focus, textarea:focus, select:focus {
 
 /* Menu block image fade effect */
 .menu-block-image {
-    -webkit-mask-image: linear-gradient(to bottom, 
+    -webkit-mask-image: radial-gradient(ellipse at center, 
         rgba(0,0,0,1) 0%, 
-        rgba(0,0,0,1) 70%, 
+        rgba(0,0,0,1) 60%, 
+        rgba(0,0,0,0.7) 80%,
         rgba(0,0,0,0) 100%);
-    mask-image: linear-gradient(to bottom, 
+    mask-image: radial-gradient(ellipse at center, 
         rgba(0,0,0,1) 0%, 
-        rgba(0,0,0,1) 70%, 
+        rgba(0,0,0,1) 60%, 
+        rgba(0,0,0,0.7) 80%,
         rgba(0,0,0,0) 100%);
+}
+
+/* Make Fenster menu image 10% bigger */
+.navblock-fenster .menu-block-image {
+    transform: scale(1.1);
+    transform-origin: center;
 }
 </style>
 <style type="text/css">
