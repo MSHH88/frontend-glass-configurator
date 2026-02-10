@@ -852,9 +852,9 @@
                         /* Position below the button */
                         left: 0;
                         width: 100%;
-                        background-color: #f8f9fa;
+                        background-color: var(--white);
                         padding: 10px;
-                        border: 1px solid #ddd;
+                        border: 1px solid var(--medium-gray);
                         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                         z-index: 1000;
                     }
@@ -863,11 +863,11 @@
                         display: block;
                         padding: 5px;
                         text-decoration: none;
-                        color: #333;
+                        color: var(--navy-blue);
                     }
 
                     .nav-menu a:hover {
-                        background-color: #e9ecef;
+                        background-color: var(--light-purple);
                     }
 </style>
 <script>
