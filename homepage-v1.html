@@ -2210,16 +2210,16 @@ div[class*="border"] {
         }
 
         /* Individual icon positioning (no container) */
-        #searchIcon {
-            left: calc(100% - 414px);  /* Explicit x,y positioning from left edge - moved 110px more left */
+        #searchIcon:not(.sticky) {
+            left: calc(100% - 414px);  /* Normal positioning - only when NOT sticky */
         }
 
-        #accountIcon {
-            left: calc(100% - 361px);  /* Explicit x,y positioning from left edge - moved 110px more left */
+        #accountIcon:not(.sticky) {
+            left: calc(100% - 361px);  /* Normal positioning - only when NOT sticky */
         }
 
-        #cartIcon {
-            left: calc(100% - 308px);  /* Explicit x,y positioning from left edge - moved 110px more left */
+        #cartIcon:not(.sticky) {
+            left: calc(100% - 308px);  /* Normal positioning - only when NOT sticky */
         }
 
         .icon-new:hover svg {
@@ -2247,6 +2247,72 @@ div[class*="border"] {
                 rgba(255, 255, 255, 0.4) 40%,
                 transparent 100%
             );
+        }
+
+        /* STICKY HEADER STYLES */
+        .site-header.sticky {
+            position: fixed;  /* CRITICAL: Make header stay at top */
+            top: 0;          /* Stick to top of viewport */
+            width: 100%;     /* Full width */
+            z-index: 999;    /* Below icons/logo (1000) but above content */
+            height: 80px;  /* Reduced from 155px */
+            background: transparent;  /* Remove white banner for floating effect */
+            backdrop-filter: none;    /* Remove blur effect */
+            box-shadow: none;         /* Remove shadow for clean look */
+            transition: all 0.3s ease;
+        }
+
+        /* Sticky Logo - 50% smaller */
+        .logo-link.sticky {
+            position: fixed;
+            top: 15px;
+            left: 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .logo-link.sticky .logo-image {
+            height: 75px;  /* 50% of 150px */
+            width: auto;
+            transition: all 0.3s ease;
+        }
+
+        /* Sticky Icons - increased by 10% */
+        .icon-new.sticky {
+            position: fixed;
+            top: 20px;
+            width: 35px;  /* Sticky icon size */
+            height: 35px;  /* Sticky icon size */
+            border-radius: 8px;  /* Proportionally adjusted */
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        /* Adjust sticky icon positions - top right corner */
+        #searchIcon.sticky {
+            right: 140px;  /* From right edge - clean positioning without left override */
+        }
+
+        #accountIcon.sticky {
+            right: 90px;  /* From right edge - clean positioning without left override */
+        }
+
+        #cartIcon.sticky {
+            right: 40px;  /* From right edge - clean positioning without left override */
+        }
+
+        /* Sticky icon SVG scaling */
+        .icon-new.sticky svg {
+            width: 18px;  /* Proportionally scaled down */
+            height: 18px;
+        }
+
+        /* Hide separator and contact when sticky */
+        .site-header.sticky .separator-line,
+        .site-header.sticky .contact-section {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
         }
 
         /* Background Overlay */
@@ -11556,6 +11622,40 @@ Für nicht abgeholte Ware bei Selbstabholung berechnen wir Lagerkosten in Höhe 
                 !e.target.closest('.account-dropdown')) {
                 closeAllDropdowns();
             }
+        });
+
+        // STICKY HEADER FUNCTIONALITY
+        const header = document.querySelector('.site-header');
+        const logo = document.querySelector('.logo-link');
+        const actionIcons = document.querySelectorAll('.site-header .icon-new');
+        
+        let isSticky = false;
+
+        function handleScroll() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100 && !isSticky) {
+                // Make header sticky
+                isSticky = true;
+                header.classList.add('sticky');
+                logo.classList.add('sticky');
+                actionIcons.forEach(icon => icon.classList.add('sticky'));
+            } else if (scrollTop <= 100 && isSticky) {
+                // Remove sticky
+                isSticky = false;
+                header.classList.remove('sticky');
+                logo.classList.remove('sticky');
+                actionIcons.forEach(icon => icon.classList.remove('sticky'));
+            }
+        }
+
+        // Throttled scroll event
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) {
+                window.cancelAnimationFrame(scrollTimeout);
+            }
+            scrollTimeout = window.requestAnimationFrame(handleScroll);
         });
     </script>
 </body>
