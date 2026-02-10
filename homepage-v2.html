@@ -2997,7 +2997,7 @@ i.txt-orange {
 
     <!-- HEADER-V7 INTEGRATION -->
     <header class="site-header">
-        <a href="/" class="logo-link">
+        <a href="#" class="logo-link" onclick="handleLogoClick(event)">
             <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663028449717/xHNkqSOeBdZSQVyZ.webp" alt="FenTuRo Logo" class="logo-image">
         </a>
         <!-- Search Icon (positioned individually) -->
@@ -11657,6 +11657,28 @@ Für nicht abgeholte Ware bei Selbstabholung berechnen wir Lagerkosten in Höhe 
             }
             scrollTimeout = window.requestAnimationFrame(handleScroll);
         });
+    </script>
+
+    <!-- Logo Click Handler -->
+    <script>
+        function handleLogoClick(event) {
+            event.preventDefault();
+            
+            // Check if we're on the homepage
+            const isHomepage = window.location.pathname === '/' || 
+                              window.location.pathname.includes('homepage');
+            
+            if (isHomepage) {
+                // On homepage: smooth scroll to top
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            } else {
+                // On other pages: navigate to homepage
+                window.location.href = '/';
+            }
+        }
     </script>
 </body>
 </html>
